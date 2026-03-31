@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
@@ -6,11 +7,12 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center bg-(--color-bg-hero) text-white overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-30"
-        style={{
-          backgroundImage: "url('/images/ranchita/hero-placeholder.jpg')",
-        }}
+      <Image
+        src="/images/ranchita/hero-big-sky.jpg"
+        alt="Big sky over Ranchita mountains and chaparral"
+        fill
+        priority
+        className="object-cover opacity-30"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-(--color-bg-hero)/70 to-(--color-bg-hero)/90" />
       <div className="relative z-10 max-w-4xl mx-auto px-(--container-padding) text-center">

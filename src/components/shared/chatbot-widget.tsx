@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { MessageCircle, X, Send } from 'lucide-react';
+import { X, Send } from 'lucide-react';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -52,10 +53,10 @@ export function ChatbotWidget() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-terra-cotta text-white shadow-lg hover:bg-terra-cotta-hover transition-colors flex items-center justify-center"
+          className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full shadow-lg hover:scale-105 transition-transform flex items-center justify-center overflow-hidden"
           aria-label={t('title')}
         >
-          <MessageCircle className="w-6 h-6" />
+          <Image src="/images/ranchita/yeti-closeup.jpg" alt="Rancheti Yeti" width={56} height={56} className="rounded-full" />
         </button>
       )}
 

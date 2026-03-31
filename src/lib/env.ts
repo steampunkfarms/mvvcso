@@ -16,8 +16,10 @@ export const env = {
   stripeWebhookSecret: getEnv('STRIPE_WEBHOOK_SECRET', false),
   siteUrl: getEnv('NEXT_PUBLIC_SITE_URL', false) || 'https://mvvcso.vercel.app',
   anthropicApiKey: getEnv('ANTHROPIC_API_KEY', false),
+  authSecret: getEnv('AUTH_SECRET', false),
 
   get hasResend() { return !!this.resendApiKey; },
   get hasStripe() { return !!this.stripeSecretKey; },
   get hasAnthropic() { return !!this.anthropicApiKey; },
+  get hasAuth() { return !!this.authSecret; },
 };

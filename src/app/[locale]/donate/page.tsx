@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { DonationForm } from '@/components/donate/donation-form';
 import type { Metadata } from 'next';
@@ -36,6 +37,15 @@ export default function DonatePage() {
 
             {/* Impact sidebar */}
             <div className="lg:col-span-2 space-y-6">
+              <div className="flex justify-center">
+                <Image
+                  src="/images/ranchita/ranchita-roots-badge.png"
+                  alt="Ranchita Roots campaign badge"
+                  width={160}
+                  height={160}
+                  className="drop-shadow-md"
+                />
+              </div>
               <div className="bg-white rounded-xl p-6 border border-sandy-gold">
                 <h3 className="text-lg font-bold text-(--text-primary) mb-4">
                   {t('impact_title')}

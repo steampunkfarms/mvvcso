@@ -21,6 +21,14 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'MVVCSO',
     locale: 'en_US',
+    images: [
+      {
+        url: '/images/ranchita/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'MVVCSO — Montezuma Valley Volunteer Community Service Organization',
+      },
+    ],
   },
 };
 

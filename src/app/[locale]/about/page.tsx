@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { HistoryTimeline } from '@/components/about/history-timeline';
 import { BoardGrid } from '@/components/about/board-grid';
@@ -15,8 +16,15 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="py-(--section-padding) bg-sandy-gold/20">
-        <div className="max-w-(--container-max) mx-auto px-(--container-padding) text-center">
+      <section className="relative py-(--section-padding) bg-sandy-gold/20 overflow-hidden">
+        <Image
+          src="/images/ranchita/sunset-windmill.jpg"
+          alt="Windmill silhouette against a Ranchita sunset"
+          fill
+          priority
+          className="object-cover opacity-15"
+        />
+        <div className="relative z-10 max-w-(--container-max) mx-auto px-(--container-padding) text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-(--text-primary)">
             {t('title')}
           </h1>
