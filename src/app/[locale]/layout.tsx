@@ -5,6 +5,7 @@ import { Geist } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { ChatbotWidget } from '@/components/shared/chatbot-widget';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -33,6 +34,7 @@ export default async function LocaleLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <ChatbotWidget />
         </NextIntlClientProvider>
       </body>
     </html>
