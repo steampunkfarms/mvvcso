@@ -1,7 +1,5 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { db, schema } from '@/lib/db';
-
-const { blogPosts } = schema;
 import { desc, eq } from 'drizzle-orm';
 import { PostCard } from '@/components/blog/post-card';
 import type { Metadata } from 'next';
@@ -11,16 +9,19 @@ export const metadata: Metadata = {
   description: 'News, stories, and resources from the Ranchita community.',
 };
 
-export const dynamic = 'force-dynamic';
-
 export default async function BlogPage() {
-  const t = useTranslations('blog');
+  const t = await getTranslations('blog');
 
-  const posts = await db
-    .select()
-    .from(blogPosts)
-    .where(eq(blogPosts.published, true))
-    .orderBy(desc(blogPosts.publishedAt));
+  let posts: (typeof schema.blogPosts.$inferSelect)[] = [];
+  try {
+    posts = await db
+      .select()
+      .from(schema.blogPosts)
+      .where(eq(schema.blogPosts.published, true))
+      .orderBy(desc(schema.blogPosts.publishedAt));
+  } catch (err) {
+    console.error('[BLOG] DB query failed:', err);
+  }
 
   return (
     <div>
