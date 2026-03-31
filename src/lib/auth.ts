@@ -8,12 +8,8 @@ const SESSION_COOKIE = 'mvvcso_session';
 const SESSION_DURATION_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 const MAGIC_LINK_DURATION_MS = 15 * 60 * 1000; // 15 minutes
 
-/** Master admin account — cannot be deleted or deactivated by other admins. */
-export const MASTER_ADMIN_EMAIL = 'frederick.olaf@gmail.com';
-
-export function isMasterAdmin(email: string): boolean {
-  return email.toLowerCase().trim() === MASTER_ADMIN_EMAIL;
-}
+// Re-export from shared module (safe for client components)
+export { MASTER_ADMIN_EMAIL, isMasterAdmin } from './master-admin';
 
 export type UserRole =
   | 'president'

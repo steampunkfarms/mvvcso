@@ -11,7 +11,7 @@ import {
   ShoppingBag, Store, Target, Gamepad2, TreePine,
 } from 'lucide-react';
 import type { SessionUser } from '@/lib/auth';
-import { isMasterAdmin } from '@/lib/auth';
+import { isMasterAdmin } from '@/lib/master-admin';
 import { getRoleLabel } from '@/lib/permissions';
 import { hasPermission } from '@/lib/permissions';
 
