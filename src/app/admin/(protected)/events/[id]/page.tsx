@@ -1,7 +1,7 @@
 import { eq, count } from 'drizzle-orm';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Calendar, MapPin, Users, Download } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, Users, Download, Pencil } from 'lucide-react';
 import { format } from 'date-fns';
 import { db, schema } from '@/lib/db';
 import { requireAuth } from '@/lib/auth';
@@ -115,6 +115,12 @@ export default async function EventDetailPage({
 
         {/* Sidebar */}
         <div className="space-y-4">
+          <Link
+            href={`/admin/events/${id}/edit`}
+            className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-gold-400 text-white text-sm font-semibold hover:bg-gold-500 transition-colors"
+          >
+            <Pencil className="w-4 h-4" /> Edit Event
+          </Link>
           <a
             href={`/api/events/${id}/ical`}
             className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg border border-stone-200 text-sm font-medium text-(--text-secondary) hover:bg-stone-100 transition-colors"

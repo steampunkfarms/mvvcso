@@ -1,8 +1,8 @@
 import { requireAuth } from '@/lib/auth';
 import { db, schema } from '@/lib/db';
-import { desc, eq, gte, lte, and } from 'drizzle-orm';
-import { format, differenceInDays } from 'date-fns';
+import { differenceInDays } from 'date-fns';
 import { ShieldCheck, AlertTriangle, CheckCircle, Clock } from 'lucide-react';
+import { ComplianceTable } from '@/components/admin/compliance-table';
 
 export default async function CompliancePage() {
   await requireAuth(['president', 'secretary', 'treasurer']);
@@ -18,12 +18,19 @@ export default async function CompliancePage() {
   const completedThisYear = tasks.filter(t => t.status === 'completed' && t.completedDate && t.completedDate.getFullYear() === now.getFullYear());
   const pending = tasks.filter(t => t.status !== 'completed');
 
-  const priorityColors: Record<string, string> = {
-    critical: 'bg-red-100 text-red-700',
-    high: 'bg-gold-100/20 text-gold-400',
-    normal: 'bg-stone-200/20 text-stone-600',
-    low: 'bg-stone-100 text-(--text-muted)',
-  };
+  // Serialize for client component
+  const serializedTasks = tasks.map(t => ({
+    id: t.id,
+    title: t.title,
+    titleEs: t.titleEs,
+    description: t.description,
+    category: t.category,
+    dueDate: t.dueDate.toISOString(),
+    priority: t.priority,
+    status: t.status,
+    recurrence: t.recurrence,
+    notes: t.notes,
+  }));
 
   return (
     <div className="space-y-8">
@@ -73,74 +80,16 @@ export default async function CompliancePage() {
               <div key={task.id} className="flex items-center justify-between py-2 border-b border-red-100 last:border-0">
                 <div>
                   <span className="text-sm font-medium text-red-800">{task.title}</span>
-                  <span className="text-xs text-red-600 ml-2">Due {format(task.dueDate, 'MMM d, yyyy')}</span>
+                  <span className="text-xs text-red-600 ml-2">Due {task.dueDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                 </div>
-                <span className={`text-xs font-medium px-2 py-0.5 rounded ${priorityColors[task.priority]}`}>
-                  {task.priority}
-                </span>
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {/* All Tasks */}
-      <div className="bg-white rounded-xl border border-stone-200 overflow-hidden">
-        <div className="px-5 py-4 border-b border-stone-200">
-          <h2 className="font-semibold text-(--text-primary)">All Compliance Tasks</h2>
-        </div>
-        {pending.length === 0 ? (
-          <p className="p-8 text-center text-(--text-muted)">No pending compliance tasks. Seed annual tasks to get started.</p>
-        ) : (
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-stone-200/10 text-left">
-                <th className="px-4 py-3 font-semibold text-(--text-primary)">Task</th>
-                <th className="px-4 py-3 font-semibold text-(--text-primary)">Category</th>
-                <th className="px-4 py-3 font-semibold text-(--text-primary)">Due Date</th>
-                <th className="px-4 py-3 font-semibold text-(--text-primary)">Priority</th>
-                <th className="px-4 py-3 font-semibold text-(--text-primary)">Status</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-stone-200/30">
-              {pending.map(task => {
-                const daysUntil = differenceInDays(task.dueDate, now);
-                return (
-                  <tr key={task.id} className="hover:bg-stone-200/5">
-                    <td className="px-4 py-3">
-                      <span className="text-(--text-primary) font-medium">{task.title}</span>
-                      {task.description && (
-                        <p className="text-xs text-(--text-muted) mt-0.5 line-clamp-1">{task.description}</p>
-                      )}
-                    </td>
-                    <td className="px-4 py-3 text-(--text-secondary) capitalize text-xs">{task.category.replace('_', ' ')}</td>
-                    <td className="px-4 py-3">
-                      <span className={`text-xs ${daysUntil < 0 ? 'text-red-600 font-bold' : daysUntil <= 7 ? 'text-gold-400 font-medium' : 'text-(--text-secondary)'}`}>
-                        {format(task.dueDate, 'MMM d, yyyy')}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded capitalize ${priorityColors[task.priority]}`}>
-                        {task.priority}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded capitalize ${
-                        task.status === 'completed' ? 'bg-green-100 text-green-700' :
-                        task.status === 'in_progress' ? 'bg-sky-100 text-sky-700' :
-                        task.status === 'overdue' ? 'bg-red-100 text-red-700' :
-                        'bg-stone-200/20 text-stone-600'
-                      }`}>
-                        {task.status.replace('_', ' ')}
-                      </span>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        )}
-      </div>
+      {/* Interactive Table */}
+      <ComplianceTable tasks={serializedTasks} />
     </div>
   );
 }

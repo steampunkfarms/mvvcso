@@ -118,7 +118,8 @@ function getNthTuesday(year: number, month: number, n: number): Date {
     if (d.getDay() === 2) count++;
     if (count < n) d.setDate(d.getDate() + 1);
   }
-  d.setHours(12, 30, 0, 0);
+  // 12:30 PM PDT = 19:30 UTC (store UTC for Neon/Postgres)
+  d.setUTCHours(19, 30, 0, 0);
   return d;
 }
 
