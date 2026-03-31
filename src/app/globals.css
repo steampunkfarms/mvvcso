@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  /* Rancheti Sunset Palette */
+  --sunset-gold: #E8A838;
+  --desert-coral: #D85A3A;
+  --twilight-purple: #6B4C8A;
+  --sky-blue: #4A90B8;
+  --sage-brush: #7A8B5E;
+  --sandstone: #F5EDE0;
+  --deep-sandstone: #E8DCC8;
+  --warm-white: #FAF7F2;
+  --charcoal-earth: #2D2420;
+  --mountain-shadow: #1A1216;
+
+  /* Semantic mappings */
+  --color-primary: var(--sunset-gold);
+  --color-primary-hover: #D49530;
+  --color-accent: var(--desert-coral);
+  --color-accent-hover: #C04828;
+  --color-info: var(--sky-blue);
+  --color-success: var(--sage-brush);
+  --color-highlight: var(--twilight-purple);
+
+  --color-bg-page: var(--warm-white);
+  --color-bg-surface: var(--sandstone);
+  --color-bg-card: white;
+  --color-bg-dark: var(--charcoal-earth);
+  --color-bg-darkest: var(--mountain-shadow);
+
+  --color-text-primary: var(--charcoal-earth);
+  --color-text-secondary: #5C4F45;
+  --color-text-muted: #8A7D73;
+  --color-text-on-dark: var(--sandstone);
+  --color-text-on-accent: white;
+
+  --color-border: #D4C8B8;
+  --color-border-light: #E8DCC8;
+
+  /* Typography */
+  --font-body: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --section-padding: clamp(3rem, 8vw, 6rem);
+  --container-max: 1200px;
+  --container-padding: clamp(1rem, 4vw, 2rem);
+}
+
+@theme inline {
+  --color-sunset-gold: var(--sunset-gold);
+  --color-desert-coral: var(--desert-coral);
+  --color-twilight-purple: var(--twilight-purple);
+  --color-sky-blue: var(--sky-blue);
+  --color-sage-brush: var(--sage-brush);
+  --color-sandstone: var(--sandstone);
+  --color-deep-sandstone: var(--deep-sandstone);
+  --color-warm-white: var(--warm-white);
+  --color-charcoal-earth: var(--charcoal-earth);
+  --color-mountain-shadow: var(--mountain-shadow);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-accent-hover: var(--color-accent-hover);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-page: var(--mountain-shadow);
+    --color-bg-surface: var(--charcoal-earth);
+    --color-bg-card: #352D28;
+    --color-text-primary: var(--sandstone);
+    --color-text-secondary: #B8A898;
+    --color-text-muted: #8A7D73;
+    --color-border: #4A3F38;
+    --color-border-light: #3A322C;
+  }
+}
+
+body {
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+}
