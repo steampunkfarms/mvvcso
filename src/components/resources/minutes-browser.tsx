@@ -94,44 +94,42 @@ export function MinutesBrowser({
       <div className="space-y-2">
         {minutes.map((minute) => {
           const hasFile = !!minute.fileUrl;
-          const isActionable = minute.status === 'minutes';
+          const hasMinutes = minute.status === 'minutes';
 
           return (
             <div
               key={minute.fileName}
               className={`flex items-center gap-4 rounded-xl p-4 border transition-shadow ${
-                isActionable
+                hasMinutes
                   ? 'bg-white border-stone-200 hover:shadow-md'
-                  : 'bg-stone-50 border-stone-100'
+                  : 'bg-white/60 border-stone-150 hover:shadow-sm'
               }`}
             >
               <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
-                isActionable ? 'bg-red-50 text-red-500' : 'bg-stone-100 text-stone-400'
+                hasMinutes ? 'bg-red-50 text-red-500' : 'bg-stone-100 text-stone-400'
               }`}>
                 <FileText className="w-4.5 h-4.5" />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className={`text-sm font-medium ${isActionable ? 'text-(--text-primary)' : 'text-(--text-muted)'}`}>
+                  <span className={`text-sm font-medium ${hasMinutes ? 'text-(--text-primary)' : 'text-(--text-secondary)'}`}>
                     {MONTH_NAMES[minute.month - 1]} {minute.date.split('-')[2]}, {minute.year}
                   </span>
                   <TypeBadge type={minute.type} />
                   <StatusBadge status={minute.status} />
                 </div>
               </div>
-              {isActionable && (
-                hasFile ? (
-                  <a
-                    href={minute.fileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-medium text-stone-700 hover:text-gold-500 transition-colors shrink-0"
-                  >
-                    <Download className="w-3.5 h-3.5" /> PDF
-                  </a>
-                ) : (
-                  <span className="text-xs text-(--text-muted) italic shrink-0">Upload pending</span>
-                )
+              {hasFile ? (
+                <a
+                  href={minute.fileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-stone-700 hover:text-gold-500 transition-colors shrink-0"
+                >
+                  <Download className="w-3.5 h-3.5" /> PDF
+                </a>
+              ) : (
+                <span className="text-xs text-(--text-muted) italic shrink-0">Upload pending</span>
               )}
             </div>
           );
