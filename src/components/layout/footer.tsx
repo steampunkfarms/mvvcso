@@ -98,7 +98,7 @@ export function Footer() {
       <div className="border-t border-stone-300 py-4">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding) flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-(--text-muted)">
           <p>{t('copyright', { year: String(year) })}</p>
-          <p>{t('nonprofit')}</p>
+          <p>{t('nonprofit')} EIN: 95-3173208</p>
         </div>
       </div>
     </footer>
