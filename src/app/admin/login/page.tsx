@@ -2,31 +2,33 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function AdminLoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
   const [message, setMessage] = useState('');
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handlePasswordLogin(e: React.FormEvent) {
     e.preventDefault();
-    if (!email.trim()) return;
+    if (!email.trim() || !password.trim()) return;
 
     setStatus('loading');
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch('/api/auth/password-login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim().toLowerCase() }),
+        body: JSON.stringify({ email: email.trim().toLowerCase(), password }),
       });
       const data = await res.json();
 
-      if (res.ok) {
-        setStatus('sent');
-        setMessage(data.message);
+      if (res.ok && data.success) {
+        router.push('/admin');
       } else {
         setStatus('error');
-        setMessage(data.error || 'Something went wrong');
+        setMessage(data.error || 'Invalid credentials');
       }
     } catch {
       setStatus('error');
@@ -50,51 +52,46 @@ export default function AdminLoginPage() {
         </div>
 
         <div className="bg-white rounded-xl border border-stone-200 p-8 shadow-sm">
-          {status === 'sent' ? (
-            <div className="text-center py-4">
-              <div className="text-3xl mb-3">📧</div>
-              <h2 className="text-lg font-semibold text-(--text-primary) mb-2">Check your email</h2>
-              <p className="text-sm text-(--text-secondary) leading-relaxed">
-                {message}
-              </p>
-              <button
-                type="button"
-                onClick={() => { setStatus('idle'); setEmail(''); }}
-                className="mt-6 text-sm text-gold-400 hover:text-gold-500 font-medium transition-colors"
-              >
-                Try a different email
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="email" className="block text-sm font-medium text-(--text-primary) mb-2">
-                Email address
-              </label>
-              <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                required
-                autoFocus
-                className="w-full px-4 py-3 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400 transition-colors"
-              />
-              {status === 'error' && (
-                <p className="text-red-600 text-sm mt-2">{message}</p>
-              )}
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="w-full mt-4 px-4 py-3 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors disabled:opacity-50"
-              >
-                {status === 'loading' ? 'Sending...' : 'Send sign-in link'}
-              </button>
-              <p className="text-xs text-(--text-muted) text-center mt-4">
-                Only authorized board members and staff can sign in.
-              </p>
-            </form>
-          )}
+          <form onSubmit={handlePasswordLogin}>
+            <label htmlFor="email" className="block text-sm font-medium text-(--text-primary) mb-2">
+              Email address
+            </label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+              required
+              autoFocus
+              className="w-full px-4 py-3 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400 transition-colors"
+            />
+            <label htmlFor="password" className="block text-sm font-medium text-(--text-primary) mb-2 mt-4">
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Site password"
+              required
+              className="w-full px-4 py-3 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400 transition-colors"
+            />
+            {status === 'error' && (
+              <p className="text-red-600 text-sm mt-2">{message}</p>
+            )}
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="w-full mt-4 px-4 py-3 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors disabled:opacity-50"
+            >
+              {status === 'loading' ? 'Signing in...' : 'Sign in'}
+            </button>
+            <p className="text-xs text-(--text-muted) text-center mt-4">
+              Only authorized board members and staff can sign in.
+            </p>
+          </form>
         </div>
       </div>
     </div>

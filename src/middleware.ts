@@ -43,17 +43,9 @@ export default function middleware(req: NextRequest) {
   // Admin routes — require session cookie (server components verify DB-side)
   // TODO(pre-DNS): Remove site gate before flipping mvvcso.org DNS
   if (pathname.startsWith('/admin')) {
-    // Site gate: require pre-launch password cookie on /admin/login
+    // Login page — password login handles its own auth, no gate needed
     if (pathname === '/admin/login') {
-      const gatePass = req.cookies.get('mvvcso_gate')?.value;
-      if (gatePass === 'granted') {
-        return NextResponse.next();
-      }
-      const showError = req.nextUrl.searchParams.get('err') === '1';
-      return new NextResponse(siteGateHtml(showError), {
-        status: 200,
-        headers: { 'Content-Type': 'text/html; charset=utf-8' },
-      });
+      return NextResponse.next();
     }
     if (pathname === '/admin/verify') {
       return NextResponse.next();
