@@ -20,11 +20,21 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { email, password } = passwordLoginSchema.parse(body);
 
-    const gatePassword = process.env.SITE_GATE_PASSWORD?.trim() || 'R2nch1t@';
+    // Per-user passwords via env vars, fallback to site gate password
+    const normalizedEmail = email.toLowerCase().trim();
+    const userPasswords: Record<string, string | undefined> = {
+      'president@mvvcso.org': process.env.PRESIDENT_PASSWORD?.trim(),
+      'secretary@mvvcso.org': process.env.SECRETARY_PASSWORD?.trim(),
+      'treasurer@mvvcso.org': process.env.TREASURER_PASSWORD?.trim(),
+    };
+
+    const expectedPassword = userPasswords[normalizedEmail]
+      || process.env.SITE_GATE_PASSWORD?.trim()
+      || 'R2nch1t@';
 
     // Timing-safe comparison
     const a = Buffer.from(password);
-    const b = Buffer.from(gatePassword);
+    const b = Buffer.from(expectedPassword);
     const passwordValid = a.length === b.length && timingSafeEqual(a, b);
 
     if (!passwordValid) {
@@ -32,7 +42,6 @@ export async function POST(req: NextRequest) {
     }
 
     // Look up user in authUsers
-    const normalizedEmail = email.toLowerCase().trim();
     const [user] = await db
       .select()
       .from(schema.authUsers)
