@@ -1,4 +1,5 @@
-import { requireAuth, isMasterAdmin } from '@/lib/auth';
+import { requireAuth } from '@/lib/auth';
+import { isMasterAdmin } from '@/lib/master-admin';
 import { db, schema } from '@/lib/db';
 import { desc } from 'drizzle-orm';
 import { format } from 'date-fns';
@@ -64,7 +65,7 @@ export default async function AdminSettingsPage() {
                   <td className="px-4 py-3 text-(--text-secondary)">{u.email}</td>
                   <td className="px-4 py-3">
                     <span className="text-xs font-medium px-2 py-0.5 rounded bg-terra-50 text-stone-700">
-                      {getRoleLabel(u.role as Parameters<typeof getRoleLabel>[0])}
+                      {isMasterAdmin(u.email) ? 'Tech Advisor' : getRoleLabel(u.role as Parameters<typeof getRoleLabel>[0])}
                     </span>
                   </td>
                   <td className="px-4 py-3">
