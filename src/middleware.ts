@@ -4,8 +4,9 @@ import { routing } from './i18n/routing';
 
 const intlMiddleware = createMiddleware(routing);
 
-// TODO(pre-DNS): Remove this gate HTML before flipping mvvcso.org DNS
-const siteGateHtml = `<!DOCTYPE html>
+// TODO(pre-DNS): Remove this gate HTML + /api/gate route before flipping mvvcso.org DNS
+function siteGateHtml(error?: boolean) {
+  return `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MVVCSO Admin</title>
@@ -17,6 +18,7 @@ align-items:center;justify-content:center;min-height:100vh;padding:1rem}
 box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid #E0D8D0;text-align:center}
 h1{font-size:1.5rem;margin-bottom:.5rem}
 p{font-size:.875rem;color:#6B6355;margin-bottom:1.5rem}
+.err{color:#C04040;font-size:.875rem;margin-bottom:1rem}
 input{width:100%;padding:.75rem 1rem;border:1px solid #E0D8D0;border-radius:.5rem;
 font-size:1rem;background:#F0EDE6;margin-bottom:1rem}
 input:focus{outline:none;border-color:#E07F5C}
@@ -27,11 +29,13 @@ button:hover{background:#C86E4E}
 <body><div class="card">
 <h1>MVVCSO Admin</h1>
 <p>Enter the site password to continue.</p>
-<form method="get" action="/admin/login">
+${error ? '<p class="err">Incorrect password.</p>' : ''}
+<form method="post" action="/api/gate">
 <input type="password" name="gate" placeholder="Password" required autofocus>
 <button type="submit">Enter</button>
 </form>
 </div></body></html>`;
+}
 
 export default function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
@@ -45,21 +49,8 @@ export default function middleware(req: NextRequest) {
       if (gatePass === 'granted') {
         return NextResponse.next();
       }
-      // Check if password is being submitted via query param
-      const pw = req.nextUrl.searchParams.get('gate');
-      if (pw === (process.env.SITE_GATE_PASSWORD?.trim() || 'R2nch1t@')) {
-        const res = NextResponse.redirect(new URL('/admin/login', req.url));
-        res.cookies.set('mvvcso_gate', 'granted', {
-          httpOnly: true,
-          secure: true,
-          sameSite: 'lax',
-          maxAge: 60 * 60 * 24 * 30,
-          path: '/admin',
-        });
-        return res;
-      }
-      // Show gate page
-      return new NextResponse(siteGateHtml, {
+      const showError = req.nextUrl.searchParams.get('err') === '1';
+      return new NextResponse(siteGateHtml(showError), {
         status: 200,
         headers: { 'Content-Type': 'text/html; charset=utf-8' },
       });
