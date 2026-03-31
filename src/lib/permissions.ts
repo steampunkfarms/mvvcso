@@ -18,6 +18,11 @@ const PERMISSIONS: Record<UserRole, Permission[]> = {
     'manage_blog', 'manage_newsletter', 'manage_donations', 'manage_users',
     'view_financials', 'view_documents',
   ],
+  vice_president: [
+    'view_dashboard', 'manage_volunteers', 'manage_events', 'manage_documents',
+    'manage_blog', 'manage_newsletter', 'manage_donations',
+    'view_financials', 'view_documents',
+  ],
   secretary: [
     'view_dashboard', 'manage_volunteers', 'manage_events', 'manage_documents',
     'manage_blog', 'manage_newsletter', 'view_financials', 'view_documents',
@@ -49,6 +54,7 @@ export function getPermissions(role: UserRole): Permission[] {
 export function getRoleLabel(role: UserRole): string {
   const labels: Record<UserRole, string> = {
     president: 'President',
+    vice_president: 'Vice President',
     secretary: 'Secretary',
     treasurer: 'Treasurer',
     board_member: 'Board Member',

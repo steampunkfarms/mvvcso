@@ -10,6 +10,7 @@ const MAGIC_LINK_DURATION_MS = 15 * 60 * 1000; // 15 minutes
 
 export type UserRole =
   | 'president'
+  | 'vice_president'
   | 'secretary'
   | 'treasurer'
   | 'board_member'

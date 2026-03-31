@@ -3,9 +3,7 @@
  *
  * Usage: npx tsx drizzle/seed-board.ts
  *
- * Board member emails are TBD — Frederick will provide them.
- * For now, seed with placeholder emails that can be updated in the DB
- * once real emails are known.
+ * Board member emails and roles confirmed 2026-03-31.
  */
 
 import { neon } from '@neondatabase/serverless';
@@ -22,13 +20,13 @@ const sql = neon(DATABASE_URL);
 const db = drizzle(sql, { schema });
 
 const BOARD_MEMBERS = [
+  { name: 'Nicholas Ketelesen', email: 'president@mvvcso.org', role: 'president' },
+  { name: 'Kristi Bruner', email: 'secretary@mvvcso.org', role: 'secretary' },
+  { name: 'Colleen James', email: 'treasurer@mvvcso.org', role: 'treasurer' },
+  { name: 'David Walter', email: 'david@placeholder.mvvcso.org', role: 'vice_president' },
   { name: 'Annette Foote', email: 'annette@placeholder.mvvcso.org', role: 'board_member' },
-  { name: 'Colleen James', email: 'colleen@placeholder.mvvcso.org', role: 'board_member' },
-  { name: 'David Walter', email: 'david@placeholder.mvvcso.org', role: 'board_member' },
   { name: 'Gabby Ohmert', email: 'gabby@placeholder.mvvcso.org', role: 'board_member' },
-  { name: 'Kristi Bruner', email: 'kristi@placeholder.mvvcso.org', role: 'board_member' },
   { name: 'Michelle Erwin', email: 'michelle@placeholder.mvvcso.org', role: 'board_member' },
-  { name: 'Nicholas Ketelesen', email: 'nicholas@placeholder.mvvcso.org', role: 'board_member' },
 ];
 
 const FOLDER_STRUCTURE = [
@@ -64,7 +62,7 @@ async function seed() {
     console.log(`  ✅ ${folder.name} (${folder.accessLevel})`);
   }
 
-  console.log('\n✅ Seed complete. Update emails in the database once Frederick provides real addresses.');
+  console.log('\n✅ Seed complete. David, Annette, Gabby, Michelle still have placeholder emails — update when known.');
 }
 
 seed().catch((err) => {
