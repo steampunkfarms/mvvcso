@@ -1,0 +1,40 @@
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+
+export function Hero() {
+  const t = useTranslations('home');
+
+  return (
+    <section className="relative min-h-[80vh] flex items-center justify-center bg-(--color-bg-hero) text-white overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-30"
+        style={{
+          backgroundImage: "url('/images/ranchita/hero-placeholder.jpg')",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-(--color-bg-hero)/70 to-(--color-bg-hero)/90" />
+      <div className="relative z-10 max-w-4xl mx-auto px-(--container-padding) text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-desert-cream">
+          {t('hero_title')}
+        </h1>
+        <p className="text-lg sm:text-xl text-sandy-gold mb-8 max-w-2xl mx-auto">
+          {t('hero_subtitle')}
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="/donate"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-terra-cotta text-white font-semibold hover:bg-terra-cotta-hover transition-colors"
+          >
+            {t('hero_cta_donate')}
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-sandy-gold text-sandy-gold font-semibold hover:bg-(--sandy-gold)/10 transition-colors"
+          >
+            {t('hero_cta_volunteer')}
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
