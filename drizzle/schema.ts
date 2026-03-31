@@ -643,3 +643,178 @@ export const pledges = pgTable('pledges', {
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
 });
+
+// ── Phase 6: Kids Portal ────────────────────────────────────────
+
+export const childAccounts = pgTable('child_accounts', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  parentId: uuid('parent_id').notNull().references(() => authUsers.id),
+  displayName: text('display_name').notNull(),
+  pin: text('pin').notNull(), // 6-digit PIN for child login
+  ageRange: text('age_range').notNull(),
+  avatarId: text('avatar_id').default('yeti-default'),
+  consentDate: timestamp('consent_date').notNull(),
+  consentMethod: text('consent_method').notNull().default('email'),
+  language: text('language').notNull().default('en'),
+  isActive: boolean('is_active').notNull().default(true),
+  lastActiveAt: timestamp('last_active_at'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const kidsBadges = pgTable('kids_badges', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  name: text('name').notNull(),
+  nameEs: text('name_es'),
+  description: text('description').notNull(),
+  descriptionEs: text('description_es'),
+  iconId: text('icon_id').notNull(),
+  category: text('category').notNull(),
+  criteria: text('criteria').notNull(),
+  xpReward: integer('xp_reward').notNull().default(10),
+  sortOrder: integer('sort_order').default(0),
+});
+
+export const kidsProgress = pgTable('kids_progress', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  childId: uuid('child_id').notNull().references(() => childAccounts.id),
+  activityType: text('activity_type').notNull(),
+  activityId: text('activity_id').notNull(),
+  score: integer('score'),
+  completed: boolean('completed').notNull().default(false),
+  timeSpentSeconds: integer('time_spent_seconds'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const kidsEarnedBadges = pgTable('kids_earned_badges', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  childId: uuid('child_id').notNull().references(() => childAccounts.id),
+  badgeId: uuid('badge_id').notNull().references(() => kidsBadges.id),
+  earnedAt: timestamp('earned_at').notNull().defaultNow(),
+});
+
+export const kidsXp = pgTable('kids_xp', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  childId: uuid('child_id').notNull().references(() => childAccounts.id),
+  amount: integer('amount').notNull(),
+  source: text('source').notNull(),
+  sourceId: text('source_id'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const kidsCartoons = pgTable('kids_cartoons', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  childId: uuid('child_id').notNull().references(() => childAccounts.id),
+  title: text('title').notNull(),
+  sceneDataJson: text('scene_data_json').notNull(),
+  thumbnailUrl: text('thumbnail_url'),
+  isPublic: boolean('is_public').notNull().default(false),
+  parentApproved: boolean('parent_approved').default(false),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+// ── Phase 6: Genealogy Suite ────────────────────────────────────
+
+export const familyTrees = pgTable('family_trees', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  ownerId: uuid('owner_id').notNull().references(() => authUsers.id),
+  name: text('name').notNull(),
+  description: text('description'),
+  privacy: text('privacy').notNull().default('private'),
+  coverImageUrl: text('cover_image_url'),
+  personCount: integer('person_count').default(0),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const familyTreeCollaborators = pgTable('family_tree_collaborators', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  treeId: uuid('tree_id').notNull().references(() => familyTrees.id),
+  userId: uuid('user_id').notNull().references(() => authUsers.id),
+  role: text('role').notNull().default('viewer'),
+  invitedAt: timestamp('invited_at').notNull().defaultNow(),
+  acceptedAt: timestamp('accepted_at'),
+});
+
+export const familyPersons = pgTable('family_persons', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  treeId: uuid('tree_id').notNull().references(() => familyTrees.id),
+  firstName: text('first_name').notNull(),
+  middleName: text('middle_name'),
+  lastName: text('last_name').notNull(),
+  maidenName: text('maiden_name'),
+  nickname: text('nickname'),
+  gender: text('gender'),
+  birthDate: text('birth_date'),
+  birthPlace: text('birth_place'),
+  deathDate: text('death_date'),
+  deathPlace: text('death_place'),
+  bio: text('bio'),
+  photoUrl: text('photo_url'),
+  photosJson: text('photos_json'),
+  isLiving: boolean('is_living').default(false),
+  ranchitaConnection: text('ranchita_connection'),
+  externalLinks: text('external_links_json'),
+  gedcomId: text('gedcom_id'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const familyRelations = pgTable('family_relations', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  treeId: uuid('tree_id').notNull().references(() => familyTrees.id),
+  personId: uuid('person_id').notNull().references(() => familyPersons.id),
+  relatedPersonId: uuid('related_person_id').notNull().references(() => familyPersons.id),
+  type: text('type').notNull(),
+  marriageDate: text('marriage_date'),
+  marriagePlace: text('marriage_place'),
+  divorceDate: text('divorce_date'),
+  relationOrder: integer('relation_order'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const oralHistories = pgTable('oral_histories', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  treeId: uuid('tree_id').references(() => familyTrees.id),
+  personId: uuid('person_id').references(() => familyPersons.id),
+  recordedById: uuid('recorded_by_id').references(() => authUsers.id),
+  title: text('title').notNull(),
+  description: text('description'),
+  audioUrl: text('audio_url').notNull(),
+  transcript: text('transcript'),
+  transcriptLanguage: text('transcript_language').default('en'),
+  duration: integer('duration'),
+  recordedDate: timestamp('recorded_date'),
+  location: text('location'),
+  tags: text('tags'),
+  privacy: text('privacy').notNull().default('family'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const propertyHistories = pgTable('property_histories', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  parcelId: text('parcel_id'),
+  address: text('address'),
+  lat: text('lat'),
+  lng: text('lng'),
+  description: text('description'),
+  timelineJson: text('timeline_json'),
+  currentOwnerId: uuid('current_owner_id').references(() => authUsers.id),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const familyPhotos = pgTable('family_photos', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  treeId: uuid('tree_id').notNull().references(() => familyTrees.id),
+  uploadedById: uuid('uploaded_by_id').references(() => authUsers.id),
+  imageUrl: text('image_url').notNull(),
+  thumbnailUrl: text('thumbnail_url'),
+  title: text('title'),
+  description: text('description'),
+  dateTaken: text('date_taken'),
+  location: text('location'),
+  taggedPersonsJson: text('tagged_persons_json'),
+  privacy: text('privacy').notNull().default('family'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});

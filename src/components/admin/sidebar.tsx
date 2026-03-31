@@ -8,7 +8,7 @@ import {
   LayoutDashboard, Users, Calendar, FileText, PenSquare,
   Mail, DollarSign, BookOpen, Settings, LogOut, Menu, X,
   Gavel, Landmark, ShieldCheck, Vote, Megaphone, Shield,
-  ShoppingBag, Store, Target,
+  ShoppingBag, Store, Target, Gamepad2, TreePine,
 } from 'lucide-react';
 import type { SessionUser } from '@/lib/auth';
 import { getRoleLabel } from '@/lib/permissions';
@@ -31,6 +31,8 @@ const NAV_ITEMS = [
   { href: '/admin/shop', label: 'Merch Shop', icon: ShoppingBag, permission: 'manage_donations' as const },
   { href: '/admin/mercantile', label: 'Mercantile', icon: Store, permission: 'manage_donations' as const },
   { href: '/admin/fundraising', label: 'Fundraising', icon: Target, permission: 'manage_donations' as const },
+  { href: '/admin/kids', label: 'Kids Portal', icon: Gamepad2, permission: 'manage_moderation' as const },
+  { href: '/admin/legacy', label: 'Genealogy', icon: TreePine, permission: 'manage_moderation' as const },
   { href: '/admin/bylaws', label: 'Bylaws', icon: BookOpen, permission: 'view_dashboard' as const },
   { href: '/admin/settings', label: 'Settings', icon: Settings, permission: 'manage_users' as const },
 ];

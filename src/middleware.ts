@@ -32,6 +32,23 @@ export default function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
+  // Kids portal — separate auth (PIN-based, handled server-side)
+  if (pathname.startsWith('/kids')) {
+    return NextResponse.next();
+  }
+
+  // Legacy/genealogy — require session for create/edit, public for viewing
+  if (pathname.startsWith('/legacy')) {
+    if (pathname === '/legacy' || pathname.startsWith('/legacy/oral-history') && !pathname.includes('record')) {
+      return NextResponse.next(); // Public browsing
+    }
+    const sessionToken = req.cookies.get('mvvcso_session')?.value;
+    if (!sessionToken) {
+      return NextResponse.redirect(new URL('/register', req.url));
+    }
+    return NextResponse.next();
+  }
+
   // Registration routes — always public
   if (pathname.startsWith('/register')) {
     return NextResponse.next();
@@ -47,5 +64,5 @@ export default function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/', '/(es)/:path*', '/admin/:path*', '/community/:path*', '/marketplace/:path*', '/register/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
+  matcher: ['/', '/(es)/:path*', '/admin/:path*', '/community/:path*', '/marketplace/:path*', '/register/:path*', '/kids/:path*', '/legacy/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
 };
