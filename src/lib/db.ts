@@ -5,3 +5,6 @@ import { env } from './env';
 
 const sql = neon(env.databaseUrl);
 export const db = drizzle(sql, { schema });
+
+// Re-export schemas for convenient imports from @/lib/db
+export { schema };
