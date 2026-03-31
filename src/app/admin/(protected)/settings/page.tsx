@@ -1,4 +1,4 @@
-import { requireAuth } from '@/lib/auth';
+import { requireAuth, isMasterAdmin } from '@/lib/auth';
 import { db, schema } from '@/lib/db';
 import { desc } from 'drizzle-orm';
 import { format } from 'date-fns';
@@ -11,6 +11,8 @@ export default async function AdminSettingsPage() {
   const users = isAdmin
     ? await db.select().from(schema.authUsers).orderBy(desc(schema.authUsers.createdAt))
     : [];
+
+  const displayRole = isMasterAdmin(user.email) ? 'Tech Advisor' : getRoleLabel(user.role);
 
   return (
     <div className="space-y-8">
@@ -30,7 +32,7 @@ export default async function AdminSettingsPage() {
           </div>
           <div className="flex justify-between">
             <span className="text-(--text-muted)">Role</span>
-            <span className="text-gold-400 font-medium">{getRoleLabel(user.role)}</span>
+            <span className="text-gold-400 font-medium">{displayRole}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-(--text-muted)">Language</span>

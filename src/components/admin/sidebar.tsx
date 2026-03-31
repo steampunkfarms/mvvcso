@@ -11,6 +11,7 @@ import {
   ShoppingBag, Store, Target, Gamepad2, TreePine,
 } from 'lucide-react';
 import type { SessionUser } from '@/lib/auth';
+import { isMasterAdmin } from '@/lib/auth';
 import { getRoleLabel } from '@/lib/permissions';
 import { hasPermission } from '@/lib/permissions';
 
@@ -66,7 +67,7 @@ export function Sidebar({ user }: { user: SessionUser }) {
           </div>
         </div>
         <div className="mt-2 px-2 py-1 rounded-md bg-gold-400/10 text-gold-400 text-xs font-medium text-center">
-          {getRoleLabel(user.role)}
+          {isMasterAdmin(user.email) ? 'Tech Advisor' : getRoleLabel(user.role)}
         </div>
       </div>
 

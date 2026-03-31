@@ -47,22 +47,36 @@ export default function ProgramsPage() {
       <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {programs.map(({ key, icon: Icon }) => (
-              <div
-                key={key}
-                className="bg-white rounded-xl p-8 shadow-sm border border-stone-200"
-              >
-                <div className="w-14 h-14 rounded-lg bg-gold-100/15 flex items-center justify-center mb-5">
-                  <Icon className="w-7 h-7 text-gold-400" />
+            {programs.map(({ key, icon: Icon }) => {
+              const isVolunteer = key === 'volunteer';
+              const card = (
+                <div
+                  className={`bg-white rounded-xl p-8 shadow-sm border border-stone-200 ${isVolunteer ? 'hover:shadow-md transition-shadow' : ''}`}
+                >
+                  <div className="w-14 h-14 rounded-lg bg-gold-100/15 flex items-center justify-center mb-5">
+                    <Icon className="w-7 h-7 text-gold-400" />
+                  </div>
+                  <h2 className="text-xl font-bold text-(--text-primary) mb-3">
+                    {t(`${key}_title`)}
+                  </h2>
+                  <p className="text-(--text-secondary) leading-relaxed">
+                    {t(`${key}_description`)}
+                  </p>
+                  {isVolunteer && (
+                    <span className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-gold-400">
+                      Learn more &rarr;
+                    </span>
+                  )}
                 </div>
-                <h2 className="text-xl font-bold text-(--text-primary) mb-3">
-                  {t(`${key}_title`)}
-                </h2>
-                <p className="text-(--text-secondary) leading-relaxed">
-                  {t(`${key}_description`)}
-                </p>
-              </div>
-            ))}
+              );
+              return isVolunteer ? (
+                <Link key={key} href="/volunteer">
+                  {card}
+                </Link>
+              ) : (
+                <div key={key}>{card}</div>
+              );
+            })}
           </div>
         </div>
       </section>

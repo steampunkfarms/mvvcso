@@ -55,6 +55,22 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/kids"
+                  className="text-sm text-(--text-secondary) hover:text-gold-400 transition-colors underline decoration-stone-300 hover:decoration-gold-400"
+                >
+                  Kids Portal
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/legacy"
+                  className="text-sm text-(--text-secondary) hover:text-gold-400 transition-colors underline decoration-stone-300 hover:decoration-gold-400"
+                >
+                  Ranchita Legacy
+                </a>
+              </li>
             </ul>
           </div>
 
