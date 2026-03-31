@@ -4,12 +4,67 @@ import { routing } from './i18n/routing';
 
 const intlMiddleware = createMiddleware(routing);
 
+// TODO(pre-DNS): Remove this gate HTML before flipping mvvcso.org DNS
+const siteGateHtml = `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MVVCSO Admin</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,sans-serif;background:#F8F4EE;color:#1C2B2F;display:flex;
+align-items:center;justify-content:center;min-height:100vh;padding:1rem}
+.card{background:#fff;border-radius:1rem;padding:2.5rem;max-width:24rem;width:100%;
+box-shadow:0 1px 3px rgba(0,0,0,.08);border:1px solid #E0D8D0;text-align:center}
+h1{font-size:1.5rem;margin-bottom:.5rem}
+p{font-size:.875rem;color:#6B6355;margin-bottom:1.5rem}
+input{width:100%;padding:.75rem 1rem;border:1px solid #E0D8D0;border-radius:.5rem;
+font-size:1rem;background:#F0EDE6;margin-bottom:1rem}
+input:focus{outline:none;border-color:#E07F5C}
+button{width:100%;padding:.75rem;border:none;border-radius:.5rem;background:#E07F5C;
+color:#fff;font-size:1rem;font-weight:600;cursor:pointer}
+button:hover{background:#C86E4E}
+</style></head>
+<body><div class="card">
+<h1>MVVCSO Admin</h1>
+<p>Enter the site password to continue.</p>
+<form method="get" action="/admin/login">
+<input type="password" name="gate" placeholder="Password" required autofocus>
+<button type="submit">Enter</button>
+</form>
+</div></body></html>`;
+
 export default function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Admin routes — require session cookie (server components verify DB-side)
+  // TODO(pre-DNS): Remove site gate before flipping mvvcso.org DNS
   if (pathname.startsWith('/admin')) {
-    if (pathname === '/admin/login' || pathname === '/admin/verify') {
+    // Site gate: require pre-launch password cookie on /admin/login
+    if (pathname === '/admin/login') {
+      const gatePass = req.cookies.get('mvvcso_gate')?.value;
+      if (gatePass === 'granted') {
+        return NextResponse.next();
+      }
+      // Check if password is being submitted via query param
+      const pw = req.nextUrl.searchParams.get('gate');
+      if (pw === (process.env.SITE_GATE_PASSWORD?.trim() || 'R2nch1t@')) {
+        const res = NextResponse.redirect(new URL('/admin/login', req.url));
+        res.cookies.set('mvvcso_gate', 'granted', {
+          httpOnly: true,
+          secure: true,
+          sameSite: 'lax',
+          maxAge: 60 * 60 * 24 * 30,
+          path: '/admin',
+        });
+        return res;
+      }
+      // Show gate page
+      return new NextResponse(siteGateHtml, {
+        status: 200,
+        headers: { 'Content-Type': 'text/html; charset=utf-8' },
+      });
+    }
+    if (pathname === '/admin/verify') {
       return NextResponse.next();
     }
     const sessionToken = req.cookies.get('mvvcso_session')?.value;

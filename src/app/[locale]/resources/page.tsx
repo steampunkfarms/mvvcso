@@ -1,107 +1,93 @@
-import { db, schema } from '@/lib/db';
-import { eq, desc } from 'drizzle-orm';
-import { FileText, Download, File } from 'lucide-react';
+import Link from 'next/link';
+import { BookOpen, Shield, ClipboardList, FileEdit, Map, Calendar } from 'lucide-react';
+import { RESOURCE_CATEGORIES, POLICIES, SOPS, MEETING_MINUTES, FORMS, MAPS, BYLAWS } from '@/lib/transparency-docs';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Resources',
-  description: 'Public documents and resources from MVVCSO — meeting minutes, bylaws, financial reports, and community information.',
+  title: 'Resources & Transparency',
+  description: 'Public governance documents — bylaws, policies, SOPs, forms, boundary maps, and meeting minutes from 2020 to present.',
 };
 
-export const dynamic = 'force-dynamic';
+const ICONS: Record<string, typeof BookOpen> = {
+  BookOpen, Shield, ClipboardList, FileEdit, Map, Calendar,
+};
 
-export default async function ResourcesPage() {
-  let documents: {
-    id: string;
-    title: string;
-    titleEs: string | null;
-    description: string | null;
-    fileUrl: string;
-    fileName: string;
-    mimeType: string | null;
-    fileSize: number | null;
-    category: string;
-    createdAt: Date;
-    folderName: string | null;
-  }[] = [];
+const DOC_COUNTS: Record<string, number> = {
+  bylaws: BYLAWS.length,
+  policies: POLICIES.length,
+  sops: SOPS.length,
+  forms: FORMS.length,
+  maps: MAPS.length,
+  minutes: MEETING_MINUTES.length,
+};
 
-  try {
-    documents = await db
-      .select({
-        id: schema.documents.id,
-        title: schema.documents.title,
-        titleEs: schema.documents.titleEs,
-        description: schema.documents.description,
-        fileUrl: schema.documents.fileUrl,
-        fileName: schema.documents.fileName,
-        mimeType: schema.documents.mimeType,
-        fileSize: schema.documents.fileSize,
-        category: schema.documents.category,
-        createdAt: schema.documents.createdAt,
-        folderName: schema.documentFolders.name,
-      })
-      .from(schema.documents)
-      .leftJoin(schema.documentFolders, eq(schema.documents.folderId, schema.documentFolders.id))
-      .where(eq(schema.documents.accessLevel, 'public'))
-      .orderBy(desc(schema.documents.createdAt));
-  } catch (error) {
-    console.error('Failed to load resources:', error);
-  }
+const COLOR_MAP: Record<string, { bg: string; icon: string; border: string }> = {
+  terra: { bg: 'bg-terra-50', icon: 'text-terra-500', border: 'border-terra-200' },
+  dusk: { bg: 'bg-dusk-50', icon: 'text-dusk-500', border: 'border-dusk-200' },
+  sage: { bg: 'bg-sage-50', icon: 'text-sage-600', border: 'border-sage-200' },
+  gold: { bg: 'bg-gold-50', icon: 'text-gold-500', border: 'border-gold-200' },
+};
 
-  // Group by folder
-  const grouped = new Map<string, typeof documents>();
-  for (const doc of documents) {
-    const folder = doc.folderName || 'General';
-    if (!grouped.has(folder)) grouped.set(folder, []);
-    grouped.get(folder)!.push(doc);
-  }
-
+export default function ResourcesPage() {
   return (
     <div>
+      {/* Hero */}
       <section className="py-(--section-padding) bg-stone-200/20">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding) text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-(--text-primary)">Resources</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-(--text-primary)">
+            Resources &amp; Transparency
+          </h1>
           <p className="text-lg text-(--text-secondary) max-w-2xl mx-auto">
-            Public documents, meeting minutes, and community resources.
+            MVVCSO is committed to open governance. Browse our bylaws, policies,
+            procedures, and six years of meeting minutes.
           </p>
         </div>
       </section>
 
+      {/* Category Cards */}
       <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
-          {documents.length === 0 ? (
-            <p className="text-center text-(--text-muted) py-12">No public documents available yet.</p>
-          ) : (
-            <div className="space-y-8">
-              {Array.from(grouped.entries()).map(([folder, docs]) => (
-                <div key={folder}>
-                  <h2 className="text-xl font-bold text-(--text-primary) mb-4">{folder}</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {docs.map(doc => (
-                      <a
-                        key={doc.id}
-                        href={doc.fileUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-4 bg-white rounded-xl p-4 border border-stone-200 hover:shadow-md transition-shadow"
-                      >
-                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
-                          doc.mimeType?.includes('pdf') ? 'bg-red-50 text-red-500' : 'bg-terra-50 text-stone-600'
-                        }`}>
-                          {doc.mimeType?.includes('pdf') ? <FileText className="w-5 h-5" /> : <File className="w-5 h-5" />}
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm font-medium text-(--text-primary) truncate">{doc.title}</p>
-                          {doc.description && <p className="text-xs text-(--text-muted) truncate">{doc.description}</p>}
-                        </div>
-                        <Download className="w-4 h-4 text-(--text-muted) shrink-0" />
-                      </a>
-                    ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {RESOURCE_CATEGORIES.map((cat) => {
+              const Icon = ICONS[cat.icon] || BookOpen;
+              const colors = COLOR_MAP[cat.color] || COLOR_MAP.terra;
+              const count = DOC_COUNTS[cat.slug] || 0;
+
+              return (
+                <Link
+                  key={cat.slug}
+                  href={`/resources/${cat.slug}`}
+                  className={`group bg-white rounded-xl p-6 border ${colors.border} hover:shadow-lg transition-all hover:-translate-y-0.5`}
+                >
+                  <div className={`w-12 h-12 rounded-lg ${colors.bg} flex items-center justify-center mb-4`}>
+                    <Icon className={`w-6 h-6 ${colors.icon}`} />
                   </div>
-                </div>
-              ))}
-            </div>
-          )}
+                  <h2 className="text-lg font-bold text-(--text-primary) group-hover:text-gold-400 transition-colors">
+                    {cat.title}
+                  </h2>
+                  <p className="text-sm text-(--text-secondary) mt-1 mb-3">
+                    {cat.description}
+                  </p>
+                  <span className="text-xs font-medium text-(--text-muted)">
+                    {count} {count === 1 ? 'document' : 'documents'}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Nonprofit verification */}
+      <section className="py-8 bg-stone-100">
+        <div className="max-w-(--container-max) mx-auto px-(--container-padding) text-center">
+          <p className="text-sm text-(--text-muted) mb-3">Verify our nonprofit status:</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="https://projects.propublica.org/nonprofits/organizations/953173208" target="_blank" rel="noopener noreferrer" className="text-sm text-(--text-secondary) hover:text-gold-400 transition-colors underline decoration-stone-300 hover:decoration-gold-400">ProPublica</a>
+            <a href="https://app.candid.org/profile/8449076/montezuma-valley-volunteer-community-service-organization-95-3173208" target="_blank" rel="noopener noreferrer" className="text-sm text-(--text-secondary) hover:text-gold-400 transition-colors underline decoration-stone-300 hover:decoration-gold-400">Candid</a>
+            <a href="https://www.charitynavigator.org/ein/953173208" target="_blank" rel="noopener noreferrer" className="text-sm text-(--text-secondary) hover:text-gold-400 transition-colors underline decoration-stone-300 hover:decoration-gold-400">Charity Navigator</a>
+          </div>
+          <p className="text-xs text-(--text-muted) mt-3">EIN: 95-3173208</p>
         </div>
       </section>
     </div>

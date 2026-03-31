@@ -153,6 +153,14 @@ GoDaddy site retires."
 
 Once the gatekeeper hands over GoDaddy DNS credentials:
 
+### Pre-DNS: Remove Site Gate
+0. **Remove the admin login password gate** before pointing mvvcso.org DNS.
+   - Delete the `siteGateHtml` constant and gate logic from `src/middleware.ts`
+     (search for `TODO(pre-DNS)` — two locations)
+   - Remove the `SITE_GATE_PASSWORD` env var from Vercel if set
+   - Commit, push, verify build succeeds
+   - The gate password cookie (`mvvcso_gate`) will expire naturally
+
 ### Hour 1: Domain Migration
 1. Log into GoDaddy DNS management
 2. Add Vercel DNS records:
