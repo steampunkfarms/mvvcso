@@ -35,12 +35,12 @@ export function PostCard({
     >
       {/* Placeholder cover */}
       <div className="h-40 bg-stone-200/20 flex items-center justify-center">
-        <span className="text-4xl text-dusk-500/40">MVVCSO</span>
+        <span className="text-4xl text-stone-400/40">MVVCSO</span>
       </div>
 
       <div className="p-5">
         {category && (
-          <span className="inline-block text-xs font-semibold text-terra-400 bg-terra-50/10 px-2 py-0.5 rounded mb-2">
+          <span className="inline-block text-xs font-semibold text-terra-400 bg-terra-50 px-2 py-0.5 rounded mb-2">
             {category}
           </span>
         )}

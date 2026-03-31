@@ -95,7 +95,7 @@ function KpiCard({ label, value, icon: Icon }: { label: string; value: number; i
     <div className="bg-white rounded-xl p-5 border border-stone-200">
       <div className="flex items-center justify-between mb-2">
         <span className="text-sm text-(--text-muted)">{label}</span>
-        <Icon className="w-5 h-5 text-dusk-500" />
+        <Icon className="w-5 h-5 text-stone-600" />
       </div>
       <div className="text-2xl font-bold text-(--text-primary)">{value}</div>
     </div>
@@ -104,7 +104,7 @@ function KpiCard({ label, value, icon: Icon }: { label: string; value: number; i
 
 function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, string> = {
-    draft: 'bg-stone-200/20 text-dusk-500',
+    draft: 'bg-stone-200/20 text-stone-600',
     ai_processing: 'bg-sky-100 text-sky-700',
     review: 'bg-gold-100/20 text-gold-400',
     pending_approval: 'bg-terra-50/20 text-terra-400',

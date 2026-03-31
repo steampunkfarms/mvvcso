@@ -47,7 +47,7 @@ export default async function AdminDonationsPage() {
         <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Total Donors</span>
-            <Users className="w-5 h-5 text-dusk-500" />
+            <Users className="w-5 h-5 text-stone-600" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{uniqueDonors}</div>
         </div>
@@ -87,7 +87,7 @@ export default async function AdminDonationsPage() {
                   <td className="px-4 py-3 text-(--text-secondary)">{d.donorEmail || '—'}</td>
                   <td className="px-4 py-3 text-right font-semibold text-sage-600">{formatCents(d.amount)}</td>
                   <td className="px-4 py-3">
-                    <span className={`text-xs font-medium px-2 py-0.5 rounded ${d.type === 'recurring' ? 'bg-dusk-50 text-dusk-600' : 'bg-stone-100 text-(--text-muted)'}`}>
+                    <span className={`text-xs font-medium px-2 py-0.5 rounded ${d.type === 'recurring' ? 'bg-terra-50 text-stone-700' : 'bg-stone-100 text-(--text-muted)'}`}>
                       {d.type}
                     </span>
                   </td>

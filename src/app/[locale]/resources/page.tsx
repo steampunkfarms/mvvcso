@@ -71,7 +71,7 @@ export default async function ResourcesPage() {
                         className="flex items-center gap-4 bg-white rounded-xl p-4 border border-stone-200 hover:shadow-md transition-shadow"
                       >
                         <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
-                          doc.mimeType?.includes('pdf') ? 'bg-red-50 text-red-500' : 'bg-dusk-50 text-dusk-500'
+                          doc.mimeType?.includes('pdf') ? 'bg-red-50 text-red-500' : 'bg-terra-50 text-stone-600'
                         }`}>
                           {doc.mimeType?.includes('pdf') ? <FileText className="w-5 h-5" /> : <File className="w-5 h-5" />}
                         </div>

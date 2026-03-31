@@ -91,7 +91,7 @@ export default function PctPage() {
                   <Mountain className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-semibold text-(--text-primary)">{wp.name}</h3>
-                    <p className="text-xs text-dusk-500">{wp.elevation}</p>
+                    <p className="text-xs text-stone-600">{wp.elevation}</p>
                   </div>
                 </div>
                 <p className="text-sm text-(--text-secondary) leading-relaxed">

@@ -15,7 +15,9 @@ export type UserRole =
   | 'treasurer'
   | 'board_member'
   | 'volunteer_coordinator'
-  | 'content_manager';
+  | 'content_manager'
+  | 'voting_member'
+  | 'resident';
 
 export interface SessionUser {
   id: string;

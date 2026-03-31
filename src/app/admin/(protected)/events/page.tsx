@@ -37,7 +37,7 @@ export default async function EventsAdminPage() {
         </div>
         <div className="flex items-center gap-2">
           {event.category && (
-            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-dusk-500/10 text-dusk-500">
+            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-terra-500/10 text-stone-600">
               {event.category}
             </span>
           )}

@@ -21,9 +21,9 @@ export function ImpactStats() {
   const t = useTranslations('home');
 
   return (
-    <section className="py-(--section-padding) bg-gold-400 text-white">
+    <section className="py-(--section-padding) bg-gold-50">
       <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-(--text-primary)">
           {t('impact_title')}
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -74,11 +74,11 @@ function AnimatedStat({
 
   return (
     <div ref={ref}>
-      <div className="text-4xl md:text-5xl font-bold text-dusk-100 mb-2">
+      <div className="text-4xl md:text-5xl font-bold text-gold-400 mb-2">
         {count}
         {suffix}
       </div>
-      <div className="text-sm text-white/80">{label}</div>
+      <div className="text-sm text-(--text-secondary)">{label}</div>
     </div>
   );
 }

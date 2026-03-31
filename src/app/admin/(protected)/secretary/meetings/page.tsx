@@ -59,7 +59,7 @@ export default async function MeetingsListPage() {
 
 function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, string> = {
-    draft: 'bg-stone-200/20 text-dusk-500',
+    draft: 'bg-stone-200/20 text-stone-600',
     ai_processing: 'bg-sky-100 text-sky-700',
     review: 'bg-gold-100/20 text-gold-400',
     pending_approval: 'bg-terra-50/20 text-terra-400',

@@ -7,7 +7,7 @@ import Image from 'next/image';
 import {
   LayoutDashboard, Users, Calendar, FileText, PenSquare,
   Mail, DollarSign, BookOpen, Settings, LogOut, Menu, X,
-  Gavel, Landmark, ShieldCheck,
+  Gavel, Landmark, ShieldCheck, Vote, Megaphone, Shield,
 } from 'lucide-react';
 import type { SessionUser } from '@/lib/auth';
 import { getRoleLabel } from '@/lib/permissions';
@@ -24,6 +24,9 @@ const NAV_ITEMS = [
   { href: '/admin/blog', label: 'Blog', icon: PenSquare, permission: 'manage_blog' as const },
   { href: '/admin/newsletter', label: 'Newsletter', icon: Mail, permission: 'manage_newsletter' as const },
   { href: '/admin/donations', label: 'Donations', icon: DollarSign, permission: 'manage_donations' as const },
+  { href: '/admin/social', label: 'Social Media', icon: Megaphone, permission: 'manage_social' as const },
+  { href: '/admin/ballots', label: 'Ballots', icon: Vote, permission: 'manage_ballots' as const },
+  { href: '/admin/moderation', label: 'Moderation', icon: Shield, permission: 'manage_moderation' as const },
   { href: '/admin/bylaws', label: 'Bylaws', icon: BookOpen, permission: 'view_dashboard' as const },
   { href: '/admin/settings', label: 'Settings', icon: Settings, permission: 'manage_users' as const },
 ];

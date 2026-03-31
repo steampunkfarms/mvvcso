@@ -69,7 +69,7 @@ export function ApprovalVoteForm({ meetingId, currentVote }: ApprovalVoteFormPro
           onClick={() => handleSubmit('abstain')}
           disabled={status === 'loading'}
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border text-sm font-semibold transition-colors ${
-            vote === 'abstain' ? 'bg-dusk-500 text-white border-stone-300' : 'border-stone-300/40 text-dusk-500 hover:bg-stone-200/10'
+            vote === 'abstain' ? 'bg-stone-600 text-white border-stone-600' : 'border-stone-300 text-stone-600 hover:bg-stone-200/10'
           }`}
         >
           <Minus className="w-4 h-4" />

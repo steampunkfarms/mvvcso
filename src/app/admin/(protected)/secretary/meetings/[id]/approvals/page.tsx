@@ -51,8 +51,8 @@ export default async function ApprovalsPage({
           <div className="text-xs text-red-600">Reject</div>
         </div>
         <div className="bg-stone-200/10 rounded-xl p-4 text-center border border-stone-200">
-          <div className="text-2xl font-bold text-dusk-500">{approvals.filter(a => a.vote === 'abstain').length}</div>
-          <div className="text-xs text-dusk-500">Abstain</div>
+          <div className="text-2xl font-bold text-stone-600">{approvals.filter(a => a.vote === 'abstain').length}</div>
+          <div className="text-xs text-stone-600">Abstain</div>
         </div>
       </div>
 
@@ -86,10 +86,10 @@ export default async function ApprovalsPage({
                   <div className="flex items-center gap-2">
                     {vote.vote === 'approve' && <Check className="w-4 h-4 text-green-600" />}
                     {vote.vote === 'reject' && <XIcon className="w-4 h-4 text-red-600" />}
-                    {vote.vote === 'abstain' && <Minus className="w-4 h-4 text-dusk-500" />}
+                    {vote.vote === 'abstain' && <Minus className="w-4 h-4 text-stone-600" />}
                     <span className={`text-xs font-medium capitalize ${
                       vote.vote === 'approve' ? 'text-green-600' :
-                      vote.vote === 'reject' ? 'text-red-600' : 'text-dusk-500'
+                      vote.vote === 'reject' ? 'text-red-600' : 'text-stone-600'
                     }`}>
                       {vote.vote}
                     </span>

@@ -154,7 +154,7 @@ export default function DocumentsPage() {
                     <div className="flex items-center gap-2 shrink-0">
                       <span className={`text-xs px-2 py-0.5 rounded ${
                         doc.accessLevel === 'public' ? 'bg-sage-50 text-sage-600' :
-                        doc.accessLevel === 'board' ? 'bg-dusk-50 text-dusk-600' :
+                        doc.accessLevel === 'board' ? 'bg-terra-50 text-stone-700' :
                         'bg-stone-100 text-(--text-muted)'
                       }`}>
                         {doc.accessLevel}
@@ -181,7 +181,7 @@ function FileIcon({ mimeType }: { mimeType: string | null }) {
   return (
     <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
       isPdf ? 'bg-red-50 text-red-500' :
-      isImage ? 'bg-dusk-50 text-dusk-500' :
+      isImage ? 'bg-terra-50 text-stone-600' :
       'bg-stone-100 text-(--text-muted)'
     }`}>
       {isPdf ? <FileText className="w-4 h-4" /> :

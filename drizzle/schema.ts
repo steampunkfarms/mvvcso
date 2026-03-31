@@ -63,6 +63,9 @@ export const authUsers = pgTable('auth_users', {
   role: text('role').notNull().default('board_member'),
   language: text('language').notNull().default('en'),
   isActive: boolean('is_active').notNull().default(true),
+  displayName: text('display_name'),
+  bio: text('bio'),
+  avatarUrl: text('avatar_url'),
   lastLoginAt: timestamp('last_login_at'),
   createdAt: timestamp('created_at').notNull().defaultNow(),
 });
@@ -333,6 +336,141 @@ export const complianceTasks = pgTable('compliance_tasks', {
   status: text('status').notNull().default('pending'),
   notes: text('notes'),
   documentId: uuid('document_id').references(() => documents.id),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+// ── Phase 4: Community (Ranchita Commons) ───────────────────────
+
+export const communityPosts = pgTable('community_posts', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  authorId: uuid('author_id').notNull().references(() => authUsers.id),
+  content: text('content').notNull(),
+  photosJson: text('photos_json'),
+  language: text('language').default('en'),
+  channel: text('channel').notNull().default('general'),
+  isPinned: boolean('is_pinned').default(false),
+  isAnnouncement: boolean('is_announcement').default(false),
+  status: text('status').notNull().default('active'),
+  crossPostedTo: text('cross_posted_to'),
+  crossPostedAt: timestamp('cross_posted_at'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const communityComments = pgTable('community_comments', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  postId: uuid('post_id').notNull().references(() => communityPosts.id),
+  authorId: uuid('author_id').notNull().references(() => authUsers.id),
+  content: text('content').notNull(),
+  status: text('status').notNull().default('active'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const communityReactions = pgTable('community_reactions', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  postId: uuid('post_id').notNull().references(() => communityPosts.id),
+  userId: uuid('user_id').notNull().references(() => authUsers.id),
+  type: text('type').notNull().default('like'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+// ── Phase 4: Marketplace ────────────────────────────────────────
+
+export const marketplaceListings = pgTable('marketplace_listings', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  sellerId: uuid('seller_id').notNull().references(() => authUsers.id),
+  title: text('title').notNull(),
+  description: text('description').notNull(),
+  category: text('category').notNull(),
+  type: text('type').notNull().default('for_sale'),
+  price: integer('price'),
+  photosJson: text('photos_json'),
+  condition: text('condition'),
+  location: text('location').default('Ranchita area'),
+  language: text('language').default('en'),
+  status: text('status').notNull().default('active'),
+  expiresAt: timestamp('expires_at'),
+  views: integer('views').default(0),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const marketplaceMessages = pgTable('marketplace_messages', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  listingId: uuid('listing_id').notNull().references(() => marketplaceListings.id),
+  senderId: uuid('sender_id').notNull().references(() => authUsers.id),
+  recipientId: uuid('recipient_id').notNull().references(() => authUsers.id),
+  content: text('content').notNull(),
+  isRead: boolean('is_read').default(false),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+// ── Phase 4: Balloting ──────────────────────────────────────────
+
+export const ballots = pgTable('ballots', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  titleEn: text('title_en').notNull(),
+  titleEs: text('title_es'),
+  descriptionEn: text('description_en'),
+  descriptionEs: text('description_es'),
+  type: text('type').notNull(),
+  eligibility: text('eligibility').notNull().default('voting_member'),
+  isAnonymous: boolean('is_anonymous').notNull().default(true),
+  openDate: timestamp('open_date').notNull(),
+  closeDate: timestamp('close_date').notNull(),
+  status: text('status').notNull().default('draft'),
+  resultPublic: boolean('result_public').notNull().default(true),
+  totalEligible: integer('total_eligible'),
+  createdBy: uuid('created_by').references(() => authUsers.id),
+  certifiedBy: uuid('certified_by').references(() => authUsers.id),
+  certifiedAt: timestamp('certified_at'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const ballotOptions = pgTable('ballot_options', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  ballotId: uuid('ballot_id').notNull().references(() => ballots.id),
+  labelEn: text('label_en').notNull(),
+  labelEs: text('label_es'),
+  descriptionEn: text('description_en'),
+  descriptionEs: text('description_es'),
+  sortOrder: integer('sort_order').default(0),
+});
+
+export const ballotVotes = pgTable('ballot_votes', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  ballotId: uuid('ballot_id').notNull().references(() => ballots.id),
+  optionId: uuid('option_id').notNull().references(() => ballotOptions.id),
+  voterHash: text('voter_hash').notNull(),
+  rank: integer('rank'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const ballotVoterRoll = pgTable('ballot_voter_roll', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  ballotId: uuid('ballot_id').notNull().references(() => ballots.id),
+  userId: uuid('user_id').notNull().references(() => authUsers.id),
+  votedAt: timestamp('voted_at').notNull().defaultNow(),
+});
+
+// ── Phase 4: Social Media Auto-Posting ──────────────────────────
+
+export const socialPosts = pgTable('social_posts', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  sourcePostId: uuid('source_post_id').references(() => communityPosts.id),
+  platform: text('platform').notNull(),
+  content: text('content').notNull(),
+  imageUrls: text('image_urls'),
+  hashtags: text('hashtags'),
+  status: text('status').notNull().default('draft'),
+  scheduledFor: timestamp('scheduled_for'),
+  publishedAt: timestamp('published_at'),
+  platformPostId: text('platform_post_id'),
+  engagementJson: text('engagement_json'),
+  createdBy: uuid('created_by').references(() => authUsers.id),
+  approvedBy: uuid('approved_by').references(() => authUsers.id),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
 });

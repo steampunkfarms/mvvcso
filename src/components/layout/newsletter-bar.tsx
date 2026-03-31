@@ -31,7 +31,7 @@ export function NewsletterSection() {
   }
 
   return (
-    <section className="py-(--section-padding) bg-gold-400">
+    <section className="py-(--section-padding) bg-gold-200/30">
       <div className="max-w-2xl mx-auto px-(--container-padding) text-center">
         <h2 className="text-3xl font-bold mb-2 text-(--text-primary)">
           {t('newsletter_title')}
@@ -51,13 +51,13 @@ export function NewsletterSection() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t('newsletter_placeholder')}
-              className="flex-1 px-4 py-3 rounded-lg border border-gold-400/20 bg-white text-(--text-primary) placeholder:text-(--text-muted)"
+              className="flex-1 px-4 py-3 rounded-lg border border-stone-300 bg-white text-(--text-primary) placeholder:text-(--text-muted)"
               required
             />
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="px-6 py-3 rounded-lg bg-dusk-900 text-dusk-100 font-semibold hover:bg-dusk-800 transition-colors disabled:opacity-60"
+              className="px-6 py-3 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors disabled:opacity-60"
             >
               {status === 'loading' ? '...' : t('newsletter_button')}
             </button>

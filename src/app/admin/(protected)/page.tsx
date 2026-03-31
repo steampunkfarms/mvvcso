@@ -93,7 +93,7 @@ export default async function AdminDashboardPage() {
               </Link>
               <Link
                 href="/admin/blog"
-                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-dusk-500/10 text-dusk-500 text-sm font-medium hover:bg-dusk-500/20 transition-colors"
+                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-terra-500/10 text-stone-600 text-sm font-medium hover:bg-terra-500/20 transition-colors"
               >
                 <FileText className="w-4 h-4" />
                 Write Blog Post

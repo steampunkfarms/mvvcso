@@ -8,7 +8,7 @@ export default async function GrantsPage() {
   const grants = await getGrants();
 
   const statusColors: Record<string, string> = {
-    identified: 'bg-stone-200/20 text-dusk-500',
+    identified: 'bg-stone-200/20 text-stone-600',
     applying: 'bg-sky-100 text-sky-700',
     submitted: 'bg-gold-100/20 text-gold-400',
     awarded: 'bg-green-100 text-green-700',

@@ -7,20 +7,33 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Admin routes — check session cookie (actual verification happens server-side)
+  // Admin routes — require session cookie (server components verify DB-side)
   if (pathname.startsWith('/admin')) {
-    // Allow login and verify pages without auth
     if (pathname === '/admin/login' || pathname === '/admin/verify') {
       return NextResponse.next();
     }
-
-    // Check for session cookie
     const sessionToken = req.cookies.get('mvvcso_session')?.value;
     if (!sessionToken) {
       return NextResponse.redirect(new URL('/admin/login', req.url));
     }
+    return NextResponse.next();
+  }
 
-    // Session exists — let the request through (server components verify DB-side)
+  // Community + Marketplace routes — require session cookie (resident+)
+  if (pathname.startsWith('/community') || pathname.startsWith('/marketplace')) {
+    // Allow public viewing of marketplace listings
+    if (pathname === '/marketplace' || pathname.match(/^\/marketplace\/[^/]+$/)) {
+      return NextResponse.next();
+    }
+    const sessionToken = req.cookies.get('mvvcso_session')?.value;
+    if (!sessionToken) {
+      return NextResponse.redirect(new URL('/register', req.url));
+    }
+    return NextResponse.next();
+  }
+
+  // Registration routes — always public
+  if (pathname.startsWith('/register')) {
     return NextResponse.next();
   }
 
@@ -34,5 +47,5 @@ export default function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/', '/(es)/:path*', '/admin/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
+  matcher: ['/', '/(es)/:path*', '/admin/:path*', '/community/:path*', '/marketplace/:path*', '/register/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
 };

@@ -61,7 +61,7 @@ export default async function AdminSettingsPage() {
                   <td className="px-4 py-3 text-(--text-primary) font-medium">{u.name}</td>
                   <td className="px-4 py-3 text-(--text-secondary)">{u.email}</td>
                   <td className="px-4 py-3">
-                    <span className="text-xs font-medium px-2 py-0.5 rounded bg-dusk-50 text-dusk-600">
+                    <span className="text-xs font-medium px-2 py-0.5 rounded bg-terra-50 text-stone-700">
                       {getRoleLabel(u.role as Parameters<typeof getRoleLabel>[0])}
                     </span>
                   </td>

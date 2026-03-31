@@ -30,7 +30,7 @@ export function BoardGrid() {
               className="bg-white rounded-xl p-5 text-center shadow-sm border border-stone-200"
             >
               <div className="w-16 h-16 rounded-full bg-stone-200/40 flex items-center justify-center mx-auto mb-3">
-                <User className="w-8 h-8 text-dusk-500" />
+                <User className="w-8 h-8 text-terra-400" />
               </div>
               <h3 className="font-semibold text-sm text-(--text-primary)">
                 {member.name}

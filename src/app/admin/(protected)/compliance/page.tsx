@@ -21,7 +21,7 @@ export default async function CompliancePage() {
   const priorityColors: Record<string, string> = {
     critical: 'bg-red-100 text-red-700',
     high: 'bg-gold-100/20 text-gold-400',
-    normal: 'bg-stone-200/20 text-dusk-500',
+    normal: 'bg-stone-200/20 text-stone-600',
     low: 'bg-stone-100 text-(--text-muted)',
   };
 
@@ -34,7 +34,7 @@ export default async function CompliancePage() {
         <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Upcoming (30 days)</span>
-            <Clock className="w-5 h-5 text-dusk-500" />
+            <Clock className="w-5 h-5 text-stone-600" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{upcoming.length}</div>
         </div>
@@ -55,7 +55,7 @@ export default async function CompliancePage() {
         <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Total Tasks</span>
-            <ShieldCheck className="w-5 h-5 text-dusk-500" />
+            <ShieldCheck className="w-5 h-5 text-stone-600" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{tasks.length}</div>
         </div>
@@ -129,7 +129,7 @@ export default async function CompliancePage() {
                         task.status === 'completed' ? 'bg-green-100 text-green-700' :
                         task.status === 'in_progress' ? 'bg-sky-100 text-sky-700' :
                         task.status === 'overdue' ? 'bg-red-100 text-red-700' :
-                        'bg-stone-200/20 text-dusk-500'
+                        'bg-stone-200/20 text-stone-600'
                       }`}>
                         {task.status.replace('_', ' ')}
                       </span>

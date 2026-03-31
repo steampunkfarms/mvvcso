@@ -27,7 +27,7 @@ export default async function TreasurerDashboardPage() {
         <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Cash on Hand</span>
-            <Wallet className="w-5 h-5 text-dusk-500" />
+            <Wallet className="w-5 h-5 text-stone-600" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{formatCents(summary.cashOnHand)}</div>
         </div>
@@ -48,7 +48,7 @@ export default async function TreasurerDashboardPage() {
         <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Fund Accounts</span>
-            <DollarSign className="w-5 h-5 text-dusk-500" />
+            <DollarSign className="w-5 h-5 text-stone-600" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{summary.fundBalances.length}</div>
         </div>

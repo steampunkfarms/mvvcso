@@ -20,7 +20,7 @@ interface AttendanceEditorProps {
 const statusOptions = [
   { value: 'present', label: 'Present', color: 'bg-green-100 text-green-700' },
   { value: 'remote', label: 'Remote', color: 'bg-sky-100 text-sky-700' },
-  { value: 'excused', label: 'Excused', color: 'bg-stone-200/20 text-dusk-500' },
+  { value: 'excused', label: 'Excused', color: 'bg-stone-200/20 text-stone-600' },
   { value: 'absent', label: 'Absent', color: 'bg-red-100 text-red-700' },
 ];
 

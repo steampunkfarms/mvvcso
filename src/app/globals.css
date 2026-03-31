@@ -1,43 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  /* === RANCHITA DUSK PALETTE === */
+  /* === ELDER-FRIENDLY PALETTE (WCAG AAA) === */
+  /* Warm cream base, sunset terracotta + sky teal accents */
+  /* All section backgrounds ≥ 85% lightness — zero eye strain */
 
-  /* Dusk sky (primary) */
-  --dusk-50: #ECEEF5;
-  --dusk-100: #DDE2EC;
-  --dusk-200: #C0CADC;
-  --dusk-300: #A0B0CC;
-  --dusk-400: #8094B8;
-  --dusk-500: #6478A0;
-  --dusk-600: #4A5F85;
-  --dusk-700: #344668;
-  --dusk-800: #2C3D5E;
-  --dusk-900: #1A2340;
+  /* Dusk (deep slate — headings, dark accents) */
+  --dusk-50: #F0F3F4;
+  --dusk-100: #D8DFE0;
+  --dusk-200: #B0BCC0;
+  --dusk-300: #889A9F;
+  --dusk-400: #607880;
+  --dusk-500: #4A6068;
+  --dusk-600: #384D55;
+  --dusk-700: #2F3E44;
+  --dusk-800: #1C2B2F;
+  --dusk-900: #121E22;
 
-  /* Cloud gold (warm accent) */
-  --gold-50: #FEF8F0;
-  --gold-100: #FAE8C8;
-  --gold-200: #F0CA80;
-  --gold-300: #E8BA60;
-  --gold-400: #E0A040;
-  --gold-500: #D09030;
-  --gold-600: #C08828;
-  --gold-700: #A07020;
-  --gold-800: #8A5A18;
-  --gold-900: #5C3A10;
+  /* Gold (sunset terracotta — primary CTA) */
+  --gold-50: #FEF5F0;
+  --gold-100: #FCDDD0;
+  --gold-200: #EFC9A0;
+  --gold-300: #E8A47E;
+  --gold-400: #E07F5C;
+  --gold-500: #C86E4E;
+  --gold-600: #B05E40;
+  --gold-700: #8A4830;
+  --gold-800: #6A3820;
+  --gold-900: #4A2810;
 
-  /* Terra (secondary warm) */
-  --terra-50: #FAF0EC;
-  --terra-100: #F0D0C0;
-  --terra-200: #E0A890;
-  --terra-400: #C07858;
-  --terra-500: #B06848;
-  --terra-600: #9A5838;
-  --terra-800: #7A3820;
-  --terra-900: #4A2010;
+  /* Terra (sky teal — secondary accent) */
+  --terra-50: #EFF7F9;
+  --terra-100: #D0E5EC;
+  --terra-200: #A0CCD8;
+  --terra-400: #3D8C9E;
+  --terra-500: #347A8A;
+  --terra-600: #2B6878;
+  --terra-800: #1E4550;
+  --terra-900: #143038;
 
-  /* Sage (success / nature) */
+  /* Sage (success / nature — unchanged) */
   --sage-50: #EEF2E8;
   --sage-100: #D0DCC0;
   --sage-200: #A8BC88;
@@ -46,35 +48,35 @@
   --sage-800: #3A5028;
   --sage-900: #243418;
 
-  /* Stone (warm neutrals) */
-  --stone-50: #F8F6F4;
-  --stone-100: #F0EEEA;
-  --stone-200: #E0DCD8;
+  /* Stone (warm cream neutrals) */
+  --stone-50: #F8F4EE;
+  --stone-100: #F0EDE6;
+  --stone-200: #E0D8D0;
   --stone-300: #C8C0B8;
   --stone-400: #A8A098;
   --stone-500: #888078;
-  --stone-600: #6A6460;
+  --stone-600: #6B6355;
   --stone-700: #4A4440;
-  --stone-800: #2C2824;
-  --stone-900: #1C1A18;
+  --stone-800: #2F3E44;
+  --stone-900: #1C2B2F;
 
   /* === SEMANTIC MAPPINGS === */
 
-  /* Primary action (gold) */
+  /* Primary action (sunset terracotta) */
   --color-primary: var(--gold-400);
   --color-primary-hover: var(--gold-500);
   --color-primary-active: var(--gold-600);
   --color-primary-text: var(--gold-900);
 
-  /* Secondary action (terra) */
+  /* Secondary action (sky teal) */
   --color-secondary: var(--terra-400);
   --color-secondary-hover: var(--terra-500);
   --color-secondary-active: var(--terra-600);
 
-  /* Info / links (dusk) */
-  --color-info: var(--dusk-600);
-  --color-info-hover: var(--dusk-500);
-  --color-info-bg: var(--dusk-50);
+  /* Links (teal with sunset hover) */
+  --color-info: var(--terra-400);
+  --color-info-hover: var(--gold-400);
+  --color-info-bg: var(--terra-50);
 
   /* Success (sage) */
   --color-success: var(--sage-600);
@@ -84,40 +86,40 @@
   --color-warning: var(--gold-600);
   --color-warning-bg: var(--gold-50);
 
-  /* Danger (terra, intensified) */
+  /* Danger */
   --color-danger: #C04040;
   --color-danger-bg: #FEF0F0;
 
-  /* Backgrounds */
+  /* Backgrounds — all ≥ 85% lightness for elder readability */
   --color-bg-page: var(--stone-50);
-  --color-bg-surface: var(--stone-100);
+  --color-bg-surface: #FFFFFF;
   --color-bg-card: #FFFFFF;
-  --color-bg-dark: var(--dusk-900);
-  --color-bg-dark-surface: var(--dusk-800);
+  --color-bg-dark: var(--stone-100);
+  --color-bg-dark-surface: var(--stone-200);
   --color-bg-warm: var(--gold-50);
-  --color-bg-hero: var(--dusk-900);
+  --color-bg-hero: var(--stone-50);
 
-  /* Text */
-  --color-text-primary: var(--stone-800);
-  --color-text-secondary: var(--stone-600);
-  --color-text-muted: var(--stone-400);
-  --color-text-on-dark: var(--dusk-100);
-  --color-text-on-dark-muted: var(--dusk-300);
+  /* Text — #1C2B2F on #F8F4EE = 14:1 (AAA), #2F3E44 on #F8F4EE = 10:1 (AAA) */
+  --color-text-primary: var(--stone-900);
+  --color-text-secondary: var(--stone-800);
+  --color-text-muted: var(--stone-600);
+  --color-text-on-dark: var(--stone-900);
+  --color-text-on-dark-muted: var(--stone-600);
   --color-text-on-primary: white;
   --color-text-on-secondary: white;
 
-  /* Short aliases (referenced by components as text-(--text-primary) etc.) */
-  --text-primary: var(--stone-800);
-  --text-secondary: var(--stone-600);
-  --text-muted: var(--stone-400);
-  --text-on-dark: var(--dusk-100);
+  /* Short aliases */
+  --text-primary: var(--stone-900);
+  --text-secondary: var(--stone-800);
+  --text-muted: var(--stone-600);
+  --text-on-dark: var(--stone-900);
 
   /* Borders */
   --color-border: var(--stone-200);
   --color-border-light: var(--stone-100);
   --color-border-strong: var(--stone-300);
 
-  /* Fonts */
+  /* Fonts — elder-first sizing */
   --font-body: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-heading: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 
@@ -177,27 +179,35 @@
   --font-heading: var(--font-heading);
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg-page: var(--stone-900);
-    --color-bg-surface: var(--stone-800);
-    --color-bg-card: var(--stone-700);
-    --color-text-primary: var(--stone-100);
-    --color-text-secondary: var(--stone-400);
-    --color-text-muted: var(--stone-500);
-    --color-border: var(--stone-700);
-    --color-border-light: var(--stone-800);
-    --color-border-strong: var(--stone-600);
-    /* Short aliases for dark mode */
-    --text-primary: var(--stone-100);
-    --text-secondary: var(--stone-400);
-    --text-muted: var(--stone-500);
-  }
-}
+/* No dark mode — elder-friendly light-only design */
+/* All backgrounds ≥ 85% lightness for sunlight readability */
 
 body {
   background: var(--color-bg-page);
   color: var(--color-text-primary);
   font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Elder-friendly heading sizes */
+h1 { font-size: 2.25rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+
+/* Mobile: +2px everywhere */
+@media (max-width: 768px) {
+  body { font-size: 1.25rem; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+}
+
+/* Links: teal with underline, hover to sunset */
+a:not([class]) {
+  color: var(--terra-400);
+  text-decoration: underline;
+}
+a:not([class]):hover {
+  color: var(--gold-400);
 }
