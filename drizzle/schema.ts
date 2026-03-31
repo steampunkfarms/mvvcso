@@ -190,3 +190,149 @@ export const activityLog = pgTable('activity_log', {
   userId: uuid('user_id').references(() => authUsers.id),
   createdAt: timestamp('created_at').notNull().defaultNow(),
 });
+
+// ── Phase 3: Board Meetings ─────────────────────────────────────
+
+export const boardMeetings = pgTable('board_meetings', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  meetingDate: timestamp('meeting_date').notNull(),
+  meetingType: text('meeting_type').notNull().default('regular'),
+  location: text('location').default('MVVCSO Community Center'),
+  calledBy: text('called_by'),
+  calledToOrderAt: timestamp('called_to_order_at'),
+  adjournedAt: timestamp('adjourned_at'),
+  quorumPresent: boolean('quorum_present'),
+  agendaJson: text('agenda_json'), // JSON array of AgendaItem
+  status: text('status').notNull().default('draft'),
+  createdBy: uuid('created_by').references(() => authUsers.id),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const meetingAttendance = pgTable('meeting_attendance', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  meetingId: uuid('meeting_id').notNull().references(() => boardMeetings.id),
+  memberId: uuid('member_id').notNull().references(() => authUsers.id),
+  status: text('status').notNull().default('present'),
+});
+
+export const meetingMinutes = pgTable('meeting_minutes', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  meetingId: uuid('meeting_id').notNull().references(() => boardMeetings.id).unique(),
+  audioUrl: text('audio_url'),
+  rawNotes: text('raw_notes'),
+  aiDraft: text('ai_draft'),
+  aiDraftGeneratedAt: timestamp('ai_draft_generated_at'),
+  editedDraft: text('edited_draft'),
+  editedBy: uuid('edited_by').references(() => authUsers.id),
+  editedAt: timestamp('edited_at'),
+  approvedVersion: text('approved_version'),
+  approvedAt: timestamp('approved_at'),
+  approvalMethod: text('approval_method'),
+  pdfUrl: text('pdf_url'),
+  pdfGeneratedAt: timestamp('pdf_generated_at'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const meetingApprovals = pgTable('meeting_approvals', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  meetingId: uuid('meeting_id').notNull().references(() => boardMeetings.id),
+  memberId: uuid('member_id').notNull().references(() => authUsers.id),
+  vote: text('vote').notNull(),
+  comment: text('comment'),
+  votedAt: timestamp('voted_at').notNull().defaultNow(),
+});
+
+export const meetingResolutions = pgTable('meeting_resolutions', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  meetingId: uuid('meeting_id').notNull().references(() => boardMeetings.id),
+  resolutionNumber: text('resolution_number'),
+  title: text('title').notNull(),
+  description: text('description'),
+  motionBy: text('motion_by'),
+  secondedBy: text('seconded_by'),
+  votesFor: integer('votes_for').default(0),
+  votesAgainst: integer('votes_against').default(0),
+  abstentions: integer('abstentions').default(0),
+  passed: boolean('passed'),
+  effectiveDate: timestamp('effective_date'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+// ── Phase 3: Treasurer / Financials ─────────────────────────────
+
+export const financialTransactions = pgTable('financial_transactions', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  date: timestamp('date').notNull(),
+  type: text('type').notNull(),
+  category: text('category').notNull(),
+  description: text('description').notNull(),
+  amount: integer('amount').notNull(),
+  fund: text('fund').notNull().default('general'),
+  vendor: text('vendor'),
+  checkNumber: text('check_number'),
+  receiptUrl: text('receipt_url'),
+  reconciled: boolean('reconciled').default(false),
+  reconciledAt: timestamp('reconciled_at'),
+  donationId: uuid('donation_id').references(() => donations.id),
+  grantId: uuid('grant_id').references(() => grants.id),
+  enteredBy: uuid('entered_by').references(() => authUsers.id),
+  approvedBy: uuid('approved_by').references(() => authUsers.id),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const budgets = pgTable('budgets', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  fiscalYear: integer('fiscal_year').notNull(),
+  category: text('category').notNull(),
+  fund: text('fund').notNull().default('general'),
+  plannedAmount: integer('planned_amount').notNull(),
+  notes: text('notes'),
+  createdBy: uuid('created_by').references(() => authUsers.id),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const grants = pgTable('grants', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  name: text('name').notNull(),
+  funder: text('funder').notNull(),
+  amount: integer('amount'),
+  requestedAmount: integer('requested_amount'),
+  status: text('status').notNull().default('identified'),
+  isRestricted: boolean('is_restricted').default(false),
+  restrictionNotes: text('restriction_notes'),
+  applicationDeadline: timestamp('application_deadline'),
+  reportDeadline: timestamp('report_deadline'),
+  grantPeriodStart: timestamp('grant_period_start'),
+  grantPeriodEnd: timestamp('grant_period_end'),
+  contactName: text('contact_name'),
+  contactEmail: text('contact_email'),
+  notes: text('notes'),
+  documentsJson: text('documents_json'),
+  createdBy: uuid('created_by').references(() => authUsers.id),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+// ── Phase 3: Compliance ─────────────────────────────────────────
+
+export const complianceTasks = pgTable('compliance_tasks', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  title: text('title').notNull(),
+  titleEs: text('title_es'),
+  description: text('description'),
+  category: text('category').notNull(),
+  dueDate: timestamp('due_date').notNull(),
+  completedDate: timestamp('completed_date'),
+  assignedTo: uuid('assigned_to').references(() => authUsers.id),
+  priority: text('priority').notNull().default('normal'),
+  recurrence: text('recurrence'),
+  status: text('status').notNull().default('pending'),
+  notes: text('notes'),
+  documentId: uuid('document_id').references(() => documents.id),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});

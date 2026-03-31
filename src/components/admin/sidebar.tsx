@@ -7,6 +7,7 @@ import Image from 'next/image';
 import {
   LayoutDashboard, Users, Calendar, FileText, PenSquare,
   Mail, DollarSign, BookOpen, Settings, LogOut, Menu, X,
+  Gavel, Landmark, ShieldCheck,
 } from 'lucide-react';
 import type { SessionUser } from '@/lib/auth';
 import { getRoleLabel } from '@/lib/permissions';
@@ -14,6 +15,9 @@ import { hasPermission } from '@/lib/permissions';
 
 const NAV_ITEMS = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, permission: 'view_dashboard' as const },
+  { href: '/admin/secretary', label: "Secretary's Desk", icon: Gavel, permission: 'manage_meetings' as const },
+  { href: '/admin/treasurer', label: 'Treasurer', icon: Landmark, permission: 'manage_financials' as const },
+  { href: '/admin/compliance', label: 'Compliance', icon: ShieldCheck, permission: 'manage_compliance' as const },
   { href: '/admin/volunteers', label: 'Volunteers', icon: Users, permission: 'manage_volunteers' as const },
   { href: '/admin/events', label: 'Events', icon: Calendar, permission: 'manage_events' as const },
   { href: '/admin/documents', label: 'Documents', icon: FileText, permission: 'view_documents' as const },

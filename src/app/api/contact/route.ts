@@ -11,6 +11,7 @@ const contactSchema = z.object({
   phone: z.string().max(30).optional(),
   message: z.string().min(1).max(5000),
   language: z.enum(['en', 'es']).optional().default('en'),
+  isVolunteer: z.boolean().optional().default(false),
 });
 
 export async function POST(request: Request) {
@@ -26,6 +27,28 @@ export async function POST(request: Request) {
       message: data.message.trim(),
       language: data.language,
     });
+
+    // Create volunteer record if they indicated interest
+    if (data.isVolunteer) {
+      try {
+        await db.insert(schema.volunteers).values({
+          name: data.name.trim(),
+          email: data.email.toLowerCase().trim(),
+          phone: data.phone?.trim() || null,
+          language: data.language,
+          status: 'pending',
+          notes: `Via contact form: ${data.message.trim().slice(0, 200)}`,
+        }).onConflictDoNothing({ target: schema.volunteers.email });
+
+        await db.insert(schema.activityLog).values({
+          type: 'volunteer_signup',
+          title: `Volunteer interest: ${data.name.trim()}`,
+          entityType: 'volunteers',
+        });
+      } catch (volError) {
+        console.error('Failed to create volunteer record:', volError);
+      }
+    }
 
     // Send notification email if Resend is configured
     if (env.hasResend) {

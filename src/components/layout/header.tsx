@@ -12,6 +12,7 @@ const navItems = [
   { key: 'about', href: '/about' },
   { key: 'programs', href: '/programs' },
   { key: 'blog', href: '/blog' },
+  { key: 'events', href: '/events' },
   { key: 'donate', href: '/donate' },
   { key: 'contact', href: '/contact' },
   { key: 'pct', href: '/pct' },
