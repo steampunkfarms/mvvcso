@@ -1,6 +1,5 @@
 import { db, schema } from '@/lib/db';
 import { eq, desc } from 'drizzle-orm';
-import { useTranslations } from 'next-intl';
 import { FileText, Download, File } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -12,26 +11,42 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic';
 
 export default async function ResourcesPage() {
-  const t = useTranslations('nav');
+  let documents: {
+    id: string;
+    title: string;
+    titleEs: string | null;
+    description: string | null;
+    fileUrl: string;
+    fileName: string;
+    mimeType: string | null;
+    fileSize: number | null;
+    category: string;
+    createdAt: Date;
+    folderName: string | null;
+  }[] = [];
 
-  const documents = await db
-    .select({
-      id: schema.documents.id,
-      title: schema.documents.title,
-      titleEs: schema.documents.titleEs,
-      description: schema.documents.description,
-      fileUrl: schema.documents.fileUrl,
-      fileName: schema.documents.fileName,
-      mimeType: schema.documents.mimeType,
-      fileSize: schema.documents.fileSize,
-      category: schema.documents.category,
-      createdAt: schema.documents.createdAt,
-      folderName: schema.documentFolders.name,
-    })
-    .from(schema.documents)
-    .leftJoin(schema.documentFolders, eq(schema.documents.folderId, schema.documentFolders.id))
-    .where(eq(schema.documents.accessLevel, 'public'))
-    .orderBy(desc(schema.documents.createdAt));
+  try {
+    documents = await db
+      .select({
+        id: schema.documents.id,
+        title: schema.documents.title,
+        titleEs: schema.documents.titleEs,
+        description: schema.documents.description,
+        fileUrl: schema.documents.fileUrl,
+        fileName: schema.documents.fileName,
+        mimeType: schema.documents.mimeType,
+        fileSize: schema.documents.fileSize,
+        category: schema.documents.category,
+        createdAt: schema.documents.createdAt,
+        folderName: schema.documentFolders.name,
+      })
+      .from(schema.documents)
+      .leftJoin(schema.documentFolders, eq(schema.documents.folderId, schema.documentFolders.id))
+      .where(eq(schema.documents.accessLevel, 'public'))
+      .orderBy(desc(schema.documents.createdAt));
+  } catch (error) {
+    console.error('Failed to load resources:', error);
+  }
 
   // Group by folder
   const grouped = new Map<string, typeof documents>();
