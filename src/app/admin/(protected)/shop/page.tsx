@@ -25,7 +25,7 @@ export default async function AdminShopPage() {
         <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Total Orders</span>
-            <Package className="w-5 h-5 text-dusk-500" />
+            <Package className="w-5 h-5 text-stone-600" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{orders.length}</div>
         </div>
@@ -46,7 +46,7 @@ export default async function AdminShopPage() {
         <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Products</span>
-            <ShoppingBag className="w-5 h-5 text-dusk-500" />
+            <ShoppingBag className="w-5 h-5 text-stone-600" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{products.length}</div>
         </div>

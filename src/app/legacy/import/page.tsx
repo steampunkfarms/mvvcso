@@ -91,8 +91,8 @@ export default function GedcomImportPage() {
                   <div className="text-2xl font-bold text-gold-600">{preview.individuals}</div>
                   <div className="text-sm text-(--text-muted)">Individuals</div>
                 </div>
-                <div className="bg-dusk-50 rounded-xl p-4 text-center">
-                  <div className="text-2xl font-bold text-dusk-600">{preview.families}</div>
+                <div className="bg-terra-50 rounded-xl p-4 text-center">
+                  <div className="text-2xl font-bold text-stone-700">{preview.families}</div>
                   <div className="text-sm text-(--text-muted)">Families</div>
                 </div>
               </div>

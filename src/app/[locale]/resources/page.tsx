@@ -23,7 +23,7 @@ const DOC_COUNTS: Record<string, number> = {
 
 const COLOR_MAP: Record<string, { bg: string; icon: string; border: string }> = {
   terra: { bg: 'bg-terra-50', icon: 'text-terra-500', border: 'border-terra-200' },
-  dusk: { bg: 'bg-dusk-50', icon: 'text-dusk-500', border: 'border-dusk-200' },
+  dusk: { bg: 'bg-terra-50', icon: 'text-stone-600', border: 'border-stone-200' },
   sage: { bg: 'bg-sage-50', icon: 'text-sage-600', border: 'border-sage-200' },
   gold: { bg: 'bg-gold-50', icon: 'text-gold-500', border: 'border-gold-200' },
 };

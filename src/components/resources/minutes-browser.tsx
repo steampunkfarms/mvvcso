@@ -43,7 +43,7 @@ function StatusBadge({ status }: { status: MeetingMinute['status'] }) {
 function TypeBadge({ type }: { type: MeetingMinute['type'] }) {
   if (type === 'regular') return null;
   const labels: Record<string, { text: string; className: string }> = {
-    special: { text: 'Special', className: 'text-dusk-600 bg-dusk-50' },
+    special: { text: 'Special', className: 'text-stone-700 bg-terra-50' },
     closed: { text: 'Closed', className: 'text-red-600 bg-red-50' },
     public: { text: 'Public', className: 'text-sage-600 bg-sage-50' },
   };
@@ -125,7 +125,7 @@ export function MinutesBrowser({
                     href={minute.fileUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-medium text-dusk-600 hover:text-gold-500 transition-colors shrink-0"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-stone-700 hover:text-gold-500 transition-colors shrink-0"
                   >
                     <Download className="w-3.5 h-3.5" /> PDF
                   </a>

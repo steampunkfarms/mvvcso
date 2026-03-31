@@ -3,7 +3,7 @@ import { Award, Star, Flame, TreePine, Users, Calendar } from 'lucide-react';
 const badgeCategories = [
   { name: 'Explorer', color: 'bg-sage-50 text-sage-600', icon: Star },
   { name: 'Creator', color: 'bg-gold-50 text-gold-600', icon: Award },
-  { name: 'Learner', color: 'bg-dusk-50 text-dusk-600', icon: Flame },
+  { name: 'Learner', color: 'bg-terra-50 text-stone-700', icon: Flame },
   { name: 'Helper', color: 'bg-terra-50 text-terra-400', icon: Users },
   { name: 'Streak', color: 'bg-stone-100 text-(--text-secondary)', icon: Calendar },
 ];

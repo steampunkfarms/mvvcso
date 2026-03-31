@@ -72,7 +72,7 @@ export default function PostDetailPage() {
         {/* Post */}
         <div className="bg-white rounded-xl p-6 border border-stone-200 mb-6">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-dusk-100 flex items-center justify-center text-sm font-bold text-dusk-600">
+            <div className="w-10 h-10 rounded-full bg-terra-100 flex items-center justify-center text-sm font-bold text-stone-700">
               {(post.authorDisplayName || post.authorName).charAt(0).toUpperCase()}
             </div>
             <div>

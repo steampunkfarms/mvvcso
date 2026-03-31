@@ -25,7 +25,7 @@ export function DocCard({ doc }: { doc: TransparencyDoc }) {
                 href={doc.fileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-dusk-600 hover:text-gold-500 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-stone-700 hover:text-gold-500 transition-colors"
               >
                 <Download className="w-3.5 h-3.5" /> English PDF
               </a>
@@ -38,7 +38,7 @@ export function DocCard({ doc }: { doc: TransparencyDoc }) {
                 href={doc.largeFileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-dusk-600 hover:text-gold-500 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-stone-700 hover:text-gold-500 transition-colors"
               >
                 <ZoomIn className="w-3.5 h-3.5" /> Large Print
               </a>

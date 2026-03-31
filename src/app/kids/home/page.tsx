@@ -44,7 +44,7 @@ export default function KidsHomePage() {
           </Link>
 
           <Link href="/kids/explore" className="bg-white rounded-2xl p-6 border-2 border-gold-200 hover:border-gold-400 transition-colors text-center group">
-            <Compass className="w-10 h-10 text-dusk-500 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+            <Compass className="w-10 h-10 text-stone-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
             <h3 className="font-bold text-(--text-primary)">Explore</h3>
             <p className="text-xs text-(--text-muted) mt-1">Virtual Ranchita</p>
           </Link>

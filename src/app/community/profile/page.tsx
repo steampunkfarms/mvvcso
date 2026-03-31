@@ -27,8 +27,8 @@ export default function ProfilePage() {
         <form onSubmit={handleSave} className="bg-white rounded-xl p-6 border border-stone-200 space-y-5">
           {/* Avatar */}
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-full bg-dusk-100 flex items-center justify-center">
-              <User className="w-8 h-8 text-dusk-500" />
+            <div className="w-16 h-16 rounded-full bg-terra-100 flex items-center justify-center">
+              <User className="w-8 h-8 text-stone-600" />
             </div>
             <div>
               <p className="text-sm font-medium text-(--text-primary)">Profile Photo</p>

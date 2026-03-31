@@ -75,7 +75,7 @@ export default async function ShopPage() {
                       )}
                     </div>
                     <div className="p-4">
-                      <span className="text-xs capitalize text-dusk-500 bg-dusk-50 px-2 py-0.5 rounded">{product.category}</span>
+                      <span className="text-xs capitalize text-stone-600 bg-terra-50 px-2 py-0.5 rounded">{product.category}</span>
                       <h3 className="font-semibold text-(--text-primary) mt-2 group-hover:text-gold-400 transition-colors">{product.name}</h3>
                       <p className="text-gold-600 font-bold mt-1">{priceDisplay}</p>
                     </div>

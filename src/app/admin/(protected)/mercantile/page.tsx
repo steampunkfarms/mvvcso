@@ -24,7 +24,7 @@ export default async function AdminMercantilePage() {
 
   const statusColors: Record<string, string> = {
     pending: 'bg-gold-50 text-gold-600',
-    approved: 'bg-dusk-50 text-dusk-600',
+    approved: 'bg-terra-50 text-stone-700',
     active: 'bg-sage-50 text-sage-600',
     suspended: 'bg-red-50 text-red-600',
   };

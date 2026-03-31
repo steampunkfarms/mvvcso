@@ -64,7 +64,7 @@ export default function ListingDetailPage() {
               <span className={`text-xl font-bold ${listing.type === 'free' ? 'text-sage-600' : 'text-gold-600'}`}>
                 {formatPrice(listing.price, listing.type)}
               </span>
-              <span className="text-xs capitalize bg-dusk-50 text-dusk-600 px-2 py-0.5 rounded">{listing.category}</span>
+              <span className="text-xs capitalize bg-terra-50 text-stone-700 px-2 py-0.5 rounded">{listing.category}</span>
               {listing.condition && (
                 <span className="text-xs capitalize bg-stone-100 text-(--text-muted) px-2 py-0.5 rounded">{listing.condition}</span>
               )}
@@ -84,7 +84,7 @@ export default function ListingDetailPage() {
             <div className="bg-white rounded-xl p-6 border border-stone-200">
               <h3 className="font-semibold text-(--text-primary) mb-3">Seller</h3>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-dusk-100 flex items-center justify-center text-sm font-bold text-dusk-600">
+                <div className="w-10 h-10 rounded-full bg-terra-100 flex items-center justify-center text-sm font-bold text-stone-700">
                   {(listing.sellerDisplayName || listing.sellerName).charAt(0).toUpperCase()}
                 </div>
                 <span className="font-medium text-(--text-primary)">{listing.sellerDisplayName || listing.sellerName}</span>

@@ -17,7 +17,7 @@ export default async function AdminKidsPage() {
         <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Active Children</span>
-            <Users className="w-5 h-5 text-dusk-500" />
+            <Users className="w-5 h-5 text-stone-600" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{active.length}</div>
         </div>
