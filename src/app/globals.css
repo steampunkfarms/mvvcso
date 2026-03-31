@@ -106,6 +106,12 @@
   --color-text-on-primary: white;
   --color-text-on-secondary: white;
 
+  /* Short aliases (referenced by components as text-(--text-primary) etc.) */
+  --text-primary: var(--stone-800);
+  --text-secondary: var(--stone-600);
+  --text-muted: var(--stone-400);
+  --text-on-dark: var(--dusk-100);
+
   /* Borders */
   --color-border: var(--stone-200);
   --color-border-light: var(--stone-100);
@@ -183,6 +189,10 @@
     --color-border: var(--stone-700);
     --color-border-light: var(--stone-800);
     --color-border-strong: var(--stone-600);
+    /* Short aliases for dark mode */
+    --text-primary: var(--stone-100);
+    --text-secondary: var(--stone-400);
+    --text-muted: var(--stone-500);
   }
 }
 

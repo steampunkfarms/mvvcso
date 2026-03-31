@@ -57,7 +57,7 @@ export function NewsletterSection() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="px-6 py-3 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors disabled:opacity-60"
+              className="px-6 py-3 rounded-lg bg-dusk-900 text-dusk-100 font-semibold hover:bg-dusk-800 transition-colors disabled:opacity-60"
             >
               {status === 'loading' ? '...' : t('newsletter_button')}
             </button>
