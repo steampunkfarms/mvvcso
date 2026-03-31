@@ -84,6 +84,16 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Nonprofit verification */}
+      <div className="border-t border-stone-300 py-3">
+        <div className="max-w-(--container-max) mx-auto px-(--container-padding) flex flex-wrap justify-center items-center gap-x-6 gap-y-1 text-xs">
+          <span className="text-(--text-muted)">Verify us:</span>
+          <a href="https://projects.propublica.org/nonprofits/organizations/953173208" target="_blank" rel="noopener noreferrer" className="text-(--text-secondary) hover:text-gold-400 transition-colors underline decoration-stone-300 hover:decoration-gold-400">ProPublica</a>
+          <a href="https://app.candid.org/profile/8449076/montezuma-valley-volunteer-community-service-organization-95-3173208" target="_blank" rel="noopener noreferrer" className="text-(--text-secondary) hover:text-gold-400 transition-colors underline decoration-stone-300 hover:decoration-gold-400">Candid</a>
+          <a href="https://www.charitynavigator.org/ein/953173208" target="_blank" rel="noopener noreferrer" className="text-(--text-secondary) hover:text-gold-400 transition-colors underline decoration-stone-300 hover:decoration-gold-400">Charity Navigator</a>
+        </div>
+      </div>
+
       {/* Bottom bar */}
       <div className="border-t border-stone-300 py-4">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding) flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-(--text-muted)">
