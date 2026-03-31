@@ -2,8 +2,8 @@ import { requireAuth } from '@/lib/auth';
 import { isMasterAdmin } from '@/lib/master-admin';
 import { db, schema } from '@/lib/db';
 import { desc } from 'drizzle-orm';
-import { format } from 'date-fns';
 import { getRoleLabel } from '@/lib/permissions';
+import { UserManagement } from '@/components/admin/user-management';
 
 export default async function AdminSettingsPage() {
   const user = await requireAuth();
@@ -14,6 +14,17 @@ export default async function AdminSettingsPage() {
     : [];
 
   const displayRole = isMasterAdmin(user.email) ? 'Tech Advisor' : getRoleLabel(user.role);
+
+  // Serialize for client component
+  const serializedUsers = users.map(u => ({
+    id: u.id,
+    name: u.name,
+    email: u.email,
+    role: u.role,
+    language: u.language,
+    isActive: u.isActive,
+    lastLoginAt: u.lastLoginAt ? u.lastLoginAt.toISOString() : null,
+  }));
 
   return (
     <div className="space-y-8">
@@ -43,45 +54,7 @@ export default async function AdminSettingsPage() {
       </div>
 
       {/* User Management (President only) */}
-      {isAdmin && (
-        <div className="bg-white rounded-xl border border-stone-200 overflow-hidden">
-          <div className="px-5 py-4 border-b border-stone-200">
-            <h2 className="font-semibold text-(--text-primary)">User Management</h2>
-          </div>
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-stone-100 text-left">
-                <th className="px-4 py-3 font-semibold text-(--text-primary)">Name</th>
-                <th className="px-4 py-3 font-semibold text-(--text-primary)">Email</th>
-                <th className="px-4 py-3 font-semibold text-(--text-primary)">Role</th>
-                <th className="px-4 py-3 font-semibold text-(--text-primary)">Status</th>
-                <th className="px-4 py-3 font-semibold text-(--text-primary)">Last Login</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-stone-200/50">
-              {users.map(u => (
-                <tr key={u.id} className="hover:bg-stone-50">
-                  <td className="px-4 py-3 text-(--text-primary) font-medium">{u.name}</td>
-                  <td className="px-4 py-3 text-(--text-secondary)">{u.email}</td>
-                  <td className="px-4 py-3">
-                    <span className="text-xs font-medium px-2 py-0.5 rounded bg-terra-50 text-stone-700">
-                      {isMasterAdmin(u.email) ? 'Tech Advisor' : getRoleLabel(u.role as Parameters<typeof getRoleLabel>[0])}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3">
-                    <span className={`text-xs font-medium px-2 py-0.5 rounded ${u.isActive ? 'bg-sage-50 text-sage-600' : 'bg-stone-100 text-(--text-muted)'}`}>
-                      {u.isActive ? 'Active' : 'Inactive'}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 text-(--text-muted) text-xs">
-                    {u.lastLoginAt ? format(u.lastLoginAt, 'MMM d, yyyy') : 'Never'}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+      {isAdmin && <UserManagement initialUsers={serializedUsers} />}
     </div>
   );
 }
