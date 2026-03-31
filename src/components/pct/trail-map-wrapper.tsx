@@ -7,7 +7,7 @@ const TrailMap = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="h-[500px] rounded-xl bg-sandy-gold/20 flex items-center justify-center">
+      <div className="h-[500px] rounded-xl bg-stone-200/20 flex items-center justify-center">
         <p className="text-(--text-muted)">Loading map...</p>
       </div>
     ),

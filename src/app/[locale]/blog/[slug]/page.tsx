@@ -49,12 +49,12 @@ export default async function BlogPostPage({
 
   return (
     <div>
-      <section className="py-(--section-padding) bg-desert-cream">
+      <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-3xl mx-auto px-(--container-padding)">
           {/* Back link */}
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-terra-cotta hover:text-terra-cotta-hover mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-gold-400 hover:text-gold-500 mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             {t('back')}
@@ -62,7 +62,7 @@ export default async function BlogPostPage({
 
           {/* Meta */}
           {post.category && (
-            <span className="inline-block text-xs font-semibold text-dusty-mauve bg-dusty-mauve/10 px-2 py-0.5 rounded mb-3">
+            <span className="inline-block text-xs font-semibold text-terra-400 bg-terra-50/10 px-2 py-0.5 rounded mb-3">
               {post.category}
             </span>
           )}

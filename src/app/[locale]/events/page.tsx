@@ -23,7 +23,7 @@ export default async function EventsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="py-(--section-padding) bg-sandy-gold/20">
+      <section className="py-(--section-padding) bg-stone-200/20">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding) text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-(--text-primary)">
             Community Events
@@ -35,7 +35,7 @@ export default async function EventsPage() {
       </section>
 
       {/* Events grid */}
-      <section className="py-(--section-padding) bg-desert-cream">
+      <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
           {publicEvents.length === 0 ? (
             <div className="text-center py-16">
@@ -49,15 +49,15 @@ export default async function EventsPage() {
                 <Link
                   key={event.id}
                   href={`/events/${event.id}`}
-                  className="group bg-white rounded-xl border border-sandy-gold p-6 hover:border-terra-cotta/30 hover:shadow-sm transition-all"
+                  className="group bg-white rounded-xl border border-stone-200 p-6 hover:border-gold-400/30 hover:shadow-sm transition-all"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 rounded-lg bg-sunset-peach/20 flex flex-col items-center justify-center text-terra-cotta shrink-0">
+                    <div className="w-14 h-14 rounded-lg bg-gold-100/20 flex flex-col items-center justify-center text-gold-400 shrink-0">
                       <div className="text-xs font-bold uppercase leading-none">{format(event.date, 'MMM')}</div>
                       <div className="text-xl font-bold leading-none">{format(event.date, 'd')}</div>
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-lg font-semibold text-(--text-primary) group-hover:text-terra-cotta transition-colors">
+                      <h3 className="text-lg font-semibold text-(--text-primary) group-hover:text-gold-400 transition-colors">
                         {event.titleEn}
                       </h3>
                       <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-1 text-sm text-(--text-muted)">
@@ -77,7 +77,7 @@ export default async function EventsPage() {
                           {event.descriptionEn}
                         </p>
                       )}
-                      <span className="inline-flex items-center gap-1 text-sm text-terra-cotta font-medium mt-3">
+                      <span className="inline-flex items-center gap-1 text-sm text-gold-400 font-medium mt-3">
                         Details & RSVP <ArrowRight className="w-3.5 h-3.5" />
                       </span>
                     </div>

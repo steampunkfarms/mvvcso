@@ -19,7 +19,7 @@ export function LanguageToggle() {
   return (
     <button
       onClick={switchLocale}
-      className="px-3 py-1.5 text-sm font-medium rounded-md border border-chaparral/40 text-(--text-secondary) hover:bg-sandy-gold/30 transition-colors"
+      className="px-3 py-1.5 text-sm font-medium rounded-md border border-stone-300/40 text-(--text-secondary) hover:bg-stone-200/30 transition-colors"
       aria-label={`Switch to ${label}`}
     >
       {label}

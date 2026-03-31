@@ -15,7 +15,7 @@ export default function DonatePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="py-(--section-padding) bg-sandy-gold/20">
+      <section className="py-(--section-padding) bg-stone-200/20">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding) text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-(--text-primary)">
             {t('title')}
@@ -27,7 +27,7 @@ export default function DonatePage() {
       </section>
 
       {/* Form + Impact */}
-      <section className="py-(--section-padding) bg-desert-cream">
+      <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Donation form */}
@@ -46,31 +46,31 @@ export default function DonatePage() {
                   className="drop-shadow-md"
                 />
               </div>
-              <div className="bg-white rounded-xl p-6 border border-sandy-gold">
+              <div className="bg-white rounded-xl p-6 border border-stone-200">
                 <h3 className="text-lg font-bold text-(--text-primary) mb-4">
                   {t('impact_title')}
                 </h3>
                 <ul className="space-y-3 text-sm text-(--text-secondary)">
                   <li className="flex items-start gap-2">
-                    <span className="text-terra-cotta font-bold shrink-0">$25</span>
+                    <span className="text-gold-400 font-bold shrink-0">$25</span>
                     <span>{t('impact_25').replace('$25 = ', '')}</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-terra-cotta font-bold shrink-0">$50</span>
+                    <span className="text-gold-400 font-bold shrink-0">$50</span>
                     <span>{t('impact_50').replace('$50 = ', '')}</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-terra-cotta font-bold shrink-0">$100</span>
+                    <span className="text-gold-400 font-bold shrink-0">$100</span>
                     <span>{t('impact_100').replace('$100 = ', '')}</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-terra-cotta font-bold shrink-0">$250</span>
+                    <span className="text-gold-400 font-bold shrink-0">$250</span>
                     <span>{t('impact_250').replace('$250 = ', '')}</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="bg-white rounded-xl p-6 border border-sandy-gold">
+              <div className="bg-white rounded-xl p-6 border border-stone-200">
                 <p className="text-sm text-(--text-secondary) leading-relaxed">
                   {t('tax_notice')}
                 </p>
@@ -82,7 +82,7 @@ export default function DonatePage() {
                   href="https://www.zeffy.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-terra-cotta hover:text-terra-cotta-hover font-medium transition-colors"
+                  className="text-sm text-gold-400 hover:text-gold-500 font-medium transition-colors"
                 >
                   {t('zeffy_link')} &rarr;
                 </a>

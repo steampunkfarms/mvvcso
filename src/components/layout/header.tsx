@@ -24,7 +24,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-desert-cream/90 backdrop-blur-md border-b border-sandy-gold">
+    <header className="sticky top-0 z-50 bg-stone-50/90 backdrop-blur-md border-b border-stone-200">
       <nav className="max-w-(--container-max) mx-auto px-(--container-padding) h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
@@ -47,8 +47,8 @@ export function Header() {
                   href={item.href}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive
-                      ? 'text-terra-cotta bg-terra-cotta/5'
-                      : 'text-(--text-secondary) hover:text-(--text-primary) hover:bg-sandy-gold/30'
+                      ? 'text-gold-400 bg-gold-400/5'
+                      : 'text-(--text-secondary) hover:text-(--text-primary) hover:bg-stone-200/30'
                   }`}
                 >
                   {t(item.key)}
@@ -65,7 +65,7 @@ export function Header() {
           {/* Donate button (desktop) */}
           <Link
             href="/donate"
-            className="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-terra-cotta text-white text-sm font-semibold hover:bg-terra-cotta-hover transition-colors"
+            className="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-gold-400 text-white text-sm font-semibold hover:bg-gold-500 transition-colors"
           >
             {t('donate')}
           </Link>

@@ -38,11 +38,11 @@ export default async function EventDetailPage({
 
   return (
     <div>
-      <section className="py-(--section-padding) bg-sandy-gold/20">
+      <section className="py-(--section-padding) bg-stone-200/20">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-16 h-16 rounded-lg bg-sunset-peach/20 flex flex-col items-center justify-center text-terra-cotta shrink-0">
+              <div className="w-16 h-16 rounded-lg bg-gold-100/20 flex flex-col items-center justify-center text-gold-400 shrink-0">
                 <div className="text-xs font-bold uppercase leading-none">{format(event.date, 'MMM')}</div>
                 <div className="text-2xl font-bold leading-none">{format(event.date, 'd')}</div>
               </div>
@@ -58,25 +58,25 @@ export default async function EventDetailPage({
 
             <div className="flex flex-wrap gap-4 text-sm text-(--text-secondary) mb-6">
               <span className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-terra-cotta" />
+                <Calendar className="w-4 h-4 text-gold-400" />
                 {format(event.date, 'EEEE, MMMM d, yyyy · h:mm a')}
                 {event.endDate && ` — ${format(event.endDate, 'h:mm a')}`}
               </span>
               {event.location && (
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-terra-cotta" />
+                  <MapPin className="w-4 h-4 text-gold-400" />
                   {event.location}
                 </span>
               )}
               <span className="flex items-center gap-1.5">
-                <Users className="w-4 h-4 text-terra-cotta" />
+                <Users className="w-4 h-4 text-gold-400" />
                 {Number(rsvpCount)} attending{event.maxRsvp ? ` / ${event.maxRsvp} spots` : ''}
               </span>
             </div>
 
             <a
               href={`/api/events/${id}/ical`}
-              className="inline-flex items-center gap-2 text-sm text-terra-cotta hover:text-terra-cotta-hover font-medium transition-colors mb-6"
+              className="inline-flex items-center gap-2 text-sm text-gold-400 hover:text-gold-500 font-medium transition-colors mb-6"
             >
               <Download className="w-4 h-4" /> Add to calendar (.ics)
             </a>
@@ -84,7 +84,7 @@ export default async function EventDetailPage({
         </div>
       </section>
 
-      <section className="py-(--section-padding) bg-desert-cream">
+      <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
           <div className="max-w-3xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Description */}
@@ -95,7 +95,7 @@ export default async function EventDetailPage({
                 </div>
               )}
               {event.descriptionEs && (
-                <div className="mt-6 p-4 bg-sandy-gold/10 rounded-lg">
+                <div className="mt-6 p-4 bg-stone-200/10 rounded-lg">
                   <p className="text-xs font-semibold text-(--text-muted) uppercase mb-2">En Español</p>
                   <p className="text-sm text-(--text-secondary) whitespace-pre-wrap">{event.descriptionEs}</p>
                 </div>

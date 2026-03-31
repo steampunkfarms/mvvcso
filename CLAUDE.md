@@ -41,13 +41,15 @@
 - NEXT_PUBLIC_SITE_URL — Base URL for absolute links
 - ANTHROPIC_API_KEY — AI chatbot
 
-## Brand: High Desert Sunset & Chaparral Palette
+## Brand: Ranchita Dusk Palette
 See src/app/globals.css for CSS custom properties.
-BRIGHT overall — high mountain desert sunshine feel.
-Background: Desert Cream #fff1da (primary), Cream Light #fff8ed (cards)
-Accents: Sandy Gold #e9cb8d, Sunset Peach #f7bd8d
-Buttons/Borders/Highlights (darkest): Terra Cotta #ca7e56, Chaparral #878763, Dusty Mauve #ae7c83
-Text: Warm browns (#3d2e1f primary, #6b5744 secondary) — never pure black
+Cool blue dominant with warm gold accents — like the last light over Ranchita mountains.
+Primary (Dusk sky): #ECEEF5 → #1A2340 (10-stop gradient)
+Accent (Cloud gold): #FEF8F0 → #5C3A10 (CTAs are gold-400 #E0A040)
+Secondary (Terra earth): #FAF0EC → #4A2010
+Success (Sage): #EEF2E8 → #243418
+Neutrals (Stone): #F8F6F4 page bg → #1C1A18 darkest
+Text: Warm stone (#2C2824 primary, #6A6460 secondary) — never pure black
 
 ## i18n
 - English = default locale

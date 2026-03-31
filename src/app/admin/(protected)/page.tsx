@@ -73,7 +73,7 @@ export default async function AdminDashboardPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Activity */}
-        <div className="bg-white rounded-xl border border-sandy-gold p-6">
+        <div className="bg-white rounded-xl border border-stone-200 p-6">
           <h2 className="text-lg font-bold text-(--text-primary) mb-4">Recent Activity</h2>
           <ActivityFeed items={data.recentActivity} />
         </div>
@@ -81,19 +81,19 @@ export default async function AdminDashboardPage() {
         {/* Quick Actions + Upcoming Events */}
         <div className="space-y-6">
           {/* Quick Actions */}
-          <div className="bg-white rounded-xl border border-sandy-gold p-6">
+          <div className="bg-white rounded-xl border border-stone-200 p-6">
             <h2 className="text-lg font-bold text-(--text-primary) mb-4">Quick Actions</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Link
                 href="/admin/events"
-                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-terra-cotta/10 text-terra-cotta text-sm font-medium hover:bg-terra-cotta/20 transition-colors"
+                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-gold-400/10 text-gold-400 text-sm font-medium hover:bg-gold-400/20 transition-colors"
               >
                 <Calendar className="w-4 h-4" />
                 Create Event
               </Link>
               <Link
                 href="/admin/blog"
-                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-chaparral/10 text-chaparral text-sm font-medium hover:bg-chaparral/20 transition-colors"
+                className="flex items-center gap-2 px-4 py-3 rounded-lg bg-dusk-500/10 text-dusk-500 text-sm font-medium hover:bg-dusk-500/20 transition-colors"
               >
                 <FileText className="w-4 h-4" />
                 Write Blog Post
@@ -102,7 +102,7 @@ export default async function AdminDashboardPage() {
           </div>
 
           {/* Upcoming Events */}
-          <div className="bg-white rounded-xl border border-sandy-gold p-6">
+          <div className="bg-white rounded-xl border border-stone-200 p-6">
             <h2 className="text-lg font-bold text-(--text-primary) mb-4">Upcoming Events</h2>
             {data.upcomingEvents.length === 0 ? (
               <p className="text-sm text-(--text-muted) text-center py-4">No upcoming events.</p>
@@ -110,7 +110,7 @@ export default async function AdminDashboardPage() {
               <div className="space-y-3">
                 {data.upcomingEvents.map(event => (
                   <div key={event.id} className="flex items-center gap-3 py-2">
-                    <div className="w-10 h-10 rounded-lg bg-sunset-peach/20 flex items-center justify-center text-xs font-bold text-terra-cotta shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-gold-100/20 flex items-center justify-center text-xs font-bold text-gold-400 shrink-0">
                       {event.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).split(' ').map((p, i) => i === 0 ? <div key={i} className="text-[10px] uppercase">{p}</div> : <div key={i}>{p}</div>)}
                     </div>
                     <div className="min-w-0">

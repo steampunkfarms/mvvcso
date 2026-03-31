@@ -1,49 +1,117 @@
 @import "tailwindcss";
 
 :root {
-  /* High Desert Sunset & Chaparral Palette — bright, warm, airy */
-  --desert-cream: #fff1da;        /* primary background — warm parchment */
-  --sandy-gold: #e9cb8d;          /* secondary surfaces, card borders */
-  --sunset-peach: #f7bd8d;        /* warm accents, CTAs, highlights */
-  --terra-cotta: #ca7e56;         /* buttons, strong accents */
-  --chaparral: #878763;           /* sage/olive — nature accent, borders */
-  --dusty-mauve: #ae7c83;         /* subtle highlights, tags, badges */
+  /* === RANCHITA DUSK PALETTE === */
 
-  /* Derived tones */
-  --terra-cotta-hover: #b86d47;
-  --sunset-peach-hover: #eda870;
-  --cream-light: #fff8ed;         /* lighter than desert-cream for cards */
+  /* Dusk sky (primary) */
+  --dusk-50: #ECEEF5;
+  --dusk-100: #DDE2EC;
+  --dusk-200: #C0CADC;
+  --dusk-300: #A0B0CC;
+  --dusk-400: #8094B8;
+  --dusk-500: #6478A0;
+  --dusk-600: #4A5F85;
+  --dusk-700: #344668;
+  --dusk-800: #2C3D5E;
+  --dusk-900: #1A2340;
 
-  /* Text — warm browns, not black */
-  --text-primary: #3d2e1f;        /* warm dark brown */
-  --text-secondary: #6b5744;      /* medium brown */
-  --text-muted: #9a8b7a;          /* muted tan */
-  --text-on-dark: #fff1da;        /* cream on dark surfaces */
+  /* Cloud gold (warm accent) */
+  --gold-50: #FEF8F0;
+  --gold-100: #FAE8C8;
+  --gold-200: #F0CA80;
+  --gold-300: #E8BA60;
+  --gold-400: #E0A040;
+  --gold-500: #D09030;
+  --gold-600: #C08828;
+  --gold-700: #A07020;
+  --gold-800: #8A5A18;
+  --gold-900: #5C3A10;
 
-  /* Semantic mappings */
-  --color-primary: var(--terra-cotta);
-  --color-primary-hover: var(--terra-cotta-hover);
-  --color-accent: var(--sunset-peach);
-  --color-accent-hover: var(--sunset-peach-hover);
-  --color-nature: var(--chaparral);
-  --color-highlight: var(--dusty-mauve);
+  /* Terra (secondary warm) */
+  --terra-50: #FAF0EC;
+  --terra-100: #F0D0C0;
+  --terra-200: #E0A890;
+  --terra-400: #C07858;
+  --terra-500: #B06848;
+  --terra-600: #9A5838;
+  --terra-800: #7A3820;
+  --terra-900: #4A2010;
 
-  --color-bg-page: var(--desert-cream);
-  --color-bg-surface: var(--sandy-gold);
-  --color-bg-card: var(--cream-light);
-  --color-bg-dark: var(--terra-cotta);
-  --color-bg-hero: #3d2e1f;
+  /* Sage (success / nature) */
+  --sage-50: #EEF2E8;
+  --sage-100: #D0DCC0;
+  --sage-200: #A8BC88;
+  --sage-400: #728A5C;
+  --sage-600: #5A7048;
+  --sage-800: #3A5028;
+  --sage-900: #243418;
 
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --color-text-on-dark: var(--text-on-dark);
-  --color-text-on-accent: white;
+  /* Stone (warm neutrals) */
+  --stone-50: #F8F6F4;
+  --stone-100: #F0EEEA;
+  --stone-200: #E0DCD8;
+  --stone-300: #C8C0B8;
+  --stone-400: #A8A098;
+  --stone-500: #888078;
+  --stone-600: #6A6460;
+  --stone-700: #4A4440;
+  --stone-800: #2C2824;
+  --stone-900: #1C1A18;
 
-  --color-border: var(--chaparral);
-  --color-border-light: var(--sandy-gold);
+  /* === SEMANTIC MAPPINGS === */
 
-  /* Typography */
+  /* Primary action (gold) */
+  --color-primary: var(--gold-400);
+  --color-primary-hover: var(--gold-500);
+  --color-primary-active: var(--gold-600);
+  --color-primary-text: var(--gold-900);
+
+  /* Secondary action (terra) */
+  --color-secondary: var(--terra-400);
+  --color-secondary-hover: var(--terra-500);
+  --color-secondary-active: var(--terra-600);
+
+  /* Info / links (dusk) */
+  --color-info: var(--dusk-600);
+  --color-info-hover: var(--dusk-500);
+  --color-info-bg: var(--dusk-50);
+
+  /* Success (sage) */
+  --color-success: var(--sage-600);
+  --color-success-bg: var(--sage-50);
+
+  /* Warning (gold, reused) */
+  --color-warning: var(--gold-600);
+  --color-warning-bg: var(--gold-50);
+
+  /* Danger (terra, intensified) */
+  --color-danger: #C04040;
+  --color-danger-bg: #FEF0F0;
+
+  /* Backgrounds */
+  --color-bg-page: var(--stone-50);
+  --color-bg-surface: var(--stone-100);
+  --color-bg-card: #FFFFFF;
+  --color-bg-dark: var(--dusk-900);
+  --color-bg-dark-surface: var(--dusk-800);
+  --color-bg-warm: var(--gold-50);
+  --color-bg-hero: var(--dusk-900);
+
+  /* Text */
+  --color-text-primary: var(--stone-800);
+  --color-text-secondary: var(--stone-600);
+  --color-text-muted: var(--stone-400);
+  --color-text-on-dark: var(--dusk-100);
+  --color-text-on-dark-muted: var(--dusk-300);
+  --color-text-on-primary: white;
+  --color-text-on-secondary: white;
+
+  /* Borders */
+  --color-border: var(--stone-200);
+  --color-border-light: var(--stone-100);
+  --color-border-strong: var(--stone-300);
+
+  /* Fonts */
   --font-body: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-heading: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 
@@ -54,17 +122,68 @@
 }
 
 @theme inline {
-  --color-desert-cream: var(--desert-cream);
-  --color-sandy-gold: var(--sandy-gold);
-  --color-sunset-peach: var(--sunset-peach);
-  --color-terra-cotta: var(--terra-cotta);
-  --color-chaparral: var(--chaparral);
-  --color-dusty-mauve: var(--dusty-mauve);
-  --color-cream-light: var(--cream-light);
-  --color-terra-cotta-hover: var(--terra-cotta-hover);
-  --color-sunset-peach-hover: var(--sunset-peach-hover);
+  --color-dusk-50: var(--dusk-50);
+  --color-dusk-100: var(--dusk-100);
+  --color-dusk-200: var(--dusk-200);
+  --color-dusk-300: var(--dusk-300);
+  --color-dusk-400: var(--dusk-400);
+  --color-dusk-500: var(--dusk-500);
+  --color-dusk-600: var(--dusk-600);
+  --color-dusk-700: var(--dusk-700);
+  --color-dusk-800: var(--dusk-800);
+  --color-dusk-900: var(--dusk-900);
+  --color-gold-50: var(--gold-50);
+  --color-gold-100: var(--gold-100);
+  --color-gold-200: var(--gold-200);
+  --color-gold-300: var(--gold-300);
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+  --color-gold-800: var(--gold-800);
+  --color-gold-900: var(--gold-900);
+  --color-terra-50: var(--terra-50);
+  --color-terra-100: var(--terra-100);
+  --color-terra-200: var(--terra-200);
+  --color-terra-400: var(--terra-400);
+  --color-terra-500: var(--terra-500);
+  --color-terra-600: var(--terra-600);
+  --color-terra-800: var(--terra-800);
+  --color-terra-900: var(--terra-900);
+  --color-sage-50: var(--sage-50);
+  --color-sage-100: var(--sage-100);
+  --color-sage-200: var(--sage-200);
+  --color-sage-400: var(--sage-400);
+  --color-sage-600: var(--sage-600);
+  --color-sage-800: var(--sage-800);
+  --color-sage-900: var(--sage-900);
+  --color-stone-50: var(--stone-50);
+  --color-stone-100: var(--stone-100);
+  --color-stone-200: var(--stone-200);
+  --color-stone-300: var(--stone-300);
+  --color-stone-400: var(--stone-400);
+  --color-stone-500: var(--stone-500);
+  --color-stone-600: var(--stone-600);
+  --color-stone-700: var(--stone-700);
+  --color-stone-800: var(--stone-800);
+  --color-stone-900: var(--stone-900);
   --font-sans: var(--font-body);
   --font-heading: var(--font-heading);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-page: var(--stone-900);
+    --color-bg-surface: var(--stone-800);
+    --color-bg-card: var(--stone-700);
+    --color-text-primary: var(--stone-100);
+    --color-text-secondary: var(--stone-400);
+    --color-text-muted: var(--stone-500);
+    --color-border: var(--stone-700);
+    --color-border-light: var(--stone-800);
+    --color-border-strong: var(--stone-600);
+  }
 }
 
 body {

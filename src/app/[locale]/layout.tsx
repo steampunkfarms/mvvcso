@@ -29,7 +29,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${geistSans.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-desert-cream text-(--text-primary) font-(--font-body)">
+      <body className="min-h-full flex flex-col bg-stone-50 text-(--text-primary) font-(--font-body)">
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="flex-1">{children}</main>

@@ -35,7 +35,7 @@ export default async function VolunteersPage() {
         </div>
         <Link
           href="/admin/volunteers/new"
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-terra-cotta text-white text-sm font-semibold hover:bg-terra-cotta-hover transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gold-400 text-white text-sm font-semibold hover:bg-gold-500 transition-colors"
         >
           <UserPlus className="w-4 h-4" />
           Add Volunteer

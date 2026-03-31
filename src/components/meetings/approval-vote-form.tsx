@@ -69,7 +69,7 @@ export function ApprovalVoteForm({ meetingId, currentVote }: ApprovalVoteFormPro
           onClick={() => handleSubmit('abstain')}
           disabled={status === 'loading'}
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border text-sm font-semibold transition-colors ${
-            vote === 'abstain' ? 'bg-chaparral text-white border-chaparral' : 'border-chaparral/40 text-chaparral hover:bg-sandy-gold/10'
+            vote === 'abstain' ? 'bg-dusk-500 text-white border-stone-300' : 'border-stone-300/40 text-dusk-500 hover:bg-stone-200/10'
           }`}
         >
           <Minus className="w-4 h-4" />
@@ -83,7 +83,7 @@ export function ApprovalVoteForm({ meetingId, currentVote }: ApprovalVoteFormPro
           onChange={(e) => setComment(e.target.value)}
           rows={2}
           placeholder="Optional comment..."
-          className="w-full px-3 py-2 rounded-lg border border-sandy-gold bg-cream-light text-sm text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta"
+          className="w-full px-3 py-2 rounded-lg border border-stone-200 bg-stone-100 text-sm text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400"
         />
       </div>
     </div>

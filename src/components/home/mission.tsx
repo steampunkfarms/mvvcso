@@ -4,7 +4,7 @@ export function Mission() {
   const t = useTranslations('home');
 
   return (
-    <section className="py-(--section-padding) bg-desert-cream">
+    <section className="py-(--section-padding) bg-stone-50">
       <div className="max-w-(--container-max) mx-auto px-(--container-padding) text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-(--text-primary)">
           {t('mission_title')}

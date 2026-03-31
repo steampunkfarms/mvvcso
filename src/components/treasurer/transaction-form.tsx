@@ -47,7 +47,7 @@ export function TransactionForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 border border-sandy-gold space-y-5 max-w-xl">
+    <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 border border-stone-200 space-y-5 max-w-xl">
       {/* Type toggle */}
       <div className="flex gap-3">
         {(['income', 'expense'] as const).map(t => (
@@ -58,7 +58,7 @@ export function TransactionForm() {
             className={`flex-1 px-4 py-2.5 rounded-lg border text-sm font-semibold transition-colors capitalize ${
               type === t
                 ? t === 'income' ? 'bg-green-600 text-white border-green-600' : 'bg-red-600 text-white border-red-600'
-                : 'bg-cream-light text-(--text-primary) border-sandy-gold hover:border-terra-cotta'
+                : 'bg-stone-100 text-(--text-primary) border-stone-200 hover:border-gold-400'
             }`}
           >
             {t}
@@ -70,31 +70,31 @@ export function TransactionForm() {
         <div>
           <label htmlFor="date" className="block text-sm font-medium text-(--text-primary) mb-1">Date</label>
           <input id="date" name="date" type="date" required defaultValue={new Date().toISOString().split('T')[0]}
-            className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) focus:outline-none focus:border-terra-cotta" />
+            className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) focus:outline-none focus:border-gold-400" />
         </div>
         <div>
           <label htmlFor="amount" className="block text-sm font-medium text-(--text-primary) mb-1">Amount ($)</label>
           <input id="amount" name="amount" type="number" step="0.01" min="0.01" required
-            className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) focus:outline-none focus:border-terra-cotta" />
+            className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) focus:outline-none focus:border-gold-400" />
         </div>
       </div>
 
       <div>
         <label htmlFor="description" className="block text-sm font-medium text-(--text-primary) mb-1">Description</label>
         <input id="description" name="description" type="text" required
-          className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) focus:outline-none focus:border-terra-cotta" />
+          className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) focus:outline-none focus:border-gold-400" />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label htmlFor="category" className="block text-sm font-medium text-(--text-primary) mb-1">Category</label>
-          <select id="category" name="category" className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) focus:outline-none focus:border-terra-cotta capitalize">
+          <select id="category" name="category" className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) focus:outline-none focus:border-gold-400 capitalize">
             {categories.map(c => <option key={c} value={c}>{c}</option>)}
           </select>
         </div>
         <div>
           <label htmlFor="fund" className="block text-sm font-medium text-(--text-primary) mb-1">Fund</label>
-          <select id="fund" name="fund" className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) focus:outline-none focus:border-terra-cotta">
+          <select id="fund" name="fund" className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) focus:outline-none focus:border-gold-400">
             <option value="general">General Fund</option>
             <option value="ranchita_roots">Ranchita Roots</option>
           </select>
@@ -105,19 +105,19 @@ export function TransactionForm() {
         <div>
           <label htmlFor="vendor" className="block text-sm font-medium text-(--text-primary) mb-1">Vendor / Payee</label>
           <input id="vendor" name="vendor" type="text" placeholder="Optional"
-            className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta" />
+            className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400" />
         </div>
         <div>
           <label htmlFor="checkNumber" className="block text-sm font-medium text-(--text-primary) mb-1">Check #</label>
           <input id="checkNumber" name="checkNumber" type="text" placeholder="Optional"
-            className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta" />
+            className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400" />
         </div>
       </div>
 
       {status === 'error' && <p className="text-red-600 text-sm">Failed to add transaction.</p>}
 
       <button type="submit" disabled={status === 'loading'}
-        className="w-full px-6 py-3 rounded-lg bg-terra-cotta text-white font-semibold hover:bg-terra-cotta-hover transition-colors disabled:opacity-60">
+        className="w-full px-6 py-3 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors disabled:opacity-60">
         {status === 'loading' ? 'Adding...' : 'Add Transaction'}
       </button>
     </form>

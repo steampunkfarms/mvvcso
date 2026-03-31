@@ -20,9 +20,9 @@ export default async function CompliancePage() {
 
   const priorityColors: Record<string, string> = {
     critical: 'bg-red-100 text-red-700',
-    high: 'bg-sunset-peach/20 text-terra-cotta',
-    normal: 'bg-sandy-gold/20 text-chaparral',
-    low: 'bg-cream-light text-(--text-muted)',
+    high: 'bg-gold-100/20 text-gold-400',
+    normal: 'bg-stone-200/20 text-dusk-500',
+    low: 'bg-stone-100 text-(--text-muted)',
   };
 
   return (
@@ -31,10 +31,10 @@ export default async function CompliancePage() {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+        <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Upcoming (30 days)</span>
-            <Clock className="w-5 h-5 text-chaparral" />
+            <Clock className="w-5 h-5 text-dusk-500" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{upcoming.length}</div>
         </div>
@@ -52,10 +52,10 @@ export default async function CompliancePage() {
           </div>
           <div className="text-2xl font-bold text-green-700">{completedThisYear.length}</div>
         </div>
-        <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+        <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Total Tasks</span>
-            <ShieldCheck className="w-5 h-5 text-chaparral" />
+            <ShieldCheck className="w-5 h-5 text-dusk-500" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{tasks.length}</div>
         </div>
@@ -85,8 +85,8 @@ export default async function CompliancePage() {
       )}
 
       {/* All Tasks */}
-      <div className="bg-white rounded-xl border border-sandy-gold overflow-hidden">
-        <div className="px-5 py-4 border-b border-sandy-gold">
+      <div className="bg-white rounded-xl border border-stone-200 overflow-hidden">
+        <div className="px-5 py-4 border-b border-stone-200">
           <h2 className="font-semibold text-(--text-primary)">All Compliance Tasks</h2>
         </div>
         {pending.length === 0 ? (
@@ -94,7 +94,7 @@ export default async function CompliancePage() {
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-sandy-gold/10 text-left">
+              <tr className="bg-stone-200/10 text-left">
                 <th className="px-4 py-3 font-semibold text-(--text-primary)">Task</th>
                 <th className="px-4 py-3 font-semibold text-(--text-primary)">Category</th>
                 <th className="px-4 py-3 font-semibold text-(--text-primary)">Due Date</th>
@@ -102,11 +102,11 @@ export default async function CompliancePage() {
                 <th className="px-4 py-3 font-semibold text-(--text-primary)">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-sandy-gold/30">
+            <tbody className="divide-y divide-stone-200/30">
               {pending.map(task => {
                 const daysUntil = differenceInDays(task.dueDate, now);
                 return (
-                  <tr key={task.id} className="hover:bg-sandy-gold/5">
+                  <tr key={task.id} className="hover:bg-stone-200/5">
                     <td className="px-4 py-3">
                       <span className="text-(--text-primary) font-medium">{task.title}</span>
                       {task.description && (
@@ -115,7 +115,7 @@ export default async function CompliancePage() {
                     </td>
                     <td className="px-4 py-3 text-(--text-secondary) capitalize text-xs">{task.category.replace('_', ' ')}</td>
                     <td className="px-4 py-3">
-                      <span className={`text-xs ${daysUntil < 0 ? 'text-red-600 font-bold' : daysUntil <= 7 ? 'text-terra-cotta font-medium' : 'text-(--text-secondary)'}`}>
+                      <span className={`text-xs ${daysUntil < 0 ? 'text-red-600 font-bold' : daysUntil <= 7 ? 'text-gold-400 font-medium' : 'text-(--text-secondary)'}`}>
                         {format(task.dueDate, 'MMM d, yyyy')}
                       </span>
                     </td>
@@ -129,7 +129,7 @@ export default async function CompliancePage() {
                         task.status === 'completed' ? 'bg-green-100 text-green-700' :
                         task.status === 'in_progress' ? 'bg-sky-100 text-sky-700' :
                         task.status === 'overdue' ? 'bg-red-100 text-red-700' :
-                        'bg-sandy-gold/20 text-chaparral'
+                        'bg-stone-200/20 text-dusk-500'
                       }`}>
                         {task.status.replace('_', ' ')}
                       </span>

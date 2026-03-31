@@ -29,7 +29,7 @@ export default async function ApprovalsPage({
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4">
-        <Link href={`/admin/secretary/meetings/${id}`} className="text-terra-cotta hover:text-terra-cotta-hover">
+        <Link href={`/admin/secretary/meetings/${id}`} className="text-gold-400 hover:text-gold-500">
           <ArrowLeft className="w-5 h-5" />
         </Link>
         <div>
@@ -50,9 +50,9 @@ export default async function ApprovalsPage({
           <div className="text-2xl font-bold text-red-700">{rejectCount}</div>
           <div className="text-xs text-red-600">Reject</div>
         </div>
-        <div className="bg-sandy-gold/10 rounded-xl p-4 text-center border border-sandy-gold">
-          <div className="text-2xl font-bold text-chaparral">{approvals.filter(a => a.vote === 'abstain').length}</div>
-          <div className="text-xs text-chaparral">Abstain</div>
+        <div className="bg-stone-200/10 rounded-xl p-4 text-center border border-stone-200">
+          <div className="text-2xl font-bold text-dusk-500">{approvals.filter(a => a.vote === 'abstain').length}</div>
+          <div className="text-xs text-dusk-500">Abstain</div>
         </div>
       </div>
 
@@ -64,20 +64,20 @@ export default async function ApprovalsPage({
 
       {/* Your vote */}
       {canVote && (
-        <div className="bg-white rounded-xl p-6 border border-sandy-gold">
+        <div className="bg-white rounded-xl p-6 border border-stone-200">
           <h2 className="font-semibold text-(--text-primary) mb-4">Your Vote</h2>
           <ApprovalVoteForm meetingId={id} currentVote={userVote?.vote} />
         </div>
       )}
 
       {/* All votes */}
-      <div className="bg-white rounded-xl p-6 border border-sandy-gold">
+      <div className="bg-white rounded-xl p-6 border border-stone-200">
         <h2 className="font-semibold text-(--text-primary) mb-4">Board Votes</h2>
         <div className="space-y-3">
           {members.map(member => {
             const vote = approvals.find(a => a.memberId === member.id);
             return (
-              <div key={member.id} className="flex items-center justify-between py-2 border-b border-sandy-gold/30 last:border-0">
+              <div key={member.id} className="flex items-center justify-between py-2 border-b border-stone-200/30 last:border-0">
                 <div>
                   <span className="text-sm font-medium text-(--text-primary)">{member.name}</span>
                   <span className="text-xs text-(--text-muted) ml-2 capitalize">{member.role.replace('_', ' ')}</span>
@@ -86,10 +86,10 @@ export default async function ApprovalsPage({
                   <div className="flex items-center gap-2">
                     {vote.vote === 'approve' && <Check className="w-4 h-4 text-green-600" />}
                     {vote.vote === 'reject' && <XIcon className="w-4 h-4 text-red-600" />}
-                    {vote.vote === 'abstain' && <Minus className="w-4 h-4 text-chaparral" />}
+                    {vote.vote === 'abstain' && <Minus className="w-4 h-4 text-dusk-500" />}
                     <span className={`text-xs font-medium capitalize ${
                       vote.vote === 'approve' ? 'text-green-600' :
-                      vote.vote === 'reject' ? 'text-red-600' : 'text-chaparral'
+                      vote.vote === 'reject' ? 'text-red-600' : 'text-dusk-500'
                     }`}>
                       {vote.vote}
                     </span>

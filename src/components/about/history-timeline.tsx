@@ -75,7 +75,7 @@ export function HistoryTimeline() {
   return (
     <div className="relative max-w-3xl mx-auto">
       {/* Vertical line */}
-      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-sandy-gold md:-translate-x-px" />
+      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-stone-200 md:-translate-x-px" />
 
       <div className="space-y-12">
         {timelineEvents.map((event, i) => (
@@ -122,7 +122,7 @@ function TimelineNode({
       className="relative opacity-0 translate-y-4 transition-all duration-700 ease-out pl-12 md:pl-0"
     >
       {/* Dot on the line */}
-      <div className="absolute left-4 md:left-1/2 top-1 w-3 h-3 rounded-full bg-terra-cotta border-2 border-desert-cream -translate-x-1/2 z-10" />
+      <div className="absolute left-4 md:left-1/2 top-1 w-3 h-3 rounded-full bg-gold-400 border-2 border-stone-50 -translate-x-1/2 z-10" />
 
       {/* Content card */}
       <div
@@ -130,8 +130,8 @@ function TimelineNode({
           isLeft ? 'md:mr-auto md:pr-0' : 'md:ml-auto md:pl-0'
         }`}
       >
-        <div className="bg-white rounded-xl p-5 shadow-sm border border-sandy-gold">
-          <span className="inline-block text-sm font-bold text-terra-cotta mb-1">
+        <div className="bg-white rounded-xl p-5 shadow-sm border border-stone-200">
+          <span className="inline-block text-sm font-bold text-gold-400 mb-1">
             {event.year}
           </span>
           <h3 className="text-lg font-semibold text-(--text-primary) mb-2">

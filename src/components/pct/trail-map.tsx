@@ -85,7 +85,7 @@ export function TrailMap({ waypoints }: TrailMapProps) {
   return (
     <div
       ref={mapRef}
-      className="h-[500px] rounded-xl border border-sandy-gold overflow-hidden"
+      className="h-[500px] rounded-xl border border-stone-200 overflow-hidden"
       style={{ zIndex: 0 }}
     />
   );

@@ -60,7 +60,7 @@ export default function PctPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="py-(--section-padding) bg-sandy-gold/20">
+      <section className="py-(--section-padding) bg-stone-200/20">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding) text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-(--text-primary)">
             {t('title')}
@@ -72,26 +72,26 @@ export default function PctPage() {
       </section>
 
       {/* Map */}
-      <section className="py-(--section-padding) bg-desert-cream">
+      <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
           <TrailMapWrapper waypoints={waypoints} />
         </div>
       </section>
 
       {/* Waypoints list */}
-      <section className="py-(--section-padding) bg-cream-light">
+      <section className="py-(--section-padding) bg-stone-100">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {waypoints.map((wp) => (
               <div
                 key={wp.name}
-                className="bg-white rounded-xl p-6 shadow-sm border border-sandy-gold"
+                className="bg-white rounded-xl p-6 shadow-sm border border-stone-200"
               >
                 <div className="flex items-start gap-3 mb-3">
-                  <Mountain className="w-5 h-5 text-terra-cotta shrink-0 mt-0.5" />
+                  <Mountain className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
                   <div>
                     <h3 className="font-semibold text-(--text-primary)">{wp.name}</h3>
-                    <p className="text-xs text-chaparral">{wp.elevation}</p>
+                    <p className="text-xs text-dusk-500">{wp.elevation}</p>
                   </div>
                 </div>
                 <p className="text-sm text-(--text-secondary) leading-relaxed">
@@ -104,7 +104,7 @@ export default function PctPage() {
       </section>
 
       {/* Community context */}
-      <section className="py-(--section-padding) bg-desert-cream">
+      <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-3xl mx-auto px-(--container-padding) text-center">
           <h2 className="text-2xl font-bold mb-4 text-(--text-primary)">
             {t('community_title')}
@@ -118,7 +118,7 @@ export default function PctPage() {
               href="https://www.pcta.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-chaparral/40 text-sm text-(--text-secondary) hover:border-terra-cotta hover:text-terra-cotta transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-stone-300/40 text-sm text-(--text-secondary) hover:border-gold-400 hover:text-gold-400 transition-colors"
             >
               <Map className="w-4 h-4" />
               Pacific Crest Trail Association
@@ -128,7 +128,7 @@ export default function PctPage() {
               href="https://www.alltrails.com/trail/us/california/pacific-crest-trail-scissors-crossing-to-barrel-spring"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-chaparral/40 text-sm text-(--text-secondary) hover:border-terra-cotta hover:text-terra-cotta transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-stone-300/40 text-sm text-(--text-secondary) hover:border-gold-400 hover:text-gold-400 transition-colors"
             >
               <Mountain className="w-4 h-4" />
               AllTrails

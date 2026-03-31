@@ -25,7 +25,7 @@ export default async function BlogPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="py-(--section-padding) bg-sandy-gold/20">
+      <section className="py-(--section-padding) bg-stone-200/20">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding) text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-(--text-primary)">
             {t('title')}
@@ -37,7 +37,7 @@ export default async function BlogPage() {
       </section>
 
       {/* Posts */}
-      <section className="py-(--section-padding) bg-desert-cream">
+      <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
           {posts.length === 0 ? (
             <p className="text-center text-(--text-muted) py-12">{t('no_posts')}</p>

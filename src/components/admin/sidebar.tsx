@@ -42,7 +42,7 @@ export function Sidebar({ user }: { user: SessionUser }) {
   const navContent = (
     <>
       {/* Brand */}
-      <div className="p-4 border-b border-sandy-gold/30">
+      <div className="p-4 border-b border-stone-200/30">
         <div className="flex items-center gap-3">
           <Image
             src="/images/ranchita/yeti-closeup.jpg"
@@ -56,7 +56,7 @@ export function Sidebar({ user }: { user: SessionUser }) {
             <div className="text-xs text-(--text-muted) truncate">{user.name}</div>
           </div>
         </div>
-        <div className="mt-2 px-2 py-1 rounded-md bg-terra-cotta/10 text-terra-cotta text-xs font-medium text-center">
+        <div className="mt-2 px-2 py-1 rounded-md bg-gold-400/10 text-gold-400 text-xs font-medium text-center">
           {getRoleLabel(user.role)}
         </div>
       </div>
@@ -73,8 +73,8 @@ export function Sidebar({ user }: { user: SessionUser }) {
               onClick={() => setMobileOpen(false)}
               className={`flex items-center gap-3 px-4 py-2.5 mx-2 rounded-lg text-sm font-medium transition-colors ${
                 isActive
-                  ? 'bg-terra-cotta text-white'
-                  : 'text-(--text-secondary) hover:bg-sandy-gold/20'
+                  ? 'bg-gold-400 text-white'
+                  : 'text-(--text-secondary) hover:bg-stone-200/20'
               }`}
             >
               <Icon className="w-4 h-4 shrink-0" />
@@ -85,7 +85,7 @@ export function Sidebar({ user }: { user: SessionUser }) {
       </nav>
 
       {/* Logout */}
-      <div className="p-3 border-t border-sandy-gold/30">
+      <div className="p-3 border-t border-stone-200/30">
         <button
           type="button"
           onClick={handleLogout}
@@ -104,7 +104,7 @@ export function Sidebar({ user }: { user: SessionUser }) {
       <button
         type="button"
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-white border border-sandy-gold shadow-sm"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-white border border-stone-200 shadow-sm"
         aria-label="Toggle menu"
       >
         {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -120,7 +120,7 @@ export function Sidebar({ user }: { user: SessionUser }) {
 
       {/* Sidebar */}
       <aside className={`
-        fixed top-0 left-0 z-40 h-full w-64 bg-cream-light border-r border-sandy-gold
+        fixed top-0 left-0 z-40 h-full w-64 bg-stone-100 border-r border-stone-200
         flex flex-col transition-transform duration-200
         lg:translate-x-0 lg:static lg:z-auto
         ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}

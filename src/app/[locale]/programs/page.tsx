@@ -32,7 +32,7 @@ export default function ProgramsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="py-(--section-padding) bg-sandy-gold/20">
+      <section className="py-(--section-padding) bg-stone-200/20">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding) text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-(--text-primary)">
             {t('title')}
@@ -44,16 +44,16 @@ export default function ProgramsPage() {
       </section>
 
       {/* Programs grid */}
-      <section className="py-(--section-padding) bg-desert-cream">
+      <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {programs.map(({ key, icon: Icon }) => (
               <div
                 key={key}
-                className="bg-white rounded-xl p-8 shadow-sm border border-sandy-gold"
+                className="bg-white rounded-xl p-8 shadow-sm border border-stone-200"
               >
-                <div className="w-14 h-14 rounded-lg bg-sunset-peach/15 flex items-center justify-center mb-5">
-                  <Icon className="w-7 h-7 text-terra-cotta" />
+                <div className="w-14 h-14 rounded-lg bg-gold-100/15 flex items-center justify-center mb-5">
+                  <Icon className="w-7 h-7 text-gold-400" />
                 </div>
                 <h2 className="text-xl font-bold text-(--text-primary) mb-3">
                   {t(`${key}_title`)}
@@ -68,7 +68,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-(--section-padding) bg-sunset-peach/40">
+      <section className="py-(--section-padding) bg-gold-100/40">
         <div className="max-w-2xl mx-auto px-(--container-padding) text-center">
           <h2 className="text-3xl font-bold mb-4 text-(--text-primary)">
             {t('cta_title')}
@@ -78,7 +78,7 @@ export default function ProgramsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-terra-cotta text-white font-semibold hover:bg-terra-cotta-hover transition-colors"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors"
           >
             {t('cta_button')}
           </Link>

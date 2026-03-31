@@ -26,14 +26,14 @@ export default async function VolunteerDetailPage({
 
   return (
     <div>
-      <Link href="/admin/volunteers" className="inline-flex items-center gap-1 text-sm text-terra-cotta hover:text-terra-cotta-hover mb-4 transition-colors">
+      <Link href="/admin/volunteers" className="inline-flex items-center gap-1 text-sm text-gold-400 hover:text-gold-500 mb-4 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to volunteers
       </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Profile */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white rounded-xl border border-sandy-gold p-6">
+          <div className="bg-white rounded-xl border border-stone-200 p-6">
             <div className="flex items-start justify-between mb-4">
               <div>
                 <h1 className="text-2xl font-bold text-(--text-primary)">{volunteer.name}</h1>
@@ -72,14 +72,14 @@ export default async function VolunteerDetailPage({
             </div>
 
             {volunteer.notes && (
-              <div className="mt-4 p-3 bg-cream-light rounded-lg text-sm text-(--text-secondary)">
+              <div className="mt-4 p-3 bg-stone-100 rounded-lg text-sm text-(--text-secondary)">
                 <strong>Notes:</strong> {volunteer.notes}
               </div>
             )}
           </div>
 
           {/* Hours log */}
-          <div className="bg-white rounded-xl border border-sandy-gold p-6">
+          <div className="bg-white rounded-xl border border-stone-200 p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-(--text-primary) flex items-center gap-2">
                 <Clock className="w-5 h-5" /> Hours Log
@@ -92,7 +92,7 @@ export default async function VolunteerDetailPage({
             ) : (
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-sandy-gold/50">
+                  <tr className="border-b border-stone-200/50">
                     <th className="text-left py-2 text-(--text-secondary) font-semibold">Date</th>
                     <th className="text-left py-2 text-(--text-secondary) font-semibold">Hours</th>
                     <th className="text-left py-2 text-(--text-secondary) font-semibold">Description</th>
@@ -101,7 +101,7 @@ export default async function VolunteerDetailPage({
                 </thead>
                 <tbody>
                   {hours.map(h => (
-                    <tr key={h.id} className="border-b border-sandy-gold/20">
+                    <tr key={h.id} className="border-b border-stone-200/20">
                       <td className="py-2 text-(--text-primary)">{format(new Date(h.date), 'MMM d, yyyy')}</td>
                       <td className="py-2 text-(--text-primary)">{h.hours}</td>
                       <td className="py-2 text-(--text-secondary)">{h.description || '—'}</td>
@@ -124,11 +124,11 @@ export default async function VolunteerDetailPage({
 
         {/* Quick stats sidebar */}
         <div className="space-y-4">
-          <div className="bg-white rounded-xl border border-sandy-gold p-5 text-center">
-            <div className="text-3xl font-bold text-terra-cotta">{volunteer.totalHours ?? 0}</div>
+          <div className="bg-white rounded-xl border border-stone-200 p-5 text-center">
+            <div className="text-3xl font-bold text-gold-400">{volunteer.totalHours ?? 0}</div>
             <div className="text-sm text-(--text-muted)">Total Hours</div>
           </div>
-          <div className="bg-white rounded-xl border border-sandy-gold p-5 text-center">
+          <div className="bg-white rounded-xl border border-stone-200 p-5 text-center">
             <div className={`text-lg font-bold ${
               volunteer.status === 'active' ? 'text-green-600' :
               volunteer.status === 'pending' ? 'text-amber-600' : 'text-gray-500'
@@ -137,7 +137,7 @@ export default async function VolunteerDetailPage({
             </div>
             <div className="text-sm text-(--text-muted)">Status</div>
           </div>
-          <div className="bg-white rounded-xl border border-sandy-gold p-5 text-center">
+          <div className="bg-white rounded-xl border border-stone-200 p-5 text-center">
             <div className="text-sm text-(--text-primary)">{format(new Date(volunteer.joinedAt), 'MMM d, yyyy')}</div>
             <div className="text-sm text-(--text-muted)">Joined</div>
           </div>

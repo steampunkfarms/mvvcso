@@ -30,7 +30,7 @@ export default async function MeetingDetailPage({
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center gap-4">
-        <Link href="/admin/secretary/meetings" className="text-terra-cotta hover:text-terra-cotta-hover">
+        <Link href="/admin/secretary/meetings" className="text-gold-400 hover:text-gold-500">
           <ArrowLeft className="w-5 h-5" />
         </Link>
         <div>
@@ -44,21 +44,21 @@ export default async function MeetingDetailPage({
       </div>
 
       {/* Status Progress */}
-      <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+      <div className="bg-white rounded-xl p-5 border border-stone-200">
         <h3 className="text-sm font-semibold text-(--text-muted) mb-3 uppercase tracking-wider">Minutes Lifecycle</h3>
         <div className="flex items-center gap-2">
           {statusSteps.map((step, i) => (
             <div key={step} className="flex items-center gap-2">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
-                i <= currentStep ? 'bg-terra-cotta text-white' : 'bg-sandy-gold/30 text-(--text-muted)'
+                i <= currentStep ? 'bg-gold-400 text-white' : 'bg-stone-200/30 text-(--text-muted)'
               }`}>
                 {i + 1}
               </div>
-              <span className={`text-xs hidden sm:inline ${i <= currentStep ? 'text-terra-cotta font-medium' : 'text-(--text-muted)'}`}>
+              <span className={`text-xs hidden sm:inline ${i <= currentStep ? 'text-gold-400 font-medium' : 'text-(--text-muted)'}`}>
                 {step.replace('_', ' ')}
               </span>
               {i < statusSteps.length - 1 && (
-                <div className={`w-8 h-0.5 ${i < currentStep ? 'bg-terra-cotta' : 'bg-sandy-gold/30'}`} />
+                <div className={`w-8 h-0.5 ${i < currentStep ? 'bg-gold-400' : 'bg-stone-200/30'}`} />
               )}
             </div>
           ))}
@@ -70,9 +70,9 @@ export default async function MeetingDetailPage({
         <div className="lg:col-span-2 space-y-6">
           {/* Raw Notes / Audio Input */}
           {(meeting.status === 'draft' || meeting.status === 'review') && (
-            <div className="bg-white rounded-xl p-6 border border-sandy-gold">
+            <div className="bg-white rounded-xl p-6 border border-stone-200">
               <h2 className="font-semibold text-(--text-primary) mb-4 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-terra-cotta" />
+                <FileText className="w-5 h-5 text-gold-400" />
                 Meeting Notes
               </h2>
               <RawNotesEditor meetingId={id} rawNotes={minutes?.rawNotes || ''} />
@@ -81,9 +81,9 @@ export default async function MeetingDetailPage({
 
           {/* AI Draft */}
           {minutes?.aiDraft && (
-            <div className="bg-white rounded-xl p-6 border border-sandy-gold">
+            <div className="bg-white rounded-xl p-6 border border-stone-200">
               <h2 className="font-semibold text-(--text-primary) mb-4 flex items-center gap-2">
-                <Wand2 className="w-5 h-5 text-terra-cotta" />
+                <Wand2 className="w-5 h-5 text-gold-400" />
                 AI-Generated Draft
               </h2>
               <div className="prose prose-sm max-w-none text-(--text-secondary)">
@@ -97,16 +97,16 @@ export default async function MeetingDetailPage({
                 })}
               </div>
               {meeting.status === 'review' && (
-                <div className="mt-4 pt-4 border-t border-sandy-gold flex gap-3">
+                <div className="mt-4 pt-4 border-t border-stone-200 flex gap-3">
                   <Link
                     href={`/admin/secretary/meetings/${id}/minutes`}
-                    className="px-4 py-2 rounded-lg bg-terra-cotta text-white text-sm font-semibold hover:bg-terra-cotta-hover transition-colors"
+                    className="px-4 py-2 rounded-lg bg-gold-400 text-white text-sm font-semibold hover:bg-gold-500 transition-colors"
                   >
                     Edit Minutes
                   </Link>
                   <Link
                     href={`/admin/secretary/meetings/${id}/approvals`}
-                    className="px-4 py-2 rounded-lg border border-terra-cotta text-terra-cotta text-sm font-semibold hover:bg-terra-cotta/5 transition-colors"
+                    className="px-4 py-2 rounded-lg border border-gold-400 text-gold-400 text-sm font-semibold hover:bg-gold-400/5 transition-colors"
                   >
                     Submit for Approval
                   </Link>
@@ -117,14 +117,14 @@ export default async function MeetingDetailPage({
 
           {/* Resolutions */}
           {resolutions.length > 0 && (
-            <div className="bg-white rounded-xl p-6 border border-sandy-gold">
+            <div className="bg-white rounded-xl p-6 border border-stone-200">
               <h2 className="font-semibold text-(--text-primary) mb-4 flex items-center gap-2">
-                <ListChecks className="w-5 h-5 text-terra-cotta" />
+                <ListChecks className="w-5 h-5 text-gold-400" />
                 Resolutions ({resolutions.length})
               </h2>
               <div className="space-y-3">
                 {resolutions.map(res => (
-                  <div key={res.id} className="p-3 rounded-lg bg-cream-light border border-sandy-gold/50">
+                  <div key={res.id} className="p-3 rounded-lg bg-stone-100 border border-stone-200/50">
                     <div className="flex items-center justify-between">
                       <span className="font-medium text-sm text-(--text-primary)">{res.title}</span>
                       <span className={`text-xs font-semibold px-2 py-0.5 rounded ${res.passed ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
@@ -147,9 +147,9 @@ export default async function MeetingDetailPage({
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Attendance */}
-          <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+          <div className="bg-white rounded-xl p-5 border border-stone-200">
             <h3 className="font-semibold text-(--text-primary) mb-3 flex items-center gap-2">
-              <Users className="w-4 h-4 text-terra-cotta" />
+              <Users className="w-4 h-4 text-gold-400" />
               Attendance
             </h3>
             <AttendanceEditor meetingId={id} attendance={attendance} editable={meeting.status === 'draft'} />
@@ -157,12 +157,12 @@ export default async function MeetingDetailPage({
 
           {/* Agenda */}
           {agenda.length > 0 && (
-            <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+            <div className="bg-white rounded-xl p-5 border border-stone-200">
               <h3 className="font-semibold text-(--text-primary) mb-3">Agenda</h3>
               <ol className="space-y-2">
                 {agenda.map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <span className="text-terra-cotta font-bold shrink-0">{i + 1}.</span>
+                    <span className="text-gold-400 font-bold shrink-0">{i + 1}.</span>
                     <div>
                       <span className="text-(--text-primary)">{item.title}</span>
                       {item.presenter && (

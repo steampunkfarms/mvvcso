@@ -5,7 +5,7 @@ export function DonateCta() {
   const t = useTranslations('home');
 
   return (
-    <section className="py-(--section-padding) bg-desert-cream">
+    <section className="py-(--section-padding) bg-stone-50">
       <div className="max-w-3xl mx-auto px-(--container-padding) text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-(--text-primary)">
           {t('donate_cta_title')}
@@ -15,7 +15,7 @@ export function DonateCta() {
         </p>
         <Link
           href="/donate"
-          className="inline-flex items-center justify-center px-10 py-4 rounded-lg bg-terra-cotta text-white font-semibold text-lg hover:bg-terra-cotta-hover transition-colors"
+          className="inline-flex items-center justify-center px-10 py-4 rounded-lg bg-gold-400 text-white font-semibold text-lg hover:bg-gold-500 transition-colors"
         >
           {t('donate_cta_button')}
         </Link>

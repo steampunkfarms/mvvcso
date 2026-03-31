@@ -51,14 +51,14 @@ export function RawNotesEditor({ meetingId, rawNotes }: RawNotesEditorProps) {
         onChange={(e) => setNotes(e.target.value)}
         rows={12}
         placeholder="Paste raw meeting notes here — they can be ragged, unformatted, or from audio transcription. Claude will format them into professional minutes."
-        className="w-full px-4 py-3 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta resize-y text-sm font-mono"
+        className="w-full px-4 py-3 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400 resize-y text-sm font-mono"
       />
       <div className="flex gap-3">
         <button
           type="button"
           onClick={handleSave}
           disabled={saving}
-          className="px-4 py-2 rounded-lg border border-chaparral/40 text-sm font-medium text-(--text-secondary) hover:bg-sandy-gold/20 transition-colors disabled:opacity-60"
+          className="px-4 py-2 rounded-lg border border-stone-300/40 text-sm font-medium text-(--text-secondary) hover:bg-stone-200/20 transition-colors disabled:opacity-60"
         >
           {saving ? 'Saving...' : saved ? 'Saved!' : 'Save Notes'}
         </button>
@@ -66,7 +66,7 @@ export function RawNotesEditor({ meetingId, rawNotes }: RawNotesEditorProps) {
           type="button"
           onClick={handleGenerateDraft}
           disabled={generating || !notes.trim()}
-          className="px-4 py-2 rounded-lg bg-terra-cotta text-white text-sm font-semibold hover:bg-terra-cotta-hover transition-colors disabled:opacity-60 inline-flex items-center gap-2"
+          className="px-4 py-2 rounded-lg bg-gold-400 text-white text-sm font-semibold hover:bg-gold-500 transition-colors disabled:opacity-60 inline-flex items-center gap-2"
         >
           <Wand2 className="w-4 h-4" />
           {generating ? 'Generating...' : 'Generate AI Draft'}

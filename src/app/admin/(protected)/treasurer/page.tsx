@@ -16,7 +16,7 @@ export default async function TreasurerDashboardPage() {
         <h1 className="text-2xl font-bold text-(--text-primary)">Treasurer&apos;s Dashboard</h1>
         <Link
           href="/admin/treasurer/transactions/new"
-          className="px-4 py-2 rounded-lg bg-terra-cotta text-white text-sm font-semibold hover:bg-terra-cotta-hover transition-colors"
+          className="px-4 py-2 rounded-lg bg-gold-400 text-white text-sm font-semibold hover:bg-gold-500 transition-colors"
         >
           Add Transaction
         </Link>
@@ -24,31 +24,31 @@ export default async function TreasurerDashboardPage() {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+        <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Cash on Hand</span>
-            <Wallet className="w-5 h-5 text-chaparral" />
+            <Wallet className="w-5 h-5 text-dusk-500" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{formatCents(summary.cashOnHand)}</div>
         </div>
-        <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+        <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Income This Month</span>
             <TrendingUp className="w-5 h-5 text-green-600" />
           </div>
           <div className="text-2xl font-bold text-green-600">{formatCents(summary.monthIncome)}</div>
         </div>
-        <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+        <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Expenses This Month</span>
             <TrendingDown className="w-5 h-5 text-red-600" />
           </div>
           <div className="text-2xl font-bold text-red-600">{formatCents(summary.monthExpenses)}</div>
         </div>
-        <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+        <div className="bg-white rounded-xl p-5 border border-stone-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-(--text-muted)">Fund Accounts</span>
-            <DollarSign className="w-5 h-5 text-chaparral" />
+            <DollarSign className="w-5 h-5 text-dusk-500" />
           </div>
           <div className="text-2xl font-bold text-(--text-primary)">{summary.fundBalances.length}</div>
         </div>
@@ -62,20 +62,20 @@ export default async function TreasurerDashboardPage() {
           { href: '/admin/treasurer/funds', label: 'Fund Balances' },
           { href: '/admin/treasurer/grants', label: 'Grants' },
         ].map(link => (
-          <Link key={link.href} href={link.href} className="bg-white rounded-xl p-4 border border-sandy-gold hover:shadow-md transition-shadow flex items-center justify-between">
+          <Link key={link.href} href={link.href} className="bg-white rounded-xl p-4 border border-stone-200 hover:shadow-md transition-shadow flex items-center justify-between">
             <span className="font-medium text-sm text-(--text-primary)">{link.label}</span>
-            <ArrowRight className="w-4 h-4 text-terra-cotta" />
+            <ArrowRight className="w-4 h-4 text-gold-400" />
           </Link>
         ))}
       </div>
 
       {/* Fund Balances */}
       {summary.fundBalances.length > 0 && (
-        <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+        <div className="bg-white rounded-xl p-5 border border-stone-200">
           <h2 className="font-semibold text-(--text-primary) mb-4">Fund Balances</h2>
           <div className="space-y-2">
             {summary.fundBalances.map(f => (
-              <div key={f.fund} className="flex items-center justify-between py-2 border-b border-sandy-gold/30 last:border-0">
+              <div key={f.fund} className="flex items-center justify-between py-2 border-b border-stone-200/30 last:border-0">
                 <span className="text-sm text-(--text-primary) capitalize">{f.fund.replace('_', ' ')}</span>
                 <span className={`text-sm font-semibold ${f.balance >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   {formatCents(f.balance)}
@@ -87,17 +87,17 @@ export default async function TreasurerDashboardPage() {
       )}
 
       {/* Recent Transactions */}
-      <div className="bg-white rounded-xl border border-sandy-gold overflow-hidden">
-        <div className="px-5 py-4 border-b border-sandy-gold flex items-center justify-between">
+      <div className="bg-white rounded-xl border border-stone-200 overflow-hidden">
+        <div className="px-5 py-4 border-b border-stone-200 flex items-center justify-between">
           <h2 className="font-semibold text-(--text-primary)">Recent Transactions</h2>
-          <Link href="/admin/treasurer/transactions" className="text-sm text-terra-cotta hover:text-terra-cotta-hover">
+          <Link href="/admin/treasurer/transactions" className="text-sm text-gold-400 hover:text-gold-500">
             View all
           </Link>
         </div>
         {recentTransactions.length === 0 ? (
           <p className="p-5 text-sm text-(--text-muted)">No transactions recorded yet.</p>
         ) : (
-          <div className="divide-y divide-sandy-gold/30">
+          <div className="divide-y divide-stone-200/30">
             {recentTransactions.map(tx => (
               <div key={tx.id} className="flex items-center justify-between px-5 py-3">
                 <div>

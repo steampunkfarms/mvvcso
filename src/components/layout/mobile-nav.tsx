@@ -46,7 +46,7 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
       />
 
       {/* Panel */}
-      <div className="absolute right-0 top-0 bottom-0 w-72 bg-desert-cream shadow-xl flex flex-col">
+      <div className="absolute right-0 top-0 bottom-0 w-72 bg-stone-50 shadow-xl flex flex-col">
         {/* Close button */}
         <div className="flex justify-end p-4">
           <button
@@ -72,8 +72,8 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
                     href={item.href}
                     className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                       isActive
-                        ? 'text-terra-cotta bg-terra-cotta/5'
-                        : 'text-(--text-secondary) hover:text-(--text-primary) hover:bg-sandy-gold/20'
+                        ? 'text-gold-400 bg-gold-400/5'
+                        : 'text-(--text-secondary) hover:text-(--text-primary) hover:bg-stone-200/20'
                     }`}
                   >
                     {t(item.key)}
@@ -85,10 +85,10 @@ export function MobileNav({ open, onClose, items }: MobileNavProps) {
         </nav>
 
         {/* Donate CTA */}
-        <div className="p-4 border-t border-sandy-gold">
+        <div className="p-4 border-t border-stone-200">
           <Link
             href="/donate"
-            className="block w-full text-center px-4 py-3 rounded-lg bg-terra-cotta text-white font-semibold hover:bg-terra-cotta-hover transition-colors"
+            className="block w-full text-center px-4 py-3 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors"
           >
             {t('donate')}
           </Link>

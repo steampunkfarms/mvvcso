@@ -14,31 +14,31 @@ export default async function MeetingsListPage() {
         <h1 className="text-2xl font-bold text-(--text-primary)">Board Meetings</h1>
         <Link
           href="/admin/secretary/meetings/new"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-terra-cotta text-white text-sm font-semibold hover:bg-terra-cotta-hover transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gold-400 text-white text-sm font-semibold hover:bg-gold-500 transition-colors"
         >
           <Plus className="w-4 h-4" />
           New Meeting
         </Link>
       </div>
 
-      <div className="bg-white rounded-xl border border-sandy-gold overflow-hidden">
+      <div className="bg-white rounded-xl border border-stone-200 overflow-hidden">
         {meetings.length === 0 ? (
           <p className="p-8 text-center text-(--text-muted)">No meetings yet.</p>
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-sandy-gold/10 text-left">
+              <tr className="bg-stone-200/10 text-left">
                 <th className="px-5 py-3 font-semibold text-(--text-primary)">Date</th>
                 <th className="px-5 py-3 font-semibold text-(--text-primary)">Type</th>
                 <th className="px-5 py-3 font-semibold text-(--text-primary)">Location</th>
                 <th className="px-5 py-3 font-semibold text-(--text-primary)">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-sandy-gold/30">
+            <tbody className="divide-y divide-stone-200/30">
               {meetings.map(meeting => (
-                <tr key={meeting.id} className="hover:bg-sandy-gold/5 transition-colors">
+                <tr key={meeting.id} className="hover:bg-stone-200/5 transition-colors">
                   <td className="px-5 py-3">
-                    <Link href={`/admin/secretary/meetings/${meeting.id}`} className="text-terra-cotta hover:underline font-medium">
+                    <Link href={`/admin/secretary/meetings/${meeting.id}`} className="text-gold-400 hover:underline font-medium">
                       {format(meeting.meetingDate, 'MMMM d, yyyy')}
                     </Link>
                   </td>
@@ -59,10 +59,10 @@ export default async function MeetingsListPage() {
 
 function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, string> = {
-    draft: 'bg-sandy-gold/20 text-chaparral',
+    draft: 'bg-stone-200/20 text-dusk-500',
     ai_processing: 'bg-sky-100 text-sky-700',
-    review: 'bg-sunset-peach/20 text-terra-cotta',
-    pending_approval: 'bg-dusty-mauve/20 text-dusty-mauve',
+    review: 'bg-gold-100/20 text-gold-400',
+    pending_approval: 'bg-terra-50/20 text-terra-400',
     approved: 'bg-green-100 text-green-700',
     published: 'bg-green-200 text-green-800',
   };

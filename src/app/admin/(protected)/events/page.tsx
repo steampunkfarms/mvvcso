@@ -22,9 +22,9 @@ export default async function EventsAdminPage() {
     return (
       <Link
         href={`/admin/events/${event.id}`}
-        className="flex items-center gap-4 p-4 hover:bg-cream-light/50 transition-colors border-b border-sandy-gold/20 last:border-0"
+        className="flex items-center gap-4 p-4 hover:bg-stone-100/50 transition-colors border-b border-stone-200/20 last:border-0"
       >
-        <div className="w-12 h-12 rounded-lg bg-sunset-peach/20 flex flex-col items-center justify-center text-terra-cotta shrink-0">
+        <div className="w-12 h-12 rounded-lg bg-gold-100/20 flex flex-col items-center justify-center text-gold-400 shrink-0">
           <div className="text-[10px] font-bold uppercase leading-none">{format(event.date, 'MMM')}</div>
           <div className="text-lg font-bold leading-none">{format(event.date, 'd')}</div>
         </div>
@@ -37,12 +37,12 @@ export default async function EventsAdminPage() {
         </div>
         <div className="flex items-center gap-2">
           {event.category && (
-            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-chaparral/10 text-chaparral">
+            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-dusk-500/10 text-dusk-500">
               {event.category}
             </span>
           )}
           {!event.isPublic && (
-            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-dusty-mauve/10 text-dusty-mauve">
+            <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-terra-50/10 text-terra-400">
               Private
             </span>
           )}
@@ -62,7 +62,7 @@ export default async function EventsAdminPage() {
         </div>
         <Link
           href="/admin/events/new"
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-terra-cotta text-white text-sm font-semibold hover:bg-terra-cotta-hover transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gold-400 text-white text-sm font-semibold hover:bg-gold-500 transition-colors"
         >
           <Plus className="w-4 h-4" />
           Create Event
@@ -72,7 +72,7 @@ export default async function EventsAdminPage() {
       {/* Upcoming */}
       <div className="mb-8">
         <h2 className="text-sm font-semibold text-(--text-secondary) uppercase tracking-wider mb-3">Upcoming</h2>
-        <div className="bg-white rounded-xl border border-sandy-gold overflow-hidden">
+        <div className="bg-white rounded-xl border border-stone-200 overflow-hidden">
           {upcoming.length === 0 ? (
             <div className="p-8 text-center text-(--text-muted) text-sm">No upcoming events. Create one!</div>
           ) : (
@@ -85,7 +85,7 @@ export default async function EventsAdminPage() {
       {past.length > 0 && (
         <div>
           <h2 className="text-sm font-semibold text-(--text-secondary) uppercase tracking-wider mb-3">Past</h2>
-          <div className="bg-white rounded-xl border border-sandy-gold overflow-hidden opacity-75">
+          <div className="bg-white rounded-xl border border-stone-200 overflow-hidden opacity-75">
             {past.map(e => <EventRow key={e.id} event={e} />)}
           </div>
         </div>

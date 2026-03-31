@@ -14,7 +14,7 @@ export default async function FundsPage() {
           <p className="text-(--text-muted) col-span-full">No funds yet. Add transactions to create fund balances.</p>
         ) : (
           summary.fundBalances.map(f => (
-            <div key={f.fund} className="bg-white rounded-xl p-6 border border-sandy-gold">
+            <div key={f.fund} className="bg-white rounded-xl p-6 border border-stone-200">
               <h3 className="font-semibold text-(--text-primary) capitalize mb-2">{f.fund.replace('_', ' ')}</h3>
               <div className={`text-2xl font-bold ${f.balance >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                 {formatCents(f.balance)}

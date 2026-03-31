@@ -23,7 +23,7 @@ export default function AdminVerifyPage() {
 
   if (status === 'error') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-desert-cream px-4">
+      <div className="min-h-screen flex items-center justify-center bg-stone-50 px-4">
         <div className="text-center max-w-md">
           <div className="text-4xl mb-4">⚠️</div>
           <h1 className="text-xl font-bold text-(--text-primary) mb-2">Invalid or expired link</h1>
@@ -32,7 +32,7 @@ export default function AdminVerifyPage() {
           </p>
           <a
             href="/admin/login"
-            className="inline-block px-6 py-3 rounded-lg bg-terra-cotta text-white font-semibold hover:bg-terra-cotta-hover transition-colors"
+            className="inline-block px-6 py-3 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors"
           >
             Back to login
           </a>
@@ -42,7 +42,7 @@ export default function AdminVerifyPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-desert-cream">
+    <div className="min-h-screen flex items-center justify-center bg-stone-50">
       <div className="text-center">
         <div className="text-3xl mb-3 animate-pulse">🔐</div>
         <p className="text-(--text-secondary)">Verifying...</p>

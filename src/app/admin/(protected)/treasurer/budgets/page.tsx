@@ -34,13 +34,13 @@ export default async function BudgetsPage() {
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-(--text-primary)">Budget vs. Actual — {currentYear}</h1>
 
-      <div className="bg-white rounded-xl border border-sandy-gold overflow-hidden">
+      <div className="bg-white rounded-xl border border-stone-200 overflow-hidden">
         {budgets.length === 0 ? (
           <p className="p-8 text-center text-(--text-muted)">No budgets set for {currentYear}. Budgets can be created via the API.</p>
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-sandy-gold/10 text-left">
+              <tr className="bg-stone-200/10 text-left">
                 <th className="px-4 py-3 font-semibold text-(--text-primary)">Category</th>
                 <th className="px-4 py-3 font-semibold text-(--text-primary)">Fund</th>
                 <th className="px-4 py-3 font-semibold text-(--text-primary) text-right">Budgeted</th>
@@ -49,14 +49,14 @@ export default async function BudgetsPage() {
                 <th className="px-4 py-3 font-semibold text-(--text-primary)">Progress</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-sandy-gold/30">
+            <tbody className="divide-y divide-stone-200/30">
               {budgets.map(budget => {
                 const actual = actualMap.get(`expense_${budget.category}`) || 0;
                 const variance = budget.plannedAmount - actual;
                 const pct = budget.plannedAmount > 0 ? (actual / budget.plannedAmount) * 100 : 0;
 
                 return (
-                  <tr key={budget.id} className="hover:bg-sandy-gold/5">
+                  <tr key={budget.id} className="hover:bg-stone-200/5">
                     <td className="px-4 py-3 text-(--text-primary) font-medium capitalize">{budget.category}</td>
                     <td className="px-4 py-3 text-(--text-secondary) capitalize">{budget.fund.replace('_', ' ')}</td>
                     <td className="px-4 py-3 text-(--text-secondary) text-right">{formatCents(budget.plannedAmount)}</td>
@@ -65,9 +65,9 @@ export default async function BudgetsPage() {
                       {formatCents(Math.abs(variance))} {variance >= 0 ? 'under' : 'over'}
                     </td>
                     <td className="px-4 py-3 w-32">
-                      <div className="h-2 bg-sandy-gold/20 rounded-full overflow-hidden">
+                      <div className="h-2 bg-stone-200/20 rounded-full overflow-hidden">
                         <div
-                          className={`h-full rounded-full ${pct > 100 ? 'bg-red-500' : pct > 80 ? 'bg-sunset-peach' : 'bg-green-500'}`}
+                          className={`h-full rounded-full ${pct > 100 ? 'bg-red-500' : pct > 80 ? 'bg-gold-300' : 'bg-green-500'}`}
                           style={{ width: `${Math.min(pct, 100)}%` }}
                         />
                       </div>

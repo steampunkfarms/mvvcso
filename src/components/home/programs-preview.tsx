@@ -24,7 +24,7 @@ export function ProgramsPreview() {
   const homeT = useTranslations('home');
 
   return (
-    <section className="py-(--section-padding) bg-cream-light">
+    <section className="py-(--section-padding) bg-stone-100">
       <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-(--text-primary)">
           {homeT('programs_title')}
@@ -34,12 +34,12 @@ export function ProgramsPreview() {
             <Link
               key={key}
               href="/programs"
-              className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-sandy-gold"
+              className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-stone-200"
             >
-              <div className="w-12 h-12 rounded-lg bg-sunset-peach/15 flex items-center justify-center mb-4">
-                <Icon className="w-6 h-6 text-terra-cotta" />
+              <div className="w-12 h-12 rounded-lg bg-gold-100/15 flex items-center justify-center mb-4">
+                <Icon className="w-6 h-6 text-gold-400" />
               </div>
-              <h3 className="text-lg font-semibold text-(--text-primary) mb-2 group-hover:text-terra-cotta transition-colors">
+              <h3 className="text-lg font-semibold text-(--text-primary) mb-2 group-hover:text-gold-400 transition-colors">
                 {t(`${key}_title`)}
               </h3>
               <p className="text-sm text-(--text-secondary) line-clamp-2">

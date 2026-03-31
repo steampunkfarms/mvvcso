@@ -11,13 +11,13 @@ export default async function ResolutionsPage() {
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-(--text-primary)">Resolution Register</h1>
 
-      <div className="bg-white rounded-xl border border-sandy-gold overflow-hidden">
+      <div className="bg-white rounded-xl border border-stone-200 overflow-hidden">
         {resolutions.length === 0 ? (
           <p className="p-8 text-center text-(--text-muted)">No resolutions recorded yet.</p>
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-sandy-gold/10 text-left">
+              <tr className="bg-stone-200/10 text-left">
                 <th className="px-5 py-3 font-semibold text-(--text-primary)">#</th>
                 <th className="px-5 py-3 font-semibold text-(--text-primary)">Title</th>
                 <th className="px-5 py-3 font-semibold text-(--text-primary)">Meeting Date</th>
@@ -25,10 +25,10 @@ export default async function ResolutionsPage() {
                 <th className="px-5 py-3 font-semibold text-(--text-primary)">Result</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-sandy-gold/30">
+            <tbody className="divide-y divide-stone-200/30">
               {resolutions.map(res => (
-                <tr key={res.id} className="hover:bg-sandy-gold/5">
-                  <td className="px-5 py-3 text-terra-cotta font-mono text-xs">{res.resolutionNumber || '—'}</td>
+                <tr key={res.id} className="hover:bg-stone-200/5">
+                  <td className="px-5 py-3 text-gold-400 font-mono text-xs">{res.resolutionNumber || '—'}</td>
                   <td className="px-5 py-3 text-(--text-primary) font-medium">{res.title}</td>
                   <td className="px-5 py-3 text-(--text-secondary)">{format(res.meetingDate, 'MMM d, yyyy')}</td>
                   <td className="px-5 py-3 text-(--text-muted) text-xs">

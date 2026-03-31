@@ -21,7 +21,7 @@ export default async function SecretaryDeskPage() {
         <h1 className="text-2xl font-bold text-(--text-primary)">Secretary&apos;s Desk</h1>
         <Link
           href="/admin/secretary/meetings/new"
-          className="px-4 py-2 rounded-lg bg-terra-cotta text-white text-sm font-semibold hover:bg-terra-cotta-hover transition-colors"
+          className="px-4 py-2 rounded-lg bg-gold-400 text-white text-sm font-semibold hover:bg-gold-500 transition-colors"
         >
           New Meeting
         </Link>
@@ -37,40 +37,40 @@ export default async function SecretaryDeskPage() {
 
       {/* Quick Links */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Link href="/admin/secretary/meetings" className="bg-white rounded-xl p-5 border border-sandy-gold hover:shadow-md transition-shadow">
-          <Calendar className="w-6 h-6 text-terra-cotta mb-2" />
+        <Link href="/admin/secretary/meetings" className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+          <Calendar className="w-6 h-6 text-gold-400 mb-2" />
           <h3 className="font-semibold text-(--text-primary)">All Meetings</h3>
           <p className="text-sm text-(--text-muted) mt-1">View and manage board meetings</p>
         </Link>
-        <Link href="/admin/secretary/resolutions" className="bg-white rounded-xl p-5 border border-sandy-gold hover:shadow-md transition-shadow">
-          <ListChecks className="w-6 h-6 text-terra-cotta mb-2" />
+        <Link href="/admin/secretary/resolutions" className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+          <ListChecks className="w-6 h-6 text-gold-400 mb-2" />
           <h3 className="font-semibold text-(--text-primary)">Resolution Register</h3>
           <p className="text-sm text-(--text-muted) mt-1">Searchable list of all resolutions</p>
         </Link>
-        <Link href="/admin/secretary/attendance" className="bg-white rounded-xl p-5 border border-sandy-gold hover:shadow-md transition-shadow">
-          <ClipboardList className="w-6 h-6 text-terra-cotta mb-2" />
+        <Link href="/admin/secretary/attendance" className="bg-white rounded-xl p-5 border border-stone-200 hover:shadow-md transition-shadow">
+          <ClipboardList className="w-6 h-6 text-gold-400 mb-2" />
           <h3 className="font-semibold text-(--text-primary)">Attendance History</h3>
           <p className="text-sm text-(--text-muted) mt-1">Track board member attendance</p>
         </Link>
       </div>
 
       {/* Recent Meetings */}
-      <div className="bg-white rounded-xl border border-sandy-gold overflow-hidden">
-        <div className="px-5 py-4 border-b border-sandy-gold flex items-center justify-between">
+      <div className="bg-white rounded-xl border border-stone-200 overflow-hidden">
+        <div className="px-5 py-4 border-b border-stone-200 flex items-center justify-between">
           <h2 className="font-semibold text-(--text-primary)">Recent Meetings</h2>
-          <Link href="/admin/secretary/meetings" className="text-sm text-terra-cotta hover:text-terra-cotta-hover">
+          <Link href="/admin/secretary/meetings" className="text-sm text-gold-400 hover:text-gold-500">
             View all
           </Link>
         </div>
         {recentMeetings.length === 0 ? (
           <p className="p-5 text-sm text-(--text-muted)">No meetings yet. Create your first meeting.</p>
         ) : (
-          <div className="divide-y divide-sandy-gold/50">
+          <div className="divide-y divide-stone-200/50">
             {recentMeetings.map(meeting => (
               <Link
                 key={meeting.id}
                 href={`/admin/secretary/meetings/${meeting.id}`}
-                className="flex items-center justify-between px-5 py-3 hover:bg-sandy-gold/10 transition-colors"
+                className="flex items-center justify-between px-5 py-3 hover:bg-stone-200/10 transition-colors"
               >
                 <div>
                   <span className="text-sm font-medium text-(--text-primary)">
@@ -92,10 +92,10 @@ export default async function SecretaryDeskPage() {
 
 function KpiCard({ label, value, icon: Icon }: { label: string; value: number; icon: React.ComponentType<{ className?: string }> }) {
   return (
-    <div className="bg-white rounded-xl p-5 border border-sandy-gold">
+    <div className="bg-white rounded-xl p-5 border border-stone-200">
       <div className="flex items-center justify-between mb-2">
         <span className="text-sm text-(--text-muted)">{label}</span>
-        <Icon className="w-5 h-5 text-chaparral" />
+        <Icon className="w-5 h-5 text-dusk-500" />
       </div>
       <div className="text-2xl font-bold text-(--text-primary)">{value}</div>
     </div>
@@ -104,10 +104,10 @@ function KpiCard({ label, value, icon: Icon }: { label: string; value: number; i
 
 function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, string> = {
-    draft: 'bg-sandy-gold/20 text-chaparral',
+    draft: 'bg-stone-200/20 text-dusk-500',
     ai_processing: 'bg-sky-100 text-sky-700',
-    review: 'bg-sunset-peach/20 text-terra-cotta',
-    pending_approval: 'bg-dusty-mauve/20 text-dusty-mauve',
+    review: 'bg-gold-100/20 text-gold-400',
+    pending_approval: 'bg-terra-50/20 text-terra-400',
     approved: 'bg-green-100 text-green-700',
     published: 'bg-green-200 text-green-800',
   };

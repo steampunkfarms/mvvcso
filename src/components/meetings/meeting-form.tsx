@@ -38,7 +38,7 @@ export function MeetingForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 border border-sandy-gold space-y-5 max-w-xl">
+    <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 border border-stone-200 space-y-5 max-w-xl">
       <div>
         <label htmlFor="meetingDate" className="block text-sm font-medium text-(--text-primary) mb-1">
           Meeting Date & Time
@@ -48,7 +48,7 @@ export function MeetingForm() {
           name="meetingDate"
           type="datetime-local"
           required
-          className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) focus:outline-none focus:border-terra-cotta"
+          className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) focus:outline-none focus:border-gold-400"
         />
       </div>
 
@@ -59,7 +59,7 @@ export function MeetingForm() {
         <select
           id="meetingType"
           name="meetingType"
-          className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) focus:outline-none focus:border-terra-cotta"
+          className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) focus:outline-none focus:border-gold-400"
         >
           <option value="regular">Regular</option>
           <option value="special">Special</option>
@@ -77,7 +77,7 @@ export function MeetingForm() {
           name="location"
           type="text"
           defaultValue="MVVCSO Community Center"
-          className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) focus:outline-none focus:border-terra-cotta"
+          className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) focus:outline-none focus:border-gold-400"
         />
       </div>
 
@@ -90,7 +90,7 @@ export function MeetingForm() {
           name="calledBy"
           type="text"
           placeholder="Optional"
-          className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta"
+          className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400"
         />
       </div>
 
@@ -101,7 +101,7 @@ export function MeetingForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full px-6 py-3 rounded-lg bg-terra-cotta text-white font-semibold hover:bg-terra-cotta-hover transition-colors disabled:opacity-60"
+        className="w-full px-6 py-3 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors disabled:opacity-60"
       >
         {status === 'loading' ? 'Creating...' : 'Create Meeting'}
       </button>

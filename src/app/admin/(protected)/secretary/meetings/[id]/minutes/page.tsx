@@ -53,7 +53,7 @@ export default function MinutesEditorPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Link href={`/admin/secretary/meetings/${id}`} className="text-terra-cotta hover:text-terra-cotta-hover">
+          <Link href={`/admin/secretary/meetings/${id}`} className="text-gold-400 hover:text-gold-500">
             <ArrowLeft className="w-5 h-5" />
           </Link>
           <h1 className="text-xl font-bold text-(--text-primary)">Edit Minutes</h1>
@@ -62,7 +62,7 @@ export default function MinutesEditorPage() {
           type="button"
           onClick={handleSave}
           disabled={saving}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-terra-cotta text-white text-sm font-semibold hover:bg-terra-cotta-hover transition-colors disabled:opacity-60"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gold-400 text-white text-sm font-semibold hover:bg-gold-500 transition-colors disabled:opacity-60"
         >
           <Save className="w-4 h-4" />
           {saving ? 'Saving...' : 'Save'}
@@ -76,14 +76,14 @@ export default function MinutesEditorPage() {
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="w-full h-[calc(100%-2rem)] px-4 py-3 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) text-sm font-mono focus:outline-none focus:border-terra-cotta resize-none"
+            className="w-full h-[calc(100%-2rem)] px-4 py-3 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) text-sm font-mono focus:outline-none focus:border-gold-400 resize-none"
           />
         </div>
 
         {/* Preview */}
         <div>
           <h3 className="text-sm font-semibold text-(--text-muted) mb-2 uppercase tracking-wider">Preview</h3>
-          <div className="h-[calc(100%-2rem)] overflow-y-auto px-6 py-4 rounded-lg border border-sandy-gold bg-white">
+          <div className="h-[calc(100%-2rem)] overflow-y-auto px-6 py-4 rounded-lg border border-stone-200 bg-white">
             <div className="prose prose-sm max-w-none text-(--text-secondary)">
               {content.split('\n').map((line: string, i: number) => {
                 if (line.startsWith('# ')) return <h1 key={i} className="text-lg font-bold mt-4 mb-2 text-(--text-primary)">{line.slice(2)}</h1>;

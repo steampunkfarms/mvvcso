@@ -62,9 +62,9 @@ export function ChatbotWidget() {
 
       {/* Chat panel */}
       {open && (
-        <div className="fixed bottom-6 right-6 z-40 w-80 sm:w-96 bg-white rounded-xl shadow-xl border border-sandy-gold flex flex-col max-h-[70vh]">
+        <div className="fixed bottom-6 right-6 z-40 w-80 sm:w-96 bg-white rounded-xl shadow-xl border border-stone-200 flex flex-col max-h-[70vh]">
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-sandy-gold bg-cream-light rounded-t-xl">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-stone-200 bg-stone-100 rounded-t-xl">
             <h3 className="font-semibold text-sm text-(--text-primary)">{t('title')}</h3>
             <button
               type="button"
@@ -88,33 +88,33 @@ export function ChatbotWidget() {
                 key={i}
                 className={`text-sm rounded-lg px-3 py-2 max-w-[85%] ${
                   msg.role === 'user'
-                    ? 'bg-terra-cotta text-white ml-auto'
-                    : 'bg-cream-light text-(--text-primary)'
+                    ? 'bg-gold-400 text-white ml-auto'
+                    : 'bg-stone-100 text-(--text-primary)'
                 }`}
               >
                 {msg.content}
               </div>
             ))}
             {loading && (
-              <div className="bg-cream-light text-(--text-muted) text-sm rounded-lg px-3 py-2 max-w-[85%]">
+              <div className="bg-stone-100 text-(--text-muted) text-sm rounded-lg px-3 py-2 max-w-[85%]">
                 ...
               </div>
             )}
           </div>
 
           {/* Input */}
-          <form onSubmit={handleSend} className="flex gap-2 p-3 border-t border-sandy-gold">
+          <form onSubmit={handleSend} className="flex gap-2 p-3 border-t border-stone-200">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={t('placeholder')}
-              className="flex-1 px-3 py-2 rounded-lg border border-sandy-gold bg-cream-light text-sm text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta"
+              className="flex-1 px-3 py-2 rounded-lg border border-stone-200 bg-stone-100 text-sm text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
-              className="p-2 rounded-lg bg-terra-cotta text-white hover:bg-terra-cotta-hover transition-colors disabled:opacity-40"
+              className="p-2 rounded-lg bg-gold-400 text-white hover:bg-gold-500 transition-colors disabled:opacity-40"
             >
               <Send className="w-4 h-4" />
             </button>

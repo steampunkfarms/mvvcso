@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-(--section-padding) bg-sandy-gold/20 overflow-hidden">
+      <section className="relative py-(--section-padding) bg-stone-200/20 overflow-hidden">
         <Image
           src="/images/ranchita/sunset-windmill.jpg"
           alt="Windmill silhouette against a Ranchita sunset"
@@ -35,7 +35,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-(--section-padding) bg-desert-cream">
+      <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
           <h2 className="text-3xl font-bold mb-12 text-center text-(--text-primary)">
             {t('timeline_title')}
@@ -48,7 +48,7 @@ export default function AboutPage() {
       <BoardGrid />
 
       {/* Transparency */}
-      <section className="py-(--section-padding) bg-desert-cream">
+      <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-2xl mx-auto px-(--container-padding) text-center">
           <h2 className="text-2xl font-bold mb-4 text-(--text-primary)">
             {t('transparency_title')}

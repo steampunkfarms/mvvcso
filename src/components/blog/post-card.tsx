@@ -31,20 +31,20 @@ export function PostCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-sandy-gold"
+      className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-stone-200"
     >
       {/* Placeholder cover */}
-      <div className="h-40 bg-sandy-gold/20 flex items-center justify-center">
-        <span className="text-4xl text-chaparral/40">MVVCSO</span>
+      <div className="h-40 bg-stone-200/20 flex items-center justify-center">
+        <span className="text-4xl text-dusk-500/40">MVVCSO</span>
       </div>
 
       <div className="p-5">
         {category && (
-          <span className="inline-block text-xs font-semibold text-dusty-mauve bg-dusty-mauve/10 px-2 py-0.5 rounded mb-2">
+          <span className="inline-block text-xs font-semibold text-terra-400 bg-terra-50/10 px-2 py-0.5 rounded mb-2">
             {category}
           </span>
         )}
-        <h3 className="text-lg font-semibold text-(--text-primary) mb-2 group-hover:text-terra-cotta transition-colors">
+        <h3 className="text-lg font-semibold text-(--text-primary) mb-2 group-hover:text-gold-400 transition-colors">
           {title}
         </h3>
         {excerpt && (

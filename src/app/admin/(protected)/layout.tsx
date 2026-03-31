@@ -15,7 +15,7 @@ export default async function AdminLayout({
 
   return (
     <html lang={user.language} className="h-full">
-      <body className="h-full bg-desert-cream font-(--font-body) text-(--text-primary)">
+      <body className="h-full bg-stone-50 font-(--font-body) text-(--text-primary)">
         <div className="flex h-full">
           <Sidebar user={user} />
           <main className="flex-1 overflow-y-auto lg:ml-0">

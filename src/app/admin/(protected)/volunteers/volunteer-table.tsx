@@ -86,13 +86,13 @@ export function VolunteerTable({ volunteers }: { volunteers: Volunteer[] }) {
             placeholder="Search by name or email..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-2.5 rounded-lg border border-sandy-gold bg-white text-sm text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta"
+            className="w-full pl-9 pr-4 py-2.5 rounded-lg border border-stone-200 bg-white text-sm text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400"
           />
         </div>
         <select
           value={statusFilter}
           onChange={e => setStatusFilter(e.target.value)}
-          className="px-4 py-2.5 rounded-lg border border-sandy-gold bg-white text-sm text-(--text-primary) focus:outline-none focus:border-terra-cotta"
+          className="px-4 py-2.5 rounded-lg border border-stone-200 bg-white text-sm text-(--text-primary) focus:outline-none focus:border-gold-400"
         >
           <option value="all">All statuses</option>
           <option value="active">Active</option>
@@ -103,11 +103,11 @@ export function VolunteerTable({ volunteers }: { volunteers: Volunteer[] }) {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl border border-sandy-gold overflow-hidden">
+      <div className="bg-white rounded-xl border border-stone-200 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-sandy-gold/50 bg-cream-light">
+              <tr className="border-b border-stone-200/50 bg-stone-100">
                 <th className="text-left px-4 py-3 font-semibold text-(--text-secondary)">
                   <button type="button" onClick={() => toggleSort('name')} className="inline-flex items-center gap-1">
                     Name <SortIcon field="name" />
@@ -137,9 +137,9 @@ export function VolunteerTable({ volunteers }: { volunteers: Volunteer[] }) {
                 </tr>
               ) : (
                 filtered.map(v => (
-                  <tr key={v.id} className="border-b border-sandy-gold/20 hover:bg-cream-light/50 transition-colors">
+                  <tr key={v.id} className="border-b border-stone-200/20 hover:bg-stone-100/50 transition-colors">
                     <td className="px-4 py-3">
-                      <Link href={`/admin/volunteers/${v.id}`} className="font-medium text-(--text-primary) hover:text-terra-cotta transition-colors">
+                      <Link href={`/admin/volunteers/${v.id}`} className="font-medium text-(--text-primary) hover:text-gold-400 transition-colors">
                         {v.name}
                       </Link>
                     </td>

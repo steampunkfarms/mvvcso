@@ -10,7 +10,7 @@ export function Partners() {
   const t = useTranslations('home');
 
   return (
-    <section className="py-12 bg-sandy-gold/30">
+    <section className="py-12 bg-stone-200/30">
       <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
         <h3 className="text-sm font-semibold uppercase tracking-wider text-(--text-muted) text-center mb-6">
           {t('partners_title')}
@@ -22,7 +22,7 @@ export function Partners() {
               href={partner.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-(--text-secondary) hover:text-terra-cotta transition-colors font-medium text-sm"
+              className="text-(--text-secondary) hover:text-gold-400 transition-colors font-medium text-sm"
             >
               {partner.name}
             </a>

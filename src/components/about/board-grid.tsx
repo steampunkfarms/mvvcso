@@ -15,7 +15,7 @@ export function BoardGrid() {
   const t = useTranslations('about');
 
   return (
-    <section className="py-(--section-padding) bg-cream-light">
+    <section className="py-(--section-padding) bg-stone-100">
       <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
         <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center text-(--text-primary)">
           {t('board_title')}
@@ -27,10 +27,10 @@ export function BoardGrid() {
           {boardMembers.map((member) => (
             <div
               key={member.name}
-              className="bg-white rounded-xl p-5 text-center shadow-sm border border-sandy-gold"
+              className="bg-white rounded-xl p-5 text-center shadow-sm border border-stone-200"
             >
-              <div className="w-16 h-16 rounded-full bg-sandy-gold/40 flex items-center justify-center mx-auto mb-3">
-                <User className="w-8 h-8 text-chaparral" />
+              <div className="w-16 h-16 rounded-full bg-stone-200/40 flex items-center justify-center mx-auto mb-3">
+                <User className="w-8 h-8 text-dusk-500" />
               </div>
               <h3 className="font-semibold text-sm text-(--text-primary)">
                 {member.name}

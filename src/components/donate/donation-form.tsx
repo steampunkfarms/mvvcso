@@ -48,7 +48,7 @@ export function DonationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 shadow-sm border border-sandy-gold space-y-6">
+    <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 shadow-sm border border-stone-200 space-y-6">
       {/* Amount selection */}
       <div>
         <label className="block text-sm font-medium text-(--text-primary) mb-3">
@@ -65,8 +65,8 @@ export function DonationForm() {
               }}
               className={`px-4 py-3 rounded-lg border text-sm font-semibold transition-colors ${
                 !isCustom && amount === preset
-                  ? 'bg-terra-cotta text-white border-terra-cotta'
-                  : 'bg-cream-light text-(--text-primary) border-sandy-gold hover:border-terra-cotta'
+                  ? 'bg-gold-400 text-white border-gold-400'
+                  : 'bg-stone-100 text-(--text-primary) border-stone-200 hover:border-gold-400'
               }`}
             >
               ${preset}
@@ -79,8 +79,8 @@ export function DonationForm() {
             onClick={() => setIsCustom(true)}
             className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${
               isCustom
-                ? 'bg-terra-cotta text-white border-terra-cotta'
-                : 'bg-cream-light text-(--text-primary) border-sandy-gold hover:border-terra-cotta'
+                ? 'bg-gold-400 text-white border-gold-400'
+                : 'bg-stone-100 text-(--text-primary) border-stone-200 hover:border-gold-400'
             }`}
           >
             {t('custom_amount')}
@@ -93,7 +93,7 @@ export function DonationForm() {
                 min="1"
                 value={customAmount}
                 onChange={(e) => setCustomAmount(e.target.value)}
-                className="w-24 px-3 py-2 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) focus:outline-none focus:border-terra-cotta"
+                className="w-24 px-3 py-2 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) focus:outline-none focus:border-gold-400"
                 placeholder="0"
                 autoFocus
               />
@@ -115,8 +115,8 @@ export function DonationForm() {
               onClick={() => setFrequency(freq)}
               className={`flex-1 px-4 py-2.5 rounded-lg border text-sm font-medium transition-colors ${
                 frequency === freq
-                  ? 'bg-terra-cotta text-white border-terra-cotta'
-                  : 'bg-cream-light text-(--text-primary) border-sandy-gold hover:border-terra-cotta'
+                  ? 'bg-gold-400 text-white border-gold-400'
+                  : 'bg-stone-100 text-(--text-primary) border-stone-200 hover:border-gold-400'
               }`}
             >
               {t(freq === 'one-time' ? 'one_time' : 'monthly')}
@@ -133,7 +133,7 @@ export function DonationForm() {
         <select
           value={campaign}
           onChange={(e) => setCampaign(e.target.value)}
-          className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) focus:outline-none focus:border-terra-cotta"
+          className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) focus:outline-none focus:border-gold-400"
         >
           <option value="general">{t('general_fund')}</option>
           <option value="ranchita-roots">{t('ranchita_roots')}</option>
@@ -141,7 +141,7 @@ export function DonationForm() {
       </div>
 
       {status === 'error' && (
-        <div className="bg-sunset-peach/20 rounded-lg p-4">
+        <div className="bg-gold-100/20 rounded-lg p-4">
           <p className="text-sm text-(--text-primary)">
             {t('coming_soon')}
           </p>
@@ -152,7 +152,7 @@ export function DonationForm() {
       <button
         type="submit"
         disabled={status === 'loading' || displayAmount < 1}
-        className="w-full px-6 py-3.5 rounded-lg bg-terra-cotta text-white font-semibold text-lg hover:bg-terra-cotta-hover transition-colors disabled:opacity-60"
+        className="w-full px-6 py-3.5 rounded-lg bg-gold-400 text-white font-semibold text-lg hover:bg-gold-500 transition-colors disabled:opacity-60"
       >
         {status === 'loading'
           ? t('processing')

@@ -38,7 +38,7 @@ export function RsvpForm({ eventId, isFull }: { eventId: string; isFull: boolean
 
   if (isFull) {
     return (
-      <div className="bg-white rounded-xl border border-sandy-gold p-6 text-center">
+      <div className="bg-white rounded-xl border border-stone-200 p-6 text-center">
         <div className="text-2xl mb-2">🎟️</div>
         <h3 className="font-semibold text-(--text-primary) mb-1">Event is full</h3>
         <p className="text-sm text-(--text-muted)">All spots have been taken. Check back for future events!</p>
@@ -48,7 +48,7 @@ export function RsvpForm({ eventId, isFull }: { eventId: string; isFull: boolean
 
   if (status === 'success') {
     return (
-      <div className="bg-white rounded-xl border border-sandy-gold p-6 text-center">
+      <div className="bg-white rounded-xl border border-stone-200 p-6 text-center">
         <div className="text-3xl mb-2">✅</div>
         <h3 className="font-semibold text-(--text-primary) mb-1">You&apos;re in!</h3>
         <p className="text-sm text-(--text-muted)">We&apos;ll see you there. Add it to your calendar so you don&apos;t forget!</p>
@@ -57,7 +57,7 @@ export function RsvpForm({ eventId, isFull }: { eventId: string; isFull: boolean
   }
 
   return (
-    <div className="bg-white rounded-xl border border-sandy-gold p-6">
+    <div className="bg-white rounded-xl border border-stone-200 p-6">
       <h3 className="font-semibold text-(--text-primary) mb-4">RSVP</h3>
       <form onSubmit={handleSubmit} className="space-y-3">
         <div>
@@ -66,7 +66,7 @@ export function RsvpForm({ eventId, isFull }: { eventId: string; isFull: boolean
             id="rsvp-name"
             name="name"
             required
-            className="w-full px-3 py-2 rounded-lg border border-sandy-gold bg-cream-light text-sm text-(--text-primary) focus:outline-none focus:border-terra-cotta"
+            className="w-full px-3 py-2 rounded-lg border border-stone-200 bg-stone-100 text-sm text-(--text-primary) focus:outline-none focus:border-gold-400"
           />
         </div>
         <div>
@@ -76,7 +76,7 @@ export function RsvpForm({ eventId, isFull }: { eventId: string; isFull: boolean
             name="email"
             type="email"
             required
-            className="w-full px-3 py-2 rounded-lg border border-sandy-gold bg-cream-light text-sm text-(--text-primary) focus:outline-none focus:border-terra-cotta"
+            className="w-full px-3 py-2 rounded-lg border border-stone-200 bg-stone-100 text-sm text-(--text-primary) focus:outline-none focus:border-gold-400"
           />
         </div>
         <div>
@@ -85,7 +85,7 @@ export function RsvpForm({ eventId, isFull }: { eventId: string; isFull: boolean
             id="rsvp-phone"
             name="phone"
             type="tel"
-            className="w-full px-3 py-2 rounded-lg border border-sandy-gold bg-cream-light text-sm text-(--text-primary) focus:outline-none focus:border-terra-cotta"
+            className="w-full px-3 py-2 rounded-lg border border-stone-200 bg-stone-100 text-sm text-(--text-primary) focus:outline-none focus:border-gold-400"
           />
         </div>
 
@@ -94,7 +94,7 @@ export function RsvpForm({ eventId, isFull }: { eventId: string; isFull: boolean
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="w-full px-4 py-2.5 rounded-lg bg-terra-cotta text-white font-semibold hover:bg-terra-cotta-hover transition-colors disabled:opacity-50"
+          className="w-full px-4 py-2.5 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors disabled:opacity-50"
         >
           {status === 'loading' ? 'Submitting...' : 'RSVP — I\'ll be there!'}
         </button>

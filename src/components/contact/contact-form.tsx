@@ -40,14 +40,14 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-white rounded-xl p-8 border border-sandy-gold text-center">
+      <div className="bg-white rounded-xl p-8 border border-stone-200 text-center">
         <p className="text-lg font-medium text-(--text-primary)">{t('success')}</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 shadow-sm border border-sandy-gold space-y-5">
+    <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 shadow-sm border border-stone-200 space-y-5">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-(--text-primary) mb-1">
           {t('name_label')}
@@ -57,7 +57,7 @@ export function ContactForm() {
           name="name"
           type="text"
           required
-          className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta"
+          className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400"
         />
       </div>
 
@@ -70,7 +70,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
-          className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta"
+          className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400"
         />
       </div>
 
@@ -82,7 +82,7 @@ export function ContactForm() {
           id="phone"
           name="phone"
           type="tel"
-          className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta"
+          className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400"
         />
       </div>
 
@@ -95,7 +95,7 @@ export function ContactForm() {
           name="message"
           rows={5}
           required
-          className="w-full px-4 py-2.5 rounded-lg border border-sandy-gold bg-cream-light text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-terra-cotta resize-y"
+          className="w-full px-4 py-2.5 rounded-lg border border-stone-200 bg-stone-100 text-(--text-primary) placeholder:text-(--text-muted) focus:outline-none focus:border-gold-400 resize-y"
         />
       </div>
 
@@ -106,7 +106,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full px-6 py-3 rounded-lg bg-terra-cotta text-white font-semibold hover:bg-terra-cotta-hover transition-colors disabled:opacity-60"
+        className="w-full px-6 py-3 rounded-lg bg-gold-400 text-white font-semibold hover:bg-gold-500 transition-colors disabled:opacity-60"
       >
         {status === 'loading' ? t('sending') : t('submit')}
       </button>
