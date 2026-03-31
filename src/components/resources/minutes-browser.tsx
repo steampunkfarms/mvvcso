@@ -137,14 +137,48 @@ export function MinutesBrowser({
       </div>
 
       {/* Year summary */}
-      <div className="mt-6 p-4 bg-stone-100 rounded-xl">
-        <div className="flex flex-wrap gap-x-6 gap-y-1 text-xs text-(--text-muted)">
-          <span>Total: {minutes.length} entries</span>
-          <span>Meetings held: {minutes.filter((m) => m.status === 'minutes').length}</span>
-          <span>No meeting: {minutes.filter((m) => m.status === 'no_meeting').length}</span>
-          <span>No quorum: {minutes.filter((m) => m.status === 'no_quorum').length}</span>
-        </div>
-      </div>
+      {(() => {
+        const held = minutes.filter((m) => m.status === 'minutes').length;
+        const noMin = minutes.filter((m) => m.status === 'no_minutes').length;
+        const noMeet = minutes.filter((m) => m.status === 'no_meeting').length;
+        const noQuo = minutes.filter((m) => m.status === 'no_quorum').length;
+        const post = minutes.filter((m) => m.status === 'postponed').length;
+        return (
+          <div className="mt-6 p-4 bg-stone-100 rounded-xl">
+            <div className="flex flex-wrap gap-x-6 gap-y-1 text-xs text-(--text-muted)">
+              <span>Total: {minutes.length} entries</span>
+              <span>Meetings held: {held}</span>
+              {noMin > 0 && <span>No minutes: {noMin}</span>}
+              {noMeet > 0 && <span>No meeting: {noMeet}</span>}
+              {noQuo > 0 && <span>No quorum: {noQuo}</span>}
+              {post > 0 && <span>Postponed: {post}</span>}
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* All-time totals */}
+      {(() => {
+        const all = years.flatMap((y) => minutesByYear[y] || []);
+        const held = all.filter((m) => m.status === 'minutes').length;
+        const noMin = all.filter((m) => m.status === 'no_minutes').length;
+        const noMeet = all.filter((m) => m.status === 'no_meeting').length;
+        const noQuo = all.filter((m) => m.status === 'no_quorum').length;
+        const post = all.filter((m) => m.status === 'postponed').length;
+        return (
+          <div className="mt-3 p-4 bg-stone-50 rounded-xl border border-stone-100">
+            <p className="text-xs font-medium text-(--text-secondary) mb-1">All years</p>
+            <div className="flex flex-wrap gap-x-6 gap-y-1 text-xs text-(--text-muted)">
+              <span>Total: {all.length} entries</span>
+              <span>Meetings held: {held}</span>
+              {noMin > 0 && <span>No minutes: {noMin}</span>}
+              {noMeet > 0 && <span>No meeting: {noMeet}</span>}
+              {noQuo > 0 && <span>No quorum: {noQuo}</span>}
+              {post > 0 && <span>Postponed: {post}</span>}
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }
