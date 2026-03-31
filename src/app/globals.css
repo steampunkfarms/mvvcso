@@ -1,41 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  /* Rancheti Sunset Palette */
-  --sunset-gold: #E8A838;
-  --desert-coral: #D85A3A;
-  --twilight-purple: #6B4C8A;
-  --sky-blue: #4A90B8;
-  --sage-brush: #7A8B5E;
-  --sandstone: #F5EDE0;
-  --deep-sandstone: #E8DCC8;
-  --warm-white: #FAF7F2;
-  --charcoal-earth: #2D2420;
-  --mountain-shadow: #1A1216;
+  /* High Desert Sunset & Chaparral Palette — bright, warm, airy */
+  --desert-cream: #fff1da;        /* primary background — warm parchment */
+  --sandy-gold: #e9cb8d;          /* secondary surfaces, card borders */
+  --sunset-peach: #f7bd8d;        /* warm accents, CTAs, highlights */
+  --terra-cotta: #ca7e56;         /* buttons, strong accents */
+  --chaparral: #878763;           /* sage/olive — nature accent, borders */
+  --dusty-mauve: #ae7c83;         /* subtle highlights, tags, badges */
+
+  /* Derived tones */
+  --terra-cotta-hover: #b86d47;
+  --sunset-peach-hover: #eda870;
+  --cream-light: #fff8ed;         /* lighter than desert-cream for cards */
+
+  /* Text — warm browns, not black */
+  --text-primary: #3d2e1f;        /* warm dark brown */
+  --text-secondary: #6b5744;      /* medium brown */
+  --text-muted: #9a8b7a;          /* muted tan */
+  --text-on-dark: #fff1da;        /* cream on dark surfaces */
 
   /* Semantic mappings */
-  --color-primary: var(--sunset-gold);
-  --color-primary-hover: #D49530;
-  --color-accent: var(--desert-coral);
-  --color-accent-hover: #C04828;
-  --color-info: var(--sky-blue);
-  --color-success: var(--sage-brush);
-  --color-highlight: var(--twilight-purple);
+  --color-primary: var(--terra-cotta);
+  --color-primary-hover: var(--terra-cotta-hover);
+  --color-accent: var(--sunset-peach);
+  --color-accent-hover: var(--sunset-peach-hover);
+  --color-nature: var(--chaparral);
+  --color-highlight: var(--dusty-mauve);
 
-  --color-bg-page: var(--warm-white);
-  --color-bg-surface: var(--sandstone);
-  --color-bg-card: white;
-  --color-bg-dark: var(--charcoal-earth);
-  --color-bg-darkest: var(--mountain-shadow);
+  --color-bg-page: var(--desert-cream);
+  --color-bg-surface: var(--sandy-gold);
+  --color-bg-card: var(--cream-light);
+  --color-bg-dark: var(--terra-cotta);
+  --color-bg-hero: #3d2e1f;
 
-  --color-text-primary: var(--charcoal-earth);
-  --color-text-secondary: #5C4F45;
-  --color-text-muted: #8A7D73;
-  --color-text-on-dark: var(--sandstone);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-on-dark: var(--text-on-dark);
   --color-text-on-accent: white;
 
-  --color-border: #D4C8B8;
-  --color-border-light: #E8DCC8;
+  --color-border: var(--chaparral);
+  --color-border-light: var(--sandy-gold);
 
   /* Typography */
   --font-body: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
@@ -48,33 +54,17 @@
 }
 
 @theme inline {
-  --color-sunset-gold: var(--sunset-gold);
-  --color-desert-coral: var(--desert-coral);
-  --color-twilight-purple: var(--twilight-purple);
-  --color-sky-blue: var(--sky-blue);
-  --color-sage-brush: var(--sage-brush);
-  --color-sandstone: var(--sandstone);
-  --color-deep-sandstone: var(--deep-sandstone);
-  --color-warm-white: var(--warm-white);
-  --color-charcoal-earth: var(--charcoal-earth);
-  --color-mountain-shadow: var(--mountain-shadow);
-  --color-primary-hover: var(--color-primary-hover);
-  --color-accent-hover: var(--color-accent-hover);
+  --color-desert-cream: var(--desert-cream);
+  --color-sandy-gold: var(--sandy-gold);
+  --color-sunset-peach: var(--sunset-peach);
+  --color-terra-cotta: var(--terra-cotta);
+  --color-chaparral: var(--chaparral);
+  --color-dusty-mauve: var(--dusty-mauve);
+  --color-cream-light: var(--cream-light);
+  --color-terra-cotta-hover: var(--terra-cotta-hover);
+  --color-sunset-peach-hover: var(--sunset-peach-hover);
   --font-sans: var(--font-body);
   --font-heading: var(--font-heading);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg-page: var(--mountain-shadow);
-    --color-bg-surface: var(--charcoal-earth);
-    --color-bg-card: #352D28;
-    --color-text-primary: var(--sandstone);
-    --color-text-secondary: #B8A898;
-    --color-text-muted: #8A7D73;
-    --color-border: #4A3F38;
-    --color-border-light: #3A322C;
-  }
 }
 
 body {

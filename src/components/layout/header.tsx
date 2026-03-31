@@ -23,8 +23,8 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-[var(--color-border-light)]">
-      <nav className="max-w-[var(--container-max)] mx-auto px-[var(--container-padding)] h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-desert-cream/90 backdrop-blur-md border-b border-sandy-gold">
+      <nav className="max-w-(--container-max) mx-auto px-(--container-padding) h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
@@ -46,8 +46,8 @@ export function Header() {
                   href={item.href}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive
-                      ? 'text-[var(--sunset-gold)] bg-[var(--sunset-gold)]/5'
-                      : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-surface)]'
+                      ? 'text-terra-cotta bg-terra-cotta/5'
+                      : 'text-(--text-secondary) hover:text-(--text-primary) hover:bg-sandy-gold/30'
                   }`}
                 >
                   {t(item.key)}
@@ -64,7 +64,7 @@ export function Header() {
           {/* Donate button (desktop) */}
           <Link
             href="/donate"
-            className="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-[var(--sunset-gold)] text-[var(--charcoal-earth)] text-sm font-semibold hover:bg-[var(--color-primary-hover)] transition-colors"
+            className="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-terra-cotta text-white text-sm font-semibold hover:bg-terra-cotta-hover transition-colors"
           >
             {t('donate')}
           </Link>
@@ -72,7 +72,7 @@ export function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="lg:hidden p-2 text-[var(--color-text-primary)]"
+            className="lg:hidden p-2 text-(--text-primary)"
             aria-label="Open menu"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

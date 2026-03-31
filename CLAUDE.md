@@ -41,13 +41,13 @@
 - NEXT_PUBLIC_SITE_URL — Base URL for absolute links
 - ANTHROPIC_API_KEY — AI chatbot
 
-## Brand: Rancheti Sunset Palette
+## Brand: High Desert Sunset & Chaparral Palette
 See src/app/globals.css for CSS custom properties.
-Primary: Sunset Gold #E8A838, Desert Coral #D85A3A
-Secondary: Twilight Purple #6B4C8A, Sky Blue #4A90B8
-Nature: Sage Brush #7A8B5E
-Backgrounds: Sandstone #F5EDE0, Deep Sandstone #E8DCC8, Warm White #FAF7F2
-Dark: Charcoal Earth #2D2420, Mountain Shadow #1A1216
+BRIGHT overall — high mountain desert sunshine feel.
+Background: Desert Cream #fff1da (primary), Cream Light #fff8ed (cards)
+Accents: Sandy Gold #e9cb8d, Sunset Peach #f7bd8d
+Buttons/Borders/Highlights (darkest): Terra Cotta #ca7e56, Chaparral #878763, Dusty Mauve #ae7c83
+Text: Warm browns (#3d2e1f primary, #6b5744 secondary) — never pure black
 
 ## i18n
 - English = default locale
