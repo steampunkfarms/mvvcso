@@ -41,15 +41,19 @@
 - NEXT_PUBLIC_SITE_URL — Base URL for absolute links
 - ANTHROPIC_API_KEY — AI chatbot
 
-## Brand: Ranchita Dusk Palette
+## Brand: Elder-Friendly Palette (WCAG AAA)
 See src/app/globals.css for CSS custom properties.
-Cool blue dominant with warm gold accents — like the last light over Ranchita mountains.
-Primary (Dusk sky): #ECEEF5 → #1A2340 (10-stop gradient)
-Accent (Cloud gold): #FEF8F0 → #5C3A10 (CTAs are gold-400 #E0A040)
-Secondary (Terra earth): #FAF0EC → #4A2010
-Success (Sage): #EEF2E8 → #243418
-Neutrals (Stone): #F8F6F4 page bg → #1C1A18 darkest
-Text: Warm stone (#2C2824 primary, #6A6460 secondary) — never pure black
+Warm cream base, soft-saturated, elder-first — all section backgrounds ≥ 85% lightness.
+No dark mode. No glare. No harsh contrasts. Designed for Ranchita seniors in bright sunlight.
+Background: #F8F4EE (warm cream) | Surface: #FFFFFF (white cards/hero sections/modals)
+Primary Accent: #E07F5C (sunset terracotta — Donate/Volunteer buttons, hover states)
+Secondary Accent: #3D8C9E (sky teal — icons, progress bars, "Learn More")
+Warm Highlight: #EFC9A0 (golden cloud glow — badges, ribbons, subtle borders)
+Headings: #1C2B2F on #F8F4EE → 14:1 (AAA) | Body: #2F3E44 on #F8F4EE → 10:1 (AAA)
+Muted text: #6B6355 (warm taupe) | Footer: #6B6355 on #F0EDE6
+Links: #3D8C9E (teal) underlined, hover to #E07F5C (sunset) — never blue-only
+Primary buttons: #E07F5C bg + white text | Secondary: #3D8C9E border + #2F3E44 text
+Font sizes: Body 18px (1.125rem), Headings 28–36px, Mobile +2px everywhere
 
 ## i18n
 - English = default locale

@@ -474,3 +474,172 @@ export const socialPosts = pgTable('social_posts', {
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
 });
+
+// ── Phase 5: Merch Shop ─────────────────────────────────────────
+
+export const shopProducts = pgTable('shop_products', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  printfulSyncProductId: integer('printful_sync_product_id').notNull().unique(),
+  name: text('name').notNull(),
+  nameEs: text('name_es'),
+  description: text('description'),
+  descriptionEs: text('description_es'),
+  category: text('category').notNull(),
+  thumbnailUrl: text('thumbnail_url'),
+  isActive: boolean('is_active').notNull().default(true),
+  sortOrder: integer('sort_order').default(0),
+  lastSyncedAt: timestamp('last_synced_at'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const shopVariants = pgTable('shop_variants', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  productId: uuid('product_id').notNull().references(() => shopProducts.id),
+  printfulVariantId: integer('printful_variant_id').notNull().unique(),
+  name: text('name').notNull(),
+  sku: text('sku'),
+  retailPrice: integer('retail_price').notNull(),
+  printfulPrice: integer('printful_price').notNull(),
+  currency: text('currency').notNull().default('USD'),
+  imageUrl: text('image_url'),
+  inStock: boolean('in_stock').notNull().default(true),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const shopOrders = pgTable('shop_orders', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  stripeSessionId: text('stripe_session_id').unique(),
+  stripePaymentIntentId: text('stripe_payment_intent_id'),
+  printfulOrderId: integer('printful_order_id'),
+  customerName: text('customer_name').notNull(),
+  customerEmail: text('customer_email').notNull(),
+  shippingAddress: text('shipping_address_json').notNull(),
+  subtotal: integer('subtotal').notNull(),
+  shipping: integer('shipping').notNull(),
+  tax: integer('tax').default(0),
+  total: integer('total').notNull(),
+  printfulCost: integer('printful_cost'),
+  margin: integer('margin'),
+  status: text('status').notNull().default('pending'),
+  trackingNumber: text('tracking_number'),
+  trackingUrl: text('tracking_url'),
+  printfulStatusJson: text('printful_status_json'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const shopOrderItems = pgTable('shop_order_items', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  orderId: uuid('order_id').notNull().references(() => shopOrders.id),
+  variantId: uuid('variant_id').notNull().references(() => shopVariants.id),
+  quantity: integer('quantity').notNull().default(1),
+  unitPrice: integer('unit_price').notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+// ── Phase 5: Artisan Mercantile ─────────────────────────────────
+
+export const artisanVendors = pgTable('artisan_vendors', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  userId: uuid('user_id').notNull().references(() => authUsers.id).unique(),
+  shopName: text('shop_name').notNull(),
+  shopNameEs: text('shop_name_es'),
+  bio: text('bio'),
+  bioEs: text('bio_es'),
+  avatarUrl: text('avatar_url'),
+  bannerUrl: text('banner_url'),
+  stripeConnectId: text('stripe_connect_id'),
+  stripeOnboardingComplete: boolean('stripe_onboarding_complete').default(false),
+  commissionRate: integer('commission_rate').notNull().default(10),
+  status: text('status').notNull().default('pending'),
+  categories: text('categories'),
+  location: text('location').default('Ranchita area'),
+  contactMethod: text('contact_method'),
+  approvedBy: uuid('approved_by').references(() => authUsers.id),
+  approvedAt: timestamp('approved_at'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const artisanProducts = pgTable('artisan_products', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  vendorId: uuid('vendor_id').notNull().references(() => artisanVendors.id),
+  title: text('title').notNull(),
+  titleEs: text('title_es'),
+  description: text('description').notNull(),
+  descriptionEs: text('description_es'),
+  category: text('category').notNull(),
+  price: integer('price').notNull(),
+  compareAtPrice: integer('compare_at_price'),
+  photosJson: text('photos_json'),
+  inventory: integer('inventory'),
+  weight: text('weight'),
+  dimensions: text('dimensions'),
+  fulfillment: text('fulfillment').notNull().default('local_pickup'),
+  isActive: boolean('is_active').notNull().default(true),
+  isFeatured: boolean('is_featured').default(false),
+  views: integer('views').default(0),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const artisanOrders = pgTable('artisan_orders', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  vendorId: uuid('vendor_id').notNull().references(() => artisanVendors.id),
+  buyerId: uuid('buyer_id').references(() => authUsers.id),
+  buyerName: text('buyer_name').notNull(),
+  buyerEmail: text('buyer_email').notNull(),
+  stripePaymentIntentId: text('stripe_payment_intent_id'),
+  subtotal: integer('subtotal').notNull(),
+  commission: integer('commission').notNull(),
+  vendorPayout: integer('vendor_payout').notNull(),
+  fulfillmentMethod: text('fulfillment_method').notNull(),
+  shippingAddress: text('shipping_address_json'),
+  status: text('status').notNull().default('pending'),
+  trackingNumber: text('tracking_number'),
+  vendorNotes: text('vendor_notes'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const artisanOrderItems = pgTable('artisan_order_items', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  orderId: uuid('order_id').notNull().references(() => artisanOrders.id),
+  productId: uuid('product_id').notNull().references(() => artisanProducts.id),
+  quantity: integer('quantity').notNull().default(1),
+  unitPrice: integer('unit_price').notNull(),
+});
+
+// ── Phase 5: Fundraising ────────────────────────────────────────
+
+export const campaigns = pgTable('campaigns', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  name: text('name').notNull(),
+  nameEs: text('name_es'),
+  description: text('description'),
+  descriptionEs: text('description_es'),
+  goalAmount: integer('goal_amount'),
+  raisedAmount: integer('raised_amount').notNull().default(0),
+  startDate: timestamp('start_date'),
+  endDate: timestamp('end_date'),
+  coverImage: text('cover_image'),
+  isActive: boolean('is_active').notNull().default(true),
+  fund: text('fund').notNull().default('general'),
+  createdBy: uuid('created_by').references(() => authUsers.id),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const pledges = pgTable('pledges', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  campaignId: uuid('campaign_id').references(() => campaigns.id),
+  donorName: text('donor_name').notNull(),
+  donorEmail: text('donor_email').notNull(),
+  amount: integer('amount').notNull(),
+  frequency: text('frequency').notNull().default('one-time'),
+  status: text('status').notNull().default('pledged'),
+  fulfilledAmount: integer('fulfilled_amount').default(0),
+  notes: text('notes'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
