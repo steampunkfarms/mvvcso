@@ -1,8 +1,8 @@
 import { gte, eq } from 'drizzle-orm';
 import Link from 'next/link';
 import { Calendar, MapPin, ArrowRight } from 'lucide-react';
-import { format } from 'date-fns';
 import { db, schema } from '@/lib/db';
+import { formatPacificTime, formatPacificShort, formatPacificMonthDay } from '@/lib/format-pacific';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -53,8 +53,8 @@ export default async function EventsPage() {
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-14 h-14 rounded-lg bg-gold-100/20 flex flex-col items-center justify-center text-gold-400 shrink-0">
-                      <div className="text-xs font-bold uppercase leading-none">{format(event.date, 'MMM')}</div>
-                      <div className="text-xl font-bold leading-none">{format(event.date, 'd')}</div>
+                      <div className="text-xs font-bold uppercase leading-none">{formatPacificMonthDay(event.date).month}</div>
+                      <div className="text-xl font-bold leading-none">{formatPacificMonthDay(event.date).day}</div>
                     </div>
                     <div className="min-w-0 flex-1">
                       <h3 className="text-lg font-semibold text-(--text-primary) group-hover:text-gold-400 transition-colors">
@@ -63,7 +63,7 @@ export default async function EventsPage() {
                       <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-1 text-sm text-(--text-muted)">
                         <span className="flex items-center gap-1">
                           <Calendar className="w-3.5 h-3.5" />
-                          {format(event.date, 'EEEE, h:mm a')}
+                          {formatPacificShort(event.date)}
                         </span>
                         {event.location && (
                           <span className="flex items-center gap-1">

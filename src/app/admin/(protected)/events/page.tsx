@@ -1,8 +1,8 @@
 import { desc, gte, lt, count, eq } from 'drizzle-orm';
 import Link from 'next/link';
 import { Calendar, Plus } from 'lucide-react';
-import { format } from 'date-fns';
 import { db, schema } from '@/lib/db';
+import { formatPacificTime, formatPacificMonthDay } from '@/lib/format-pacific';
 import { requireAuth } from '@/lib/auth';
 
 async function getEvents() {
@@ -25,13 +25,13 @@ export default async function EventsAdminPage() {
         className="flex items-center gap-4 p-4 hover:bg-stone-100/50 transition-colors border-b border-stone-200/20 last:border-0"
       >
         <div className="w-12 h-12 rounded-lg bg-gold-100/20 flex flex-col items-center justify-center text-gold-400 shrink-0">
-          <div className="text-[10px] font-bold uppercase leading-none">{format(event.date, 'MMM')}</div>
-          <div className="text-lg font-bold leading-none">{format(event.date, 'd')}</div>
+          <div className="text-[10px] font-bold uppercase leading-none">{formatPacificMonthDay(event.date).month}</div>
+          <div className="text-lg font-bold leading-none">{formatPacificMonthDay(event.date).day}</div>
         </div>
         <div className="min-w-0 flex-1">
           <div className="font-medium text-(--text-primary) truncate">{event.titleEn}</div>
           <div className="text-xs text-(--text-muted)">
-            {format(event.date, 'h:mm a')}
+            {formatPacificTime(event.date)}
             {event.location && ` · ${event.location}`}
           </div>
         </div>

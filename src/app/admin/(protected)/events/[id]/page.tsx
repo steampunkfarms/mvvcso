@@ -2,8 +2,8 @@ import { eq, count } from 'drizzle-orm';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, MapPin, Users, Download, Pencil } from 'lucide-react';
-import { format } from 'date-fns';
 import { db, schema } from '@/lib/db';
+import { formatPacificFull, formatPacificTime, formatPacificMonthDay } from '@/lib/format-pacific';
 import { requireAuth } from '@/lib/auth';
 
 export default async function EventDetailPage({
@@ -54,8 +54,8 @@ export default async function EventDetailPage({
             <div className="space-y-2 text-sm mb-4">
               <div className="flex items-center gap-2 text-(--text-secondary)">
                 <Calendar className="w-4 h-4 text-(--text-muted)" />
-                {format(event.date, 'EEEE, MMMM d, yyyy · h:mm a')}
-                {event.endDate && ` — ${format(event.endDate, 'h:mm a')}`}
+                {formatPacificFull(event.date)}
+                {event.endDate && ` — ${formatPacificTime(event.endDate)}`}
               </div>
               {event.location && (
                 <div className="flex items-center gap-2 text-(--text-secondary)">

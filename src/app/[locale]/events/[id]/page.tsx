@@ -1,8 +1,8 @@
 import { eq, count } from 'drizzle-orm';
 import { notFound } from 'next/navigation';
 import { Calendar, MapPin, Users, Download } from 'lucide-react';
-import { format } from 'date-fns';
 import { db, schema } from '@/lib/db';
+import { formatPacificFull, formatPacificTime, formatPacificMonthDay } from '@/lib/format-pacific';
 import type { Metadata } from 'next';
 import { RsvpForm } from './rsvp-form';
 
@@ -43,8 +43,8 @@ export default async function EventDetailPage({
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-16 h-16 rounded-lg bg-gold-100/20 flex flex-col items-center justify-center text-gold-400 shrink-0">
-                <div className="text-xs font-bold uppercase leading-none">{format(event.date, 'MMM')}</div>
-                <div className="text-2xl font-bold leading-none">{format(event.date, 'd')}</div>
+                <div className="text-xs font-bold uppercase leading-none">{formatPacificMonthDay(event.date).month}</div>
+                <div className="text-2xl font-bold leading-none">{formatPacificMonthDay(event.date).day}</div>
               </div>
               <div>
                 <h1 className="text-3xl md:text-4xl font-bold text-(--text-primary)">
@@ -59,8 +59,8 @@ export default async function EventDetailPage({
             <div className="flex flex-wrap gap-4 text-sm text-(--text-secondary) mb-6">
               <span className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4 text-gold-400" />
-                {format(event.date, 'EEEE, MMMM d, yyyy · h:mm a')}
-                {event.endDate && ` — ${format(event.endDate, 'h:mm a')}`}
+                {formatPacificFull(event.date)}
+                {event.endDate && ` — ${formatPacificTime(event.endDate)}`}
               </span>
               {event.location && (
                 <span className="flex items-center gap-1.5">
