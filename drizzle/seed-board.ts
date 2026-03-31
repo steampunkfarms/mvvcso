@@ -6,6 +6,9 @@
  * Board member emails and roles confirmed 2026-03-31.
  */
 
+import { config } from 'dotenv';
+config({ path: '.env.local' });
+
 import { neon } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-http';
 import * as schema from './schema';
