@@ -33,7 +33,7 @@ export function Footer() {
               {t('quick_links')}
             </h3>
             <ul className="space-y-2">
-              {(['about', 'programs', 'blog', 'donate', 'contact', 'pct'] as const).map((key) => (
+              {(['about', 'programs', 'blog', 'events', 'resources', 'donate', 'contact'] as const).map((key) => (
                 <li key={key}>
                   <Link
                     href={`/${key}`}
