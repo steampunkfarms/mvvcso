@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'https://mvvcso.vercel.app'
   ),
+  icons: {
+    icon: '/images/ranchita/yeti-closeup.jpg',
+    apple: '/images/ranchita/yeti-closeup.jpg',
+  },
   openGraph: {
     type: 'website',
     siteName: 'MVVCSO',
