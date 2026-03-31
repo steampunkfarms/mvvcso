@@ -23,6 +23,7 @@ const sql = neon(DATABASE_URL);
 const db = drizzle(sql, { schema });
 
 const BOARD_MEMBERS = [
+  { name: 'Frederick Olaf', email: 'frederick.olaf@gmail.com', role: 'president' }, // Master admin — cannot be deleted
   { name: 'Nicholas Ketelesen', email: 'president@mvvcso.org', role: 'president' },
   { name: 'Kristi Bruner', email: 'secretary@mvvcso.org', role: 'secretary' },
   { name: 'Colleen James', email: 'treasurer@mvvcso.org', role: 'treasurer' },
