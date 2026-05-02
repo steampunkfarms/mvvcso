@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { BookOpen, Shield, ClipboardList, FileEdit, Map, Calendar } from 'lucide-react';
-import { RESOURCE_CATEGORIES, POLICIES, SOPS, MEETING_MINUTES, FORMS, MAPS, BYLAWS } from '@/lib/transparency-docs';
+import { BookOpen, Shield, ClipboardList, FileEdit, Map, Calendar, Flame } from 'lucide-react';
+import { RESOURCE_CATEGORIES, COMMUNITY_SAFETY_CATEGORIES, POLICIES, SOPS, MEETING_MINUTES, FORMS, MAPS, BYLAWS } from '@/lib/transparency-docs';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const ICONS: Record<string, typeof BookOpen> = {
-  BookOpen, Shield, ClipboardList, FileEdit, Map, Calendar,
+  BookOpen, Shield, ClipboardList, FileEdit, Map, Calendar, Flame,
 };
 
 const DOC_COUNTS: Record<string, number> = {
@@ -44,9 +44,40 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Category Cards */}
+      {/* Community Safety */}
+      <section className="py-(--section-padding)">
+        <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
+          <h2 className="text-2xl font-bold text-(--text-primary) mb-6">Community Safety</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {COMMUNITY_SAFETY_CATEGORIES.map((cat) => {
+              const Icon = ICONS[cat.icon] || BookOpen;
+              const colors = COLOR_MAP[cat.color] || COLOR_MAP.terra;
+              return (
+                <Link
+                  key={cat.slug}
+                  href={`/resources/${cat.slug}`}
+                  className={`group bg-white rounded-xl p-6 border ${colors.border} hover:shadow-lg transition-all hover:-translate-y-0.5`}
+                >
+                  <div className={`w-12 h-12 rounded-lg ${colors.bg} flex items-center justify-center mb-4`}>
+                    <Icon className={`w-6 h-6 ${colors.icon}`} />
+                  </div>
+                  <h3 className="text-lg font-bold text-(--text-primary) group-hover:text-gold-400 transition-colors">
+                    {cat.title}
+                  </h3>
+                  <p className="text-sm text-(--text-secondary) mt-1">
+                    {cat.description}
+                  </p>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Resources & Transparency Category Cards */}
       <section className="py-(--section-padding) bg-stone-50">
         <div className="max-w-(--container-max) mx-auto px-(--container-padding)">
+          <h2 className="text-2xl font-bold text-(--text-primary) mb-6">Resources &amp; Transparency</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {RESOURCE_CATEGORIES.map((cat) => {
               const Icon = ICONS[cat.icon] || BookOpen;
@@ -62,9 +93,9 @@ export default function ResourcesPage() {
                   <div className={`w-12 h-12 rounded-lg ${colors.bg} flex items-center justify-center mb-4`}>
                     <Icon className={`w-6 h-6 ${colors.icon}`} />
                   </div>
-                  <h2 className="text-lg font-bold text-(--text-primary) group-hover:text-gold-400 transition-colors">
+                  <h3 className="text-lg font-bold text-(--text-primary) group-hover:text-gold-400 transition-colors">
                     {cat.title}
-                  </h2>
+                  </h3>
                   <p className="text-sm text-(--text-secondary) mt-1 mb-3">
                     {cat.description}
                   </p>

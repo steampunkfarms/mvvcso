@@ -93,6 +93,20 @@ export const RESOURCE_CATEGORIES = [
   },
 ] as const;
 
+// ── Community Safety Categories ───────────────────────────────────
+
+export const COMMUNITY_SAFETY_CATEGORIES = [
+  {
+    slug: 'wildfire-preparedness',
+    title: 'Wildfire Preparedness',
+    titleEs: '__TODO_ES__ Preparación para Incendios Forestales',
+    description: 'Backcountry-tailored wildfire readiness for Ranchita and the Montezuma Valley.',
+    descriptionEs: '__TODO_ES__ Preparación backcountry para incendios forestales en Ranchita y el Valle de Montezuma.',
+    icon: 'Flame',
+    color: 'terra',
+  },
+] as const;
+
 // ── Bylaws ────────────────────────────────────────────────────────
 
 export const BYLAWS: TransparencyDoc[] = [
