@@ -407,11 +407,168 @@
       },
       "evacuate": {
         "title": "__TODO_ES__ Evacuate",
-        "description": "__TODO_ES__ Routes, trigger points, alerts and apps, and re-entry safety."
+        "description": "__TODO_ES__ The Set, Go, and Return phases — routes, trigger points, alerts and apps, PSPS, smoke and air quality, and re-entry safety.",
+        "intro": {
+          "critical_title": "__TODO_ES__ Leave during the watch, not the warning",
+          "critical_body": "__TODO_ES__ Leave during the watch, not the warning, and never the order. By the time an Evacuation Order is in effect for your zone, traffic, smoke, and panic make every decision harder. The earlier you go, the safer everyone is — including the firefighters who don't have to navigate around evacuating residents."
+        },
+        "framework": {
+          "heading": "__TODO_ES__ The Ready–Set–Go framework on the day of a fire",
+          "body": "__TODO_ES__ The framework that runs through this whole resource has a specific role on an active-fire day. Ready is the work you've already done — defensible space, home hardening, animal preparedness. Set, Go, and Return are the three phases this page covers in detail."
+        },
+        "set_phase": {
+          "heading": "__TODO_ES__ Set phase — warning issued",
+          "body": "__TODO_ES__ Set means an Evacuation Warning is in effect for your zone, conditions look like an order is coming, or a Red Flag Warning is active during Santa Ana conditions. Confirm the go-bag is in the vehicle. Confirm the vehicle has at least half a tank. Apply identification to animals — collars, paint marks for livestock, leg bands. Check on neighbors with limited mobility. Hitch the trailer if you have animals. Wear protective clothing: long pants, long-sleeve shirt (cotton is best), heavy shoes, cap, dry bandanna for face cover, eye protection."
+        },
+        "go_phase": {
+          "heading": "__TODO_ES__ Go phase — order issued",
+          "body": "__TODO_ES__ Go means an Evacuation Order is in effect for your zone. Leave immediately on the route already in your plan. Don't try to grab last-minute items beyond the kit. Bring neighbors who don't have transportation. Drive with headlights on, inside-air recirculation on, windows up. Don't pass on narrow roads in low visibility. Stay on pavement — fire roads are for firefighters, not evacuees. Once you're moving, stay calm and keep moving."
+        },
+        "return_phase": {
+          "heading": "__TODO_ES__ Return phase — re-entry",
+          "body": "__TODO_ES__ Return means authorities have lifted the evacuation order for your zone. Re-entry hazards include charred trees that may fall, weakened power poles, hot debris, downed power lines (assume all are energized), and ash that hides deep heat for days. Wear long pants, long-sleeve shirt, gloves, work boots, and an N95 or P100 respirator while inspecting and cleaning. Document property damage with photographs before disturbing anything. Contact your insurance. Avoid opening interior doors that feel hot. Watch for sparks and embers in mulch, woodpiles, attic spaces, and under decks for at least 72 hours after the fire passes."
+        },
+        "routes": {
+          "heading": "__TODO_ES__ Routes from Ranchita",
+          "tip_title": "__TODO_ES__ Live routing wins over planned routing",
+          "tip_body": "__TODO_ES__ Specific evacuation routes for an active fire are set by CAL FIRE and the San Diego County Sheriff in real time based on where the fire is. Genasys Protect and AlertSanDiego give the current direction. The framework below is what to understand in advance.",
+          "body": "__TODO_ES__ Ranchita's primary egress is the S22 corridor (Montezuma Valley Road), with the option of going west toward Julian and Warner Springs or east toward Borrego Springs. Authorities make the call on which direction is open during an active incident — plan to know both. Have a vehicle that can handle either drive on a full tank. If the primary corridor is blocked in both directions and authorities are routing residents through alternates, follow the official routing — do not improvise across unimproved back-routes. Vehicles get stuck on unmaintained roads. Stuck vehicles in evacuation zones become life-threatening situations."
+        },
+        "triggers": {
+          "heading": "__TODO_ES__ Trigger points — when to leave early",
+          "required_title": "__TODO_ES__ Red Flag plus Santa Ana = readiness state",
+          "required_body": "__TODO_ES__ If a Red Flag Warning is in effect for your zone in Santa Ana wind conditions, treat it as the cue to be ready to leave on short notice.",
+          "body": "__TODO_ES__ Leave during the watch, not the warning. Reasons to leave early without waiting for an order include any one of: visible smoke from your property in the direction of approaching wind; a Red Flag Warning combined with active fire activity in neighboring zones; loss of cell service or power during a Santa Ana event (information starts going dark before the fire arrives); a household member with mobility limitations or medical needs that take time to move; multiple animals that take time to load. Early evacuation is always the safer choice. Late evacuation risks include traffic, smoke that drops visibility to feet, embers landing on the vehicle, and panic at intersections."
+        },
+        "trapped": {
+          "heading": "__TODO_ES__ What to do if you cannot evacuate",
+          "critical_title": "__TODO_ES__ Survive the fire front passing",
+          "critical_body": "__TODO_ES__ If you cannot evacuate, the goal is to survive the fire front passing. The fire front is loud, hot, and brief. Plan to outlast it, not fight it.",
+          "vehicle_heading": "__TODO_ES__ If trapped in a vehicle",
+          "vehicle_body": "__TODO_ES__ Park on pavement away from vegetation — outside turn if on a hillside, open lot if available. Turn headlights and emergency flashers on so other vehicles and crews can see you in heavy smoke. Close all windows and doors, shut off air vents, turn off air conditioning. Get below windows, on the floor, under wool blankets if you have them. Call 911 with your location. Stay in the vehicle — do not run. The vehicle is a survival capsule made of glass and steel; running on foot exposes you directly to flame, embers, and radiant heat. Stay until the fire front passes and outside temperatures drop. Then move to an already-burned area where there is no fuel left to burn.",
+          "home_heading": "__TODO_ES__ If trapped at home",
+          "home_body": "__TODO_ES__ Stay inside. Close all exterior doors and windows but leave them unlocked so crews can enter if needed. Move flammable materials — patio furniture, doormats, woodpiles — at least 30 feet from the house. Shut off natural gas and propane. Open gates so animals can move and so fences don't conduct fire to the house. Fill bathtubs, sinks, garbage cans, and pools with water for post-front spot fires. Strategically position sprinklers if water pressure allows. Move to a room with the fewest exterior walls and the smallest windows, away from any direction the fire is approaching from. Stay until the fire front passes. Then inspect the structure, roof, attic, deck, and surrounding ground for embers and small fires for at least the next several hours.",
+          "foot_heading": "__TODO_ES__ If on foot in the open",
+          "foot_body": "__TODO_ES__ Find an already-burned area. The most dangerous place to be is in unburned fuel. If no burned area is available, find a low spot, lie face-down, cover yourself with anything non-flammable (dirt is fine), protect your airway with a cloth and your eyes with anything available. Wait for the fire front to pass. Embers and radiant heat are the killers; lying low gets you below the worst of both."
+        },
+        "apps": {
+          "heading": "__TODO_ES__ Apps and alerts",
+          "lead": "__TODO_ES__ Install before fire season. A silent app is a useless app — test notifications after install.",
+          "genasys_label": "Genasys Protect",
+          "genasys_body": "__TODO_ES__ Official San Diego County evacuation zone app. Look up your address to learn your zone code. During an evacuation order, the order references zone codes (example format: SDC-1391). Knowing your zone code in advance is how you know whether an order applies to you.",
+          "alert_label": "AlertSanDiego",
+          "alert_body": "__TODO_ES__ Opt-in phone, email, and text alerts from the County. Register at alertsandiego.org. Cell broadcasts reach all phones in an active alert area without registration, but registration captures landlines and email.",
+          "sdge_label": "SDG&E Alerts",
+          "sdge_body": "__TODO_ES__ Public Safety Power Shutoff (PSPS) and planned-outage notifications. Available as a mobile app and via SMS/email. Backcountry residents are nearly always in PSPS-eligible zones.",
+          "watchduty_label": "Watch Duty",
+          "watchduty_body": "__TODO_ES__ Volunteer-maintained live wildfire tracking, independent of government delays. Useful for situational awareness when an incident is reported but not yet on official county channels.",
+          "pulsepoint_label": "PulsePoint",
+          "pulsepoint_body": "__TODO_ES__ Real-time fire-department dispatch data. Tells you when units roll on incidents near you.",
+          "airnow_label": "AirNow",
+          "airnow_body": "__TODO_ES__ EPA air quality monitoring. AQI by zip code. Useful before, during, and after fires for smoke exposure decisions."
+        },
+        "psps": {
+          "heading": "__TODO_ES__ Public Safety Power Shutoffs (PSPS)",
+          "lead": "__TODO_ES__ PSPS events are SDG&E proactively turning off power in high-fire-risk weather, primarily Santa Ana wind events in dry vegetation conditions. Backcountry circuits are the most likely to be de-energized.",
+          "cadence_body": "__TODO_ES__ When conditions allow, SDG&E notifies affected customers in advance: roughly 2 days ahead, 24 hours, 12 hours, 1 to 4 hours, at shutoff, and during restoration. Restoration is not instant — power lines must be patrolled, sometimes by air, before re-energizing. Daylight constraints can extend outage duration overnight.",
+          "what_to_do_heading": "__TODO_ES__ What to do",
+          "what_to_do_body": "__TODO_ES__ Keep cell phones, laptops, and any medical-baseline devices charged when an event is forecast. Have a battery- or hand-cranked radio for updates. Keep refrigerator and freezer closed — food lasts roughly 4 hours in a fridge and 24 to 48 hours in a full freezer. Generators: know the safety guidelines, never run a generator indoors or in an attached garage, never connect to house wiring without a transfer switch. SDG&E Community Resource Centers open in affected communities with Wi-Fi, phone and medical-device charging, ice, water, snacks, and seasonal supplies — locations published at sdge.com/ready during active events. 211 San Diego provides enhanced PSPS support for medical-baseline customers — accessible transportation, hotel vouchers, back-up power. Free, 24/7, multi-language. Customer service at SDG&E is 800-411-7343. Downed power lines: 911."
+        },
+        "smoke": {
+          "heading": "__TODO_ES__ Smoke and air quality",
+          "tip_title": "__TODO_ES__ AirNow.gov gives real-time AQI by zip code",
+          "tip_body": "__TODO_ES__ Smoke can be dangerous well outside the fire's visible footprint. Check AQI before any decision about going outside.",
+          "body": "__TODO_ES__ Wildfire smoke is a mix of fine particulates (PM2.5) and gases. Particulates are the main health threat — they bypass the body's natural defenses and reach deep into the lungs. AQI categories: Good (0 to 50, no special precautions), Moderate (51 to 100, sensitive groups consider limiting outdoor exertion), Unhealthy for Sensitive Groups (101 to 150), Unhealthy (151 to 200), Very Unhealthy (201 to 300), Hazardous (301 and above).",
+          "indoor_heading": "__TODO_ES__ Indoor protection",
+          "indoor_body": "__TODO_ES__ Keep windows and doors closed. Set HVAC to recirculate, not pull from outside. Run a portable HEPA air cleaner if available. Replace filters with MERV 13 or better where compatible. Designate one room as the cleanest-air room and seal gaps if AQI rises.",
+          "masks_heading": "__TODO_ES__ Mask guidance",
+          "masks_body": "__TODO_ES__ NIOSH-approved N95 or P100 respirators give the best protection. KN95 is acceptable. Cloth masks, surgical masks, and bandannas do not filter PM2.5 effectively. Fit matters — a respirator with a poor seal loses most of its benefit. Beards under the seal line break the seal.",
+          "vulnerable_heading": "__TODO_ES__ Vulnerable populations",
+          "vulnerable_body": "__TODO_ES__ Anyone with asthma, COPD, heart disease, pregnancy, young children, and the elderly should be more cautious. Symptoms that warrant medical attention include severe cough, shortness of breath, chest pain, dizziness, and confusion."
+        },
+        "reentry": {
+          "heading": "__TODO_ES__ Re-entry safety",
+          "lead_body": "__TODO_ES__ Re-entry is when the fire has moved on but the hazards have not. Many fire-related injuries happen in the days after the front passes.",
+          "body": "__TODO_ES__ Do not return until authorities lift the evacuation order. The area looks calm but ground heat persists in ash and root systems for days. Charred trees can fall without warning. Weakened power poles and downed lines must be assumed energized. Hot embers in mulch, woodpiles, and attic spaces can flare for 72 hours or more.",
+          "ppe_heading": "__TODO_ES__ What to wear",
+          "ppe_body": "__TODO_ES__ Long pants, long-sleeve shirt, gloves, work boots, N95 or P100 respirator. Document damage with photographs before moving anything. Contact insurance. Inspect the roof, attic, decks, fences, propane fittings. Check water lines for damage. If gas service was on during the fire, check with the utility before relighting pilots — don't light a match, candle, or cigarette anywhere on the property until you've cleared this with the gas utility."
+        },
+        "checklist": {
+          "heading": "__TODO_ES__ Printable evacuate-phase checklist",
+          "lead": "__TODO_ES__ The browser print function produces a clean printable version of the checklist below.",
+          "set_heading": "__TODO_ES__ During Set phase (Watch issued)",
+          "go_heading": "__TODO_ES__ During Go phase (Order issued)",
+          "vehicle_heading": "__TODO_ES__ If trapped in a vehicle",
+          "home_heading": "__TODO_ES__ If trapped at home",
+          "return_heading": "__TODO_ES__ During Return phase",
+          "apps_heading": "__TODO_ES__ Apps installed and configured"
+        }
       },
       "mutual_aid": {
         "title": "__TODO_ES__ Mutual Aid",
-        "description": "__TODO_ES__ How we show up for each other — and stay out of the way of the people fighting fires."
+        "description": "__TODO_ES__ How we show up for each other in Ranchita — and stay out of the way of the people fighting fires. Year-round community work, neighbor check-in lists, communications, and the line between help and interference.",
+        "intro": {
+          "para_1": "__TODO_ES__ Ranchita's geography means professional response is volunteer-supported and farther away than in town. The closest crews are minutes — sometimes longer — from any address in the valley, and the people first on a scene are almost always neighbors.",
+          "para_2": "__TODO_ES__ The way we look out for each other here isn't a workaround. It's part of how this place actually functions, year-round, not just during fires. The work that follows on this page is what neighbor-helping-neighbor looks like in practice — before, during, and after."
+        },
+        "support": {
+          "heading": "__TODO_ES__ How residents support firefighters",
+          "critical_title": "__TODO_ES__ Two roles, two disciplines",
+          "critical_body": "__TODO_ES__ Show up for your neighbors. Stay out of the way of the firefighters. The line between those two is the discipline this section is about.",
+          "body": "__TODO_ES__ Residents are first on most fire scenes by definition of geography. Useful resident actions during an incident include wetting down your own property, wetting down a neighbor's property if you can do it safely, moving animals, checking on elderly neighbors, clearing your driveway for engine access. Useful resident actions that do NOT happen near the fire line include anything that puts you in the same airspace, water source, or road segment as professional crews. Crews work to a plan that you don't have visibility into. Standing in their water source, blocking their road segment, or asking them questions during an active push wastes time they don't have."
+        },
+        "year_round": {
+          "heading": "__TODO_ES__ Year-round community work",
+          "lead": "__TODO_ES__ The work that matters most happens months before any fire.",
+          "roads_heading": "__TODO_ES__ Pre-clearing roads",
+          "roads_body": "__TODO_ES__ The community-scale extension of the Zone 3 access principle. Branches that hang into S22 or feeder roads, brush that encroaches on the shoulders, gate-side vegetation that blocks engine access — these are the things neighbors clearing together on a Saturday morning in spring address before fire season. Coordinate via existing community channels.",
+          "chipping_heading": "__TODO_ES__ Chipping days",
+          "chipping_body": "__TODO_ES__ Defensible-space work generates piles of brush, branches, and slash. A community chipping day rents a chipper for a weekend, neighbors rotate through, and the cleared material gets reduced to mulch (which, ironically, gets used in Zone 2, not Zone 0). Spring is the right window. Cost-share by parcel.",
+          "water_heading": "__TODO_ES__ Water-source mapping",
+          "water_body": "__TODO_ES__ The community knows where the water is — pools, large tanks, stock troughs that fire crews could draft from. Compile that map. Update it annually as properties change. Share it with the local fire authority through proper channels — the local San Diego County Fire station, not a one-off conversation with an engine crew during a fire. Marked water sources visible from the driveway help crews who don't know your property.",
+          "driveway_heading": "__TODO_ES__ Driveway access readiness",
+          "driveway_body": "__TODO_ES__ A driveway that can't accept a Type 3 engine isn't useful in a fire — it's a liability. The community can help each other with gate hinge orientation, overhead clearance trims, address-number reflective signage, and turnaround space at the back of long driveways. The work of one weekend on a property whose owner can't physically do it themselves is the most concrete form of mutual aid available."
+        },
+        "checkin": {
+          "heading": "__TODO_ES__ Neighbor check-in lists",
+          "lead_body": "__TODO_ES__ The people most at risk in an evacuation are the ones who need help and don't ask. The community list is how that gets addressed.",
+          "body": "__TODO_ES__ Identify, with permission and respectfully, the neighbors who would benefit from a check-in if a Red Flag Warning hits. Categories that often need help include elderly residents living alone, residents with mobility limitations, residents on home medical equipment dependent on power, single-parent households with small children, households with many animals to load, residents without transportation, and residents who travel for work and may be away when an order hits. The list lives somewhere multiple neighbors can access — not on one person's phone. Update at least annually. Privacy matters: this list contains sensitive personal information and should be treated accordingly."
+        },
+        "comms": {
+          "heading": "__TODO_ES__ Communications during incidents",
+          "tip_title": "__TODO_ES__ Cell service is not reliable here in Santa Anas",
+          "tip_body": "__TODO_ES__ Cell service in Ranchita is not reliable during Santa Ana wind events. Plan for the day cell goes down.",
+          "lead": "__TODO_ES__ Redundancy is the answer. Cell phones first, but assume they will be unreliable.",
+          "phone_tree_heading": "__TODO_ES__ Phone trees",
+          "phone_tree_body": "__TODO_ES__ A predetermined order of who calls whom. Five neighbors in a tree, each calling one other neighbor and so on, gets information moving without overloading any one person. Update when residents move in or out.",
+          "frs_heading": "__TODO_ES__ FRS and GMRS radios",
+          "frs_body": "__TODO_ES__ Family Radio Service handhelds (no license required) and General Mobile Radio Service (license required for transmit, one license covers a household) give a backup that works when cell does not. A common channel agreed in advance lets neighbors check in across the valley without infrastructure. Range varies with terrain — line-of-sight is best.",
+          "ham_heading": "__TODO_ES__ Ham radio",
+          "ham_body": "__TODO_ES__ Amateur radio is the most resilient option for genuine grid-down conditions. Licensing takes a weekend course and an exam. For communities with one or two licensed operators, the rest of the community gets reach beyond what FRS or GMRS provides. Local clubs can advise.",
+          "rally_heading": "__TODO_ES__ Central rally point",
+          "rally_body": "__TODO_ES__ A specific physical location everyone in the community knows as the place to check in if comms are down. Outside the immediate fire path, on the egress route, with parking. This is not the evacuation site itself — it's the local confirmation-of-status point before people move on."
+        },
+        "line": {
+          "heading": "__TODO_ES__ When help is help — and when it's interference",
+          "never_title": "__TODO_ES__ The lines that protect everyone",
+          "never_body": "__TODO_ES__ Never insert yourself between firefighters and the fire. Never use a water source crews are drafting from. Never enter an evacuated zone to retrieve property.",
+          "body": "__TODO_ES__ The difference between mutual aid and getting in the way is mostly about staying in your own role. Your role is your property, your neighbors' property at their request, and the people in your community who need help moving. The fire line is not your role. Residents who try to defend against an active fire front directly, without training and equipment, become casualties — and become a search-and-rescue burden that pulls firefighters off the actual fire. The most useful thing a resident can do during the active push is to have already evacuated, with their neighbors, with their animals, on the route the authorities are routing to. The most useful thing during pre-fire conditions is the year-round work above."
+        },
+        "after": {
+          "heading": "__TODO_ES__ After the fire — rebuilding together",
+          "lead": "__TODO_ES__ The recovery is longer than the fire. The community's work is most needed in the weeks and months after.",
+          "body": "__TODO_ES__ Neighbors help each other navigate insurance claims, document photographs, debris removal, and rebuilding permits. The county opens recovery resources after major events; a community that coordinates the application of those resources gets more benefit than households navigating individually.",
+          "emotional_heading": "__TODO_ES__ Emotional support",
+          "emotional_body": "__TODO_ES__ Post-fire is a long mental-health tail. Residents who lost homes, who lost animals, who watched the fire come close, who evacuated multiple times in one season — these are the people who need community presence in the months after the smoke clears. The check-in list stays active well past the all-clear."
+        },
+        "checklist": {
+          "heading": "__TODO_ES__ Printable mutual-aid checklist",
+          "lead": "__TODO_ES__ The browser print function produces a clean printable version of the checklist below.",
+          "annual_heading": "__TODO_ES__ Annual community work (Spring)",
+          "preflag_heading": "__TODO_ES__ Pre-Red-Flag Warning",
+          "active_heading": "__TODO_ES__ During an active incident",
+          "after_heading": "__TODO_ES__ After the fire"
+        }
       }
     },
     "neighbor_ethos": {
