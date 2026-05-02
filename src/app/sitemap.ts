@@ -3,7 +3,20 @@ import type { MetadataRoute } from 'next';
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'https://mvvcso.vercel.app';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ['', '/about', '/programs', '/blog', '/donate', '/contact', '/pct'];
+  const pages = [
+    '',
+    '/about',
+    '/programs',
+    '/blog',
+    '/donate',
+    '/contact',
+    '/pct',
+    '/resources/wildfire-preparedness',
+    '/resources/wildfire-preparedness/prepare',
+    '/resources/wildfire-preparedness/animals-and-livestock',
+    '/resources/wildfire-preparedness/evacuate',
+    '/resources/wildfire-preparedness/mutual-aid',
+  ];
 
   return pages.flatMap((page) => [
     {
