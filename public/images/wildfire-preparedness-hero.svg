@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- Shield outline -->
+  <path d="M32 4 L56 14 L56 32 C56 46 44 56 32 60 C20 56 8 46 8 32 L8 14 Z" />
+  <!-- Flame base -->
+  <path d="M32 48 C26 48 22 44 22 38 C22 32 28 30 28 24 C28 24 30 28 30 30 C30 30 34 26 34 20 C34 20 42 28 42 38 C42 44 38 48 32 48 Z" />
+  <!-- Flame inner tip -->
+  <path d="M32 44 C29 44 27 42 27 39 C27 36 30 34 30 34 C30 34 31 36 31 37 C31 37 34 34 35 31 C35 31 38 35 38 39 C38 42 35 44 32 44 Z" />
+</svg>
