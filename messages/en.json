@@ -168,11 +168,242 @@
     "spokes": {
       "prepare": {
         "title": "Prepare",
-        "description": "Defensible space, home hardening, rural-property specifics, and seasonal maintenance."
+        "description": "Defensible space, home hardening, rural-property specifics, and seasonal maintenance.",
+        "intro": {
+          "lead": "Defensible space and home hardening together are the most consequential things a Ranchita property owner can do before a fire. They are also the things that no fire engine can do for you on the day of."
+        },
+        "zones": {
+          "heading": "Defensible space — the three zones",
+          "lead": "California's defensible-space framework divides the area around a structure into concentric zones, each with progressively less restrictive maintenance requirements as distance from the home increases. The distances are measured from the exterior walls of the home (or from the edge of attached features like decks). On slopes, recommended distances increase because fire travels faster uphill.",
+          "diagram_label_house": "Home",
+          "diagram_label_zone0": "Zone 0 — 0 to 5 ft",
+          "diagram_label_zone1": "Zone 1 — 5 to 30 ft (50 ft in San Diego County)",
+          "diagram_label_zone2": "Zone 2 — 30 to 100 ft (50 to 100 ft in San Diego County)",
+          "diagram_aria": "Top-down diagram of defensible-space zones around a house: Zone 0 immediately around the structure, Zone 1 extending outward, Zone 2 extending further outward.",
+          "sd_county_note": "San Diego County requires 50 ft of clearance in Zone 1, stricter than the state minimum.",
+          "slope_note": "On slopes, extend Zone 1 and Zone 2 distances. Steeper slope = more extension."
+        },
+        "zone0": {
+          "heading": "Zone 0 — the ember-resistant zone (0 to 5 ft)",
+          "regulatory_note": "Zone 0 was created by Assembly Bill 3074 (2020) and updated by Senate Bill 504 (2024). The state Board of Forestry and Fire Protection completed rulemaking in late 2025 under Governor Newsom's Executive Order N-18-25. Zone 0 is currently a strongly recommended practice with regulatory adoption progressing — apply it now whether or not enforcement has reached your parcel.",
+          "body": "Replace bark mulch and combustible landscaping in the immediate 5 ft around the home with hardscape (gravel, pavers, concrete). Remove all dead and dying plants. Clear leaves and needles from roof, gutters, deck, porch, and stairs. Trim branches at least 10 ft from chimneys and stovepipes. Remove combustible furniture, planters, doormats, and stored firewood from within 5 ft of the home. The first 5 ft of any deck attached to the house is part of Zone 0 — keep it clear."
+        },
+        "zone1": {
+          "heading": "Zone 1 — lean, clean, and green (5 to 30 ft, or 5 to 50 ft in San Diego County)",
+          "required_action": "San Diego County requires 50 ft of clearance in Zone 1, stricter than the state minimum. Plan to 50 ft.",
+          "body": "Remove dead vegetation. Trim tree branches at least 6 ft above the ground. Maintain vertical spacing between shrubs and trees — a useful rule of thumb is shrub height multiplied by three for clearance to the lowest tree branch. Maintain horizontal spacing between shrubs and trees, with more space required on steeper slopes and for taller vegetation. Do not stack firewood against the house. Outbuildings and propane tanks need 10 ft of bare mineral soil clearance and an additional 10 ft of no-flammable-vegetation perimeter beyond that."
+        },
+        "zone2": {
+          "heading": "Zone 2 — fuel reduction (30 to 100 ft, or 50 to 100 ft in San Diego County)",
+          "body": "Mow annual grass to a maximum height of 4 inches. Remove fallen leaves, needles, twigs, bark, cones, and small branches — depth of 3 inches is the maximum acceptable. Thin overgrown shrubs and trees so that crowns do not interlock. Adjust distances upward where slope amplifies fire behavior."
+        },
+        "slope": {
+          "heading": "Slope adjustments",
+          "body": "Fire travels faster uphill. On slopes, extend Zone 1 and Zone 2 distances proportionally. Public Resources Code § 4291 sets the framework; San Diego County's stricter Zone 1 layers on top of it. Steeper slopes need more clearance — both up-slope and down-slope of the home."
+        },
+        "hardening": {
+          "heading": "Home hardening — making the structure ember-resistant",
+          "lead": "Most homes lost to wildfire are not ignited by direct flame contact — they are ignited by wind-driven embers that arrive ahead of the fire front and find combustible materials on or near the structure. Hardening closes those entry points. The 2026 California Wildland-Urban Interface Code (CWUIC, Title 24 Part 7), which absorbed the previous Chapter 7A, sets the current performance standards.",
+          "roof": {
+            "heading": "Roof",
+            "body": "Class A fire rating is required in fire hazard severity zones. Acceptable Class A coverings include asphalt fiberglass composition shingles, clay or cement tile, and metal panels. Untreated wood shake is the highest-risk roof type in chaparral country. Keep the roof clear of pine needles, leaves, and other debris. Install a metal drip edge that fully covers the space above the gutter."
+          },
+          "vents": {
+            "heading": "Vents",
+            "body": "Embers entering attic vents is one of the most common ignition paths. Replace any 1/4-inch mesh — too coarse to block embers. Install non-combustible corrosion-resistant metal mesh between 1/16 and 1/8 inch. Avoid fiberglass or plastic mesh — both melt under heat. The upgrade path is California State Fire Marshal-listed ember-resistant WUI vents."
+          },
+          "eaves": {
+            "heading": "Eaves and soffits",
+            "body": "Enclose with non-combustible or ignition-resistant material. Plug or caulk gaps around rafter tails. On patio covers, box in eaves using the same materials as the roof."
+          },
+          "windows": {
+            "heading": "Windows",
+            "body": "Install dual-paned windows with at least one tempered-glass layer — radiant heat alone can crack single-pane glass before flame contact, allowing embers in. Limit the number and size of windows facing large vegetation areas. Add screens to operable windows."
+          },
+          "siding": {
+            "heading": "Siding",
+            "body": "Stucco, fiber cement, or treated wood are the preferred materials. Extend protective siding from foundation to roofline. Repair gaps, holes, and rot — any opening is an ember entry point."
+          },
+          "decks": {
+            "heading": "Decks and patios",
+            "body": "Use non-combustible or ignition-resistant deck boards. Clear the under-deck area of debris and combustibles. The first 5 ft of any deck adjacent to the house is part of Zone 0 — no combustible furniture, planters, or stored items there."
+          },
+          "chimneys": {
+            "heading": "Chimneys",
+            "body": "Install a spark arrestor screen with openings between 3/8 inch and 1/2 inch. Close the fireplace flue during fire season when not in use."
+          },
+          "garage": {
+            "heading": "Garage doors",
+            "body": "Apply weather stripping around and under the door to block embers. Equip the door with a battery backup so it operates during a public safety power shutoff or a grid loss."
+          },
+          "fences": {
+            "heading": "Fences",
+            "body": "Use non-combustible material for the section of fence that connects to the house. Wood fences ignite easily and conduct fire directly to siding and eaves."
+          }
+        },
+        "rural": {
+          "heading": "Rural-property specifics",
+          "lead": "Ranchita parcels include features urban defensible-space guides do not cover: outbuildings, propane and fuel tanks, wells and water tanks, long driveways, and solar arrays.",
+          "outbuildings": {
+            "heading": "Outbuildings",
+            "body": "Keep 10 ft of clearance to bare mineral soil around sheds, barns, and workshops, plus an additional 10 ft of no-flammable-vegetation perimeter beyond that. Apply the same hardening principles where feasible — Class A roofs, ember-resistant vents. Outbuildings too close to a home become an ember source if they ignite."
+          },
+          "propane": {
+            "heading": "Propane and fuel tanks",
+            "body": "10 ft of clearance to bare mineral soil. Keep dry vegetation, woodpiles, and combustibles outside that ring. Mark tanks for fire crews — emergency responders need to identify the location and shut-off valve placement quickly."
+          },
+          "water": {
+            "heading": "Wells and water sources",
+            "body": "Mark well housing for fire-crew visibility. If you have a water storage tank, pool, or large trough that crews could draft from in a structure-defense action, install a clear marker visible from the driveway. Keep the approach to any water source clear of debris and obstacles. A 1,500-gallon tank with a hose connection is a significant defense asset."
+          },
+          "driveway": {
+            "heading": "Driveways and access",
+            "body": "Keep 10 ft of horizontal clearance from each edge of the driveway and 14 ft of overhead clearance for fire engines. Type 3 engines need approximately 10 to 12 ft of width. Gates that swing inward are fastest for crews; better still, have gates that can be removed quickly. Address numbers must be visible from the road, large and reflective."
+          },
+          "solar": {
+            "heading": "Solar arrays",
+            "body": "Keep the array surroundings clear of vegetation. Inverter and battery enclosures benefit from the same hardening — non-combustible siding, ember-resistant vents."
+          }
+        },
+        "chaparral": {
+          "heading": "Chaparral-specific considerations",
+          "tip_title": "Why Ranchita's vegetation matters",
+          "tip_body": "Chaparral is one of the most ember-productive fuel types in California. Ranchita's dominant fuels — chamise, ceanothus, manzanita, and sage — appear on every CAL FIRE high-flammability list.",
+          "body": "Ember storms can travel a mile or more downwind ahead of a fire front. Ember showers ignite structures via vents, accumulated debris, and combustible landscaping long before flame arrives. In drought conditions, fuel moisture stays low year-round — Santa Ana wind events from late summer through winter are the highest-risk periods, but a wind event in any season can produce extreme fire behavior. The 2025 Fire Hazard Severity Zone map update placed virtually the entire San Diego County backcountry in the Very High designation."
+        },
+        "calendar": {
+          "heading": "Seasonal maintenance calendar",
+          "lead": "Defensible space is not a one-time project. The four-window rhythm below keeps a property in compliance year-round.",
+          "preseason_label": "Pre-season (March – May)",
+          "preseason_tasks": "Roof inspection. Gutter cleaning. Tree-branch trim — 6 ft above the ground, 10 ft from chimneys. Brush clearance to 50-ft Zone 1. Vent mesh inspection. Propane and outbuilding clearance refresh. Driveway access clearance. Address visibility check.",
+          "season_label": "Fire season (June – October)",
+          "season_tasks": "Mow annual grass to 4-inch maximum — repeat as it regrows. Daily roof and gutter check during Santa Ana wind events. Test water sources. Confirm Genasys Protect zone code on phones. Confirm trailer is hitched and ready if you have animals.",
+          "postseason_label": "Post-season (November – February)",
+          "postseason_tasks": "Post-rain debris removal. Fence repair. Replanting plan — choose fire-resistant species. Equipment maintenance.",
+          "quarterly_label": "Year-round / quarterly",
+          "quarterly_tasks": "Animal evacuation trailer practice. Water-source signage check. Emergency contact list refresh on phone."
+        },
+        "checklist": {
+          "heading": "Printable inspection checklist",
+          "lead": "Use this as a quarterly walk-around. The browser print function produces a clean printable version.",
+          "zone0_heading": "Zone 0 (0 to 5 ft)",
+          "zone1_heading": "Zone 1 (5 to 30 ft, or 5 to 50 ft in San Diego County)",
+          "zone2_heading": "Zone 2 (30 to 100 ft, or 50 to 100 ft in San Diego County)",
+          "hardening_heading": "Home hardening",
+          "rural_heading": "Rural specifics"
+        }
       },
       "animals": {
         "title": "Animals & Livestock",
-        "description": "Multi-dog households, horses, goats, trailer practice, and shelter-in-place calculus."
+        "description": "Standalone, comprehensive coverage for pets and livestock — multi-dog households, horses, goats, chickens, evacuation kits, destinations, and shelter-in-place protocols.",
+        "intro": {
+          "tip_title": "The Ranchita reality",
+          "tip_body": "Multi-dog households are common here — four to six dogs per property is normal — and most parcels have at least some livestock. The closest large-animal evacuation site is roughly 30 miles away in Lakeside. Trailer drives are long. Animal evacuation cannot be improvised. By the time you have the order, the trailer is hitched, the carriers are assembled, and you know exactly which animals go in which vehicle."
+        },
+        "principle": {
+          "heading": "Prepare, don't improvise",
+          "body": "Every animal preparedness step in this guide assumes one principle: the work happens before the warning, not after. A horse that has not been loaded into a trailer in calm conditions cannot be expected to load calmly in smoke. A go-kit assembled during evacuation is an incomplete go-kit. Practice the steps when there is no pressure."
+        },
+        "multipet": {
+          "heading": "Multi-pet households (small animals)",
+          "body": "Maintain at least one carrier per animal, pre-assembled and labeled with the animal's name, your name, and your phone number. Keep collars on with current ID tags, microchip records up to date, and printed photos of each animal in your go-kit. Have a pre-positioned go-kit (see below). If you cannot move every animal in one trip, decide in advance which animals go first — most vulnerable or most dependent typically lead. If you have multiple drivers in the household, plan multi-vehicle evacuation."
+        },
+        "kit": {
+          "heading": "Pet evacuation kit",
+          "lead": "Per pet, plan for a 7-day supply. The kit lives in a single labeled tote in a known-accessible location during fire season.",
+          "food_label": "Food",
+          "food_body": "Seven days of dry food (or specialty diet) in a sealed container. Manual can opener if applicable. Two bowls per animal — food and water.",
+          "water_label": "Water",
+          "water_body": "Approximately one gallon per medium dog per day, half a gallon per cat, scaling up for larger animals. Plan three days minimum, seven preferred.",
+          "meds_label": "Medications",
+          "meds_body": "One-week supply of any prescriptions, plus written prescriptions in a waterproof bag so you can refill at a destination pharmacy. Vet's contact info on the outside of the bag.",
+          "records_label": "Records and ID",
+          "records_body": "Vaccination certificates, microchip numbers, recent photos (refresh annually), owner contact on collar and inside collar pocket, adoption papers or proof of ownership.",
+          "comfort_label": "Comfort and care",
+          "comfort_body": "One item with home scent (familiar bedding), one favorite toy. Fitted leash or harness, ready to grab.",
+          "firstaid_label": "First aid",
+          "firstaid_body": "Pet first aid kit — gauze, vet wrap, saline rinse, tweezers, styptic powder. Add species-specific items per your veterinarian's guidance.",
+          "transport_label": "Transport",
+          "transport_body": "One labeled carrier per animal. Label includes owner name, owner phone, animal name, and any health note."
+        },
+        "horses": {
+          "heading": "Horses",
+          "body": "Practice trailer loading quarterly at minimum. A horse that won't load calmly under stress cannot be expected to load calmly in smoke and confusion. Store halters and leads in a known-accessible location, not scattered through the barn. Plan water at 8 to 12 gallons per horse per day at rest, up to 20 to 25 gallons in hot weather or with heavy work, and 15 to 20 gallons for pregnant or lactating mares. Bring some hay — destinations may run short, especially in the first 24 hours of a major fire. Apply identification you can verify in a chaotic shelter: leg bands, livestock paint marks, or halter tags with your name and phone. Pack a basic hoof care kit and any weather protection your horse normally uses."
+        },
+        "small_livestock": {
+          "heading": "Goats, sheep, and llamas",
+          "body": "Plan water at 2 to 4 gallons per goat or sheep per day, 3 to 5 for llamas. Hot weather increases consumption by 30 to 50 percent. Goats are less docile loaders than horses — practice repeatedly with treats, then short rides, then practice with neighbors' animals so they get used to herd transport. Pasture animals follow each other in motion; lead the dominant animal first."
+        },
+        "poultry": {
+          "heading": "Chickens, ducks, and other poultry",
+          "body": "Catching during stress is the hardest part. Have a catch net and an enclosed catch area — closing the coop door at night gives you a manageable dawn evacuation. Transport in cardboard pet carriers, cat carriers, or labeled poultry crates: one bird per medium carrier, two or three per large. Plan water at roughly one gallon per eleven birds per day. Poultry overheat fast in trailers — park in shade if you stop, ventilation is critical."
+        },
+        "pigs": {
+          "heading": "Pigs",
+          "body": "Pigs are the hardest livestock to load under stress. Practice repeatedly with familiar handlers, food rewards, and a short ramp. Plan water at 3 to 5 gallons per finishing pig per day."
+        },
+        "shelter_in_place": {
+          "heading": "When you cannot get out — shelter-in-place for animals",
+          "critical_title": "Your life takes priority",
+          "critical_body": "If you cannot evacuate animals safely, your own life takes priority. The protocol below is for animals being left behind, not for any human deciding to stay.",
+          "body": "Open all gates so animals can move away from approaching fire. Remove halters, leads, ropes, and any tie-out — entanglement kills more sheltered animals than smoke does. Move animals to the most defensible cleared area on the property — not a barn. Barns ignite and trap. Provide water in non-combustible containers — metal troughs, not plastic tubs that melt. Mark each animal with livestock paint listing your name and phone. A phone number is what reunifies after the fact. Leave a note on the gate for first responders: animals on property, count, type, owner contact."
+        },
+        "destinations": {
+          "heading": "Pre-identified evacuation destinations",
+          "required_title": "Activation is incident-specific",
+          "required_body": "Activation of these sites is decided by San Diego County Animal Services and CAL FIRE during an active fire. Call 211 or check Genasys Protect / AlertSanDiego for which sites are open during the incident.",
+          "tip_title": "Pre-fill intake forms",
+          "tip_body": "Sites that require Animal Care Check Lists or Emergency Evacuation Information packages can lose 15 to 30 minutes per arriving trailer to paperwork that could have been done at the kitchen table. Pre-fill what you can.",
+          "site_djlep_name": "Dianne Jacob Lakeside Equestrian Park",
+          "site_djlep_address": "11055 Moreno Ave., Lakeside",
+          "site_djlep_notes": "Primary horse evacuation site for east-county fires.",
+          "site_lakeside_name": "Lakeside Rodeo Grounds",
+          "site_lakeside_address": "12584 Mapleview St., Lakeside",
+          "site_lakeside_notes": "Horses and small livestock; activated by SD County Animal Services. Operated by El Capitan Stadium Association (501(c)(3)).",
+          "site_iron_oak_name": "Iron Oak Canyon Ranch",
+          "site_iron_oak_address": "12310 Campo Rd., Spring Valley",
+          "site_iron_oak_notes": "Non-equine large livestock during major county events.",
+          "site_delmar_name": "Del Mar Fairgrounds",
+          "site_delmar_address": "22nd District Agricultural Association, Del Mar",
+          "site_delmar_notes": "Largest capacity in the county (approximately 1,600 horses plus other large animals). Activated for major regional events.",
+          "site_delmar_phone": "(858) 755-1161",
+          "site_sdhs_name": "San Diego Humane Society Emergency Response",
+          "site_sdhs_phone": "(619) 236-2341",
+          "site_sdhs_notes": "Animal evacuation assistance for both small and large animals. Mutual aid partner of County Animal Services.",
+          "info_line_label": "San Diego County 211",
+          "info_line_value": "211",
+          "info_line_notes": "Current evacuation status, activated shelter sites, and animal services referrals during an active fire."
+        },
+        "trailer_practice": {
+          "heading": "Trailer practice calendar",
+          "body": "Quarterly minimum. Rotate practice conditions: rain practice, heat practice, late-evening practice (because evacuations often hit at night). Multi-animal practice if you have multiple animals. Practice with the trailer partially loaded — hay, water, feed — so the actual evacuation isn't the first time the trailer is heavy."
+        },
+        "insurance": {
+          "heading": "Insurance and identification documentation",
+          "body": "Take photos of every animal, including distinguishing markings, color, scars, brands. Refresh annually. Maintain veterinary records — vaccination history, microchip number, Coggins for horses. Record brand inscriptions, microchip numbers, and tattoos. Keep copies in three places: cloud storage so you can access from any device, printed in your home file, printed in the go-kit."
+        },
+        "hay_storage": {
+          "heading": "Hay storage safety",
+          "body": "Hay is one of the highest-fuel-load items on most rural properties. A hay-barn ignition can sustain a structure fire for hours. Store hay separate from livestock barns — if a hay barn ignites, animals shouldn't be in adjacent structures. Maintain at least 100 ft of distance from the main residence, more on slopes. Use ember-resistant covering — metal roof, no exposed soft sides. Don't stack hay against any building wall."
+        },
+        "water_dual_use": {
+          "heading": "Water sources that double for firefighting",
+          "body": "Pools, large tanks, and stock troughs can serve as draft sources for fire engines. Mark them clearly for crews. Standpipes or hydrants on private property: paint and label visibly. A storage tank with a separate animal supply line is a defense asset and an animal asset simultaneously. Keep the approach to any water source clear and graded for a Type 3 engine."
+        },
+        "trigger": {
+          "heading": "When to leave with animals — the trigger",
+          "critical_title": "Leave during the watch, not the warning, and never the order",
+          "critical_body": "By the time an evacuation order is issued, traffic, smoke, and panic make trailer movement dangerous. Pre-position. Hitch the trailer. Load the kit. Pack the documents. If a Red Flag Warning is issued for your zone in Santa Ana conditions, treat it as the cue to start — do not wait."
+        },
+        "checklist": {
+          "heading": "Printable animals pre-fire checklist",
+          "lead": "Use this card as a fire-season readiness check. The browser print function produces a clean printable version.",
+          "daily_heading": "Daily / weekly readiness",
+          "kit_heading": "Per-animal kit",
+          "quarterly_heading": "Quarterly",
+          "annual_heading": "Annually",
+          "redflag_heading": "Pre-Red-Flag Warning"
+        }
       },
       "evacuate": {
         "title": "Evacuate",
