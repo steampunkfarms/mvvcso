@@ -269,6 +269,57 @@ next session resumes from the most recent CC commit + this checkpoint.
 - `0db1ea9` feat(resources): build out prepare spoke page with full content
 - `64a2d9b` feat(resources): build out animals-and-livestock spoke page with full content
 
+## Handoff 3 Delivery — Files Modified
+
+**Status:** DEPLOYED — 3 commits pushed to origin/main (924a210 → 68682b2)
+
+### H3 modified files
+
+- `messages/en.json` — extended `wildfire_prep.spokes.evacuate` (12 sub-namespaces) and `wildfire_prep.spokes.mutual_aid` (10 sub-namespaces)
+- `messages/es.json` — same keys, `__TODO_ES__` prefix on prose; brand names ("Genasys Protect", "AlertSanDiego", "SDG&E Alerts", "Watch Duty", "PulsePoint", "AirNow") left un-prefixed (matching H1/H2 proper-noun convention)
+- `src/app/[locale]/resources/wildfire-preparedness/evacuate/page.tsx` — replaced stub with full content per H3 §6 (~365 lines)
+- `src/app/[locale]/resources/wildfire-preparedness/mutual-aid/page.tsx` — replaced stub with full content per H3 §7 (~270 lines, prose-heavy voice page)
+
+### H3 EN/ES key parity
+
+- `wildfire_prep.spokes` total leaf keys: 272 (EN) = 272 (ES)
+- Cumulative across H1+H2+H3: 272 leaf keys spanning prepare, animals, evacuate, mutual_aid
+
+### H3 Sanity Deltas Applied
+
+- **Delta 1 (component extraction skip):** Spec §5 made `<PhaseStageCard />` and `<AlertAppCard />` optional. Inline rendering used on the evacuate page — phase blocks render directly under section headings; apps render as a 3-item RequiredAction list (install-first: Genasys/AlertSanDiego/SDG&E) plus a 3-item TipCallout list (situational awareness: Watch Duty/PulsePoint/AirNow). Reason: matches H2's pattern of inline rendering, keeps file count at 4–5 instead of 6–7, no architectural compromise. Scope unchanged.
+- **Delta 2 (ICONS map skipped):** Spec §3 listed an optional commit "add new lucide icons to ICONS map (if needed)" — H3 spoke pages did not introduce any new icons in `src/app/[locale]/resources/page.tsx`. Same call as H2.
+- **Delta 3 (HelpingHand icon):** §4 lucide audit flagged `HelpingHand` as missing from installed `lucide-react@^1.7.0`. The icon was a suggestion for the optional `<AlertAppCard />` extraction; since extraction was skipped (Delta 1), the missing icon was never referenced. No swap needed.
+
+### H3 QA
+
+- `tsc --noEmit`: PASS (zero errors)
+- `eslint` on changed source files: PASS (zero errors/warnings)
+- Prohibited terms audit (Station 58, Puerta La Cruz, Fox Fire, CDCR, Conservation Camp, "correctional"): PASS (none found in EN, ES, or page sources)
+- Cross-site refs audit (steampunkfarms, rescuebarn, steampunk-farms, tronboll): PASS (none found)
+- S22 specificity audit: PASS — routes content describes the framework only ("primary egress is the S22 corridor… going west toward Julian and Warner Springs or east toward Borrego Springs… authorities make the call"), no turn-by-turn directions
+- All four primitive callouts used per spec §9.5:
+  - Evacuate: CriticalCallout (intro spine "Leave during the watch", trapped survive-fire-front), RequiredAction (apps install-first, triggers Red Flag), TipCallout (routes routing-decision, smoke AirNow, apps situational-awareness)
+  - Mutual Aid: CriticalCallout (support — two roles, two disciplines), TipCallout (comms — cell unreliable), NeverRule (line — never between firefighters and fire)
+
+### H3 Commits
+
+- `924a210` feat(i18n): expand wildfire_prep namespace for evacuate + mutual aid spokes
+- `5e5089a` feat(resources): build out evacuate spoke page with full content
+- `68682b2` feat(resources): build out mutual-aid spoke page with full content
+
+## Resource Complete — All Three Handoffs Shipped
+
+After H3, the wildfire-preparedness resource is structurally complete:
+
+- Hub (`/resources/wildfire-preparedness`) — H1
+- Prepare spoke — H2
+- Animals & Livestock spoke — H2
+- Evacuate spoke — H3
+- Mutual Aid spoke — H3
+
+**Totals:** 5 pages live + 1 SVG diagram component (ZoneDiagram) + 4 callout primitives + TopicJumpGrid + PrintButton + 272 i18n leaf keys (EN authored, ES `__TODO_ES__` placeholder, brand names and address/phone strings un-prefixed). Standalone — no cross-site references. Print-aware. Line-art SVG only. Elder-friendly palette, AAA-contrast. Ship-as-draft for MVVCSO Board review per H1 decision.
+
 ## Open for Frederick (post-Handoff 3 ship)
 
 - **Walk the full resource end-to-end** — hub plus all four spokes
