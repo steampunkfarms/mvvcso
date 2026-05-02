@@ -43,6 +43,15 @@ without becoming an obstacle to firefighters.
 7. ✅ **Sources:** CAL FIRE Ready for Wildfire program + SD County Fire's
    customized Ready, Set, Go! Wildland Fire Action Guide as primary
    sources; MVVCSO board may layer firsthand-experience input post-build.
+8. ✅ **Standalone resource — no cross-site references.** Added
+   2026-05-01 per operator clarification. The mvvcso wildfire-prep
+   pages must be fully self-contained. **No links, mentions, or
+   crosslinks to Steampunk Farms, the rescuebarn evacuation-go-bag
+   page, or any other Anthropic-built site.** The Animals & Livestock
+   spoke (Handoff 2) covers the complete go-bag/evacuation-kit content
+   for animals on its own — not as an augment to anything else. The
+   rescuebarn page remains the structural reference for CChat's drafting
+   only; nothing about it appears in shipped mvvcso content.
 
 ### Proposed IA — hub + 4 spokes
 
@@ -58,11 +67,13 @@ without becoming an obstacle to firefighters.
   outbuildings, driveway/access for fire trucks); seasonal maintenance
   calendar; printable inspection checklist.
 - `/resources/wildfire-preparedness/animals-and-livestock` — **Animals.**
-  Crosslink to Steampunk Farms go-bag page (augment, don't duplicate);
-  multi-dog households (4–6 dogs is normal here); horses, goats,
-  chickens; trailer practice + pre-identified destinations; shelter-in-
-  place vs. evacuate calculus for livestock; hay storage; water-source
-  dual-use.
+  **Standalone, comprehensive coverage** (per operator clarification
+  2026-05-01) — no crosslinks or references to other sites. Full
+  evacuation-kit checklist for pets and livestock; multi-dog households
+  (4–6 dogs is normal here); horses, goats, chickens; trailer practice
+  + pre-identified destinations; shelter-in-place vs. evacuate calculus
+  for livestock; hay storage; water-source dual-use; livestock water
+  requirements; insurance documentation.
 - `/resources/wildfire-preparedness/evacuate` — **Set/Go phase.** S22
   routes (west toward Julian/Warner Springs, east toward Borrego);
   trigger points to leave early; what to do if trapped; alerts/apps
@@ -96,17 +107,60 @@ condensed checklist if we want a single tear-off page.
   surface card.
 - Hero SVG icon asset in `/public`.
 
-**Handoff 2 — Prepare phase + Animals/Livestock**
-- `src/app/[locale]/resources/wildfire-preparedness/prepare/page.tsx`
-- `src/app/[locale]/resources/wildfire-preparedness/animals-and-livestock/page.tsx`
-- Defensible-space zone SVG diagram in `/public`.
-- Translation keys.
+**Handoff 2 — Prepare phase + Animals/Livestock** — 📝 DRAFTED 2026-05-01,
+awaiting CC execution
+- Pre-draft research completed: CAL FIRE Zone 0/1/2 specs verified;
+  San Diego County 50-ft Zone 1 confirmed (stricter than state minimum);
+  2026 Title 24 / California Wildland-Urban Interface Code (CWUIC,
+  Title 24 Part 7 — Chapter 7A relocated effective Jan 1 2026)
+  noted; updated 2025 FHSZ map referenced (county VHFHSZ acreage up
+  26%); large-animal evacuation site addresses and phone numbers
+  verified from authoritative SD County / CAL FIRE / news sources.
+- Operator clarification "standalone resource — no cross-site
+  references" baked into Read-First, In/Out scope, content audit
+  acceptance criteria, and standalone audit step.
+- Both spoke pages drafted as complete content pages with full prose
+  body, callout placement specs, printable checklists, seasonal
+  maintenance calendar, evacuation destinations table, and ~80 new
+  translation keys.
+- New `<ZoneDiagram />` SVG component specified for prepare page.
+- Files: `src/app/[locale]/resources/wildfire-preparedness/{prepare,
+  animals-and-livestock}/page.tsx` (replace stub bodies),
+  `src/components/resources/zone-diagram.tsx` (new),
+  `messages/{en,es}.json` (extend wildfire_prep namespace), optional
+  `src/components/resources/seasonal-calendar.tsx`, optional
+  `src/app/[locale]/resources/page.tsx` ICONS map additions.
+- Canonical handoff:
+  `bts-governance/strategist/handoffs/2026-05-01-mvvcso-wildfire-prep-h2-prepare-animals.md`
+  BFOS-local pointer:
+  `mvvcso/docs/wildfire-preparedness-handoff-2-prepare-animals.md`
 
-**Handoff 3 — Evacuate + Mutual Aid**
-- `src/app/[locale]/resources/wildfire-preparedness/evacuate/page.tsx`
-- `src/app/[locale]/resources/wildfire-preparedness/mutual-aid/page.tsx`
-- (Optional) `src/app/[locale]/resources/wildfire-preparedness/checklist/page.tsx`
-- Translation keys.
+**Handoff 3 — Evacuate + Mutual Aid** — 📝 DRAFTED 2026-05-01,
+awaiting CC execution (parallel-drafted while H2 was running)
+- Pre-draft research completed: CAL FIRE Get Set / Get Ready to Go /
+  Go Evacuation Guide pages verified; SD County Wildfire Preparedness
+  Guide (alertsandiego.org) referenced; SDG&E PSPS notification
+  cadence and 211 enhanced support verified; AirNow.gov AQI
+  categories and CDC NIOSH N95/P100 respirator guidance verified;
+  if-trapped guidance from CAL FIRE / Idaho Firewise / Fire Safe
+  Marin cross-checked.
+- Both spoke pages drafted as complete content pages with full prose
+  body, callout placement specs, and printable checklists.
+- ~95 new translation keys, ES placeholder-prefixed per H1/H2 pattern.
+- S22 routing intentionally framework-only — no invented turn-by-turn.
+  Genasys Protect / AlertSanDiego cited as the source of live routing.
+- Files: `src/app/[locale]/resources/wildfire-preparedness/{evacuate,
+  mutual-aid}/page.tsx` (replace stub bodies),
+  `messages/{en,es}.json` (extend wildfire_prep namespace), optional
+  `src/components/resources/{phase-stage-card,alert-app-card}.tsx`,
+  optional `src/app/[locale]/resources/page.tsx` ICONS map additions.
+- Canonical handoff:
+  `bts-governance/strategist/handoffs/2026-05-01-mvvcso-wildfire-prep-h3-evacuate-mutual-aid.md`
+  BFOS-local pointer:
+  `mvvcso/docs/wildfire-preparedness-handoff-3-evacuate-mutual-aid.md`
+- **Resource series complete from CChat's side after H3 ships.**
+  Total: 5 pages, 6 component primitives, 1 SVG diagram, ~180 i18n
+  keys EN+ES.
 
 Each handoff is self-contained; if a session times out mid-handoff, the
 next session resumes from the most recent CC commit + this checkpoint.
@@ -172,12 +226,72 @@ next session resumes from the most recent CC commit + this checkpoint.
 - Prohibited terms audit (Station 58, Puerta La Cruz, Fox Fire, CDCR, correctional facility): PASS (none found)
 - All 8 commits pushed to origin/main
 
-## Open for Frederick (post-Handoff 1)
+## Handoff 2 Delivery — Files Modified
 
-- Lived-experience anecdote on the hub page: Frederick to confirm whether
-  the flare-up story (anonymized) can be used, or whether v1 ships with a
-  generic neighbor-ethos paragraph that he can later swap. Handoff 1 ships
-  the generic version by default; the anecdote is a Frederick-edit-or-
-  swap-in opportunity once he's comfortable.
-- Board review timing — when Handoff 3 lands, Frederick coordinates board
-  review. Any board-driven content edits become a v1.1 handoff.
+**Status:** DEPLOYED — 4 commits pushed to origin/main (31992d1 → 64a2d9b)
+
+### H2 modified files
+
+- `messages/en.json` — extended `wildfire_prep.spokes.prepare` (13 sub-namespaces) and `wildfire_prep.spokes.animals` (18 sub-namespaces)
+- `messages/es.json` — same keys, `__TODO_ES__` prefix on prose; site names, addresses, and phone numbers left un-prefixed (matching H1 contact convention)
+- `src/app/[locale]/resources/wildfire-preparedness/prepare/page.tsx` — replaced stub with full content per H2 §6 (~340 lines)
+- `src/app/[locale]/resources/wildfire-preparedness/animals-and-livestock/page.tsx` — replaced stub with full content per H2 §7 (~400 lines)
+
+### H2 new files
+
+- `src/components/resources/zone-diagram.tsx` — server component, top-down concentric SVG (Zone 0 solid, Zone 1/2 dashed), labels supplied by caller for i18n, `currentColor` strokes
+
+### H2 EN/ES key parity
+
+- `wildfire_prep.spokes` total leaf keys: 157 (EN) = 157 (ES)
+
+### H2 Sanity Deltas Applied
+
+- **Delta 1 (i18n placeholder convention):** ES values for proper-noun site names (`site_djlep_name` etc.), addresses (`site_*_address`), and phone numbers (`site_*_phone`, `info_line_value`) left un-prefixed. Reason: matches H1 pattern where `contacts.emergency_value` "911", `contacts.genasys_label` "Genasys Protect", and `contact.address` "37370 Montezuma Valley Rd…" are all un-prefixed in `messages/es.json`. Spec §8.2 said "prefix every value" but the live H1 code already established the proper-noun exception. Risk-reducing: avoids producing literally-translated street addresses or duplicated brand names. Scope unchanged.
+- **Delta 2 (ICONS map skipped):** Spec §3 listed an optional commit "add new lucide icons to ICONS map (if needed)" — the H2 spoke pages did not introduce any new icons in `src/app/[locale]/resources/page.tsx` (all icons used are scoped to callout/print primitives that already import them). No edit to ICONS map needed.
+- **Delta 3 (kit list semantics):** Spec §6/§7 had no specific HTML for the pet evacuation kit; initial draft used `<dl>`/`<dt>`/`<dd>`. Switched to `<ul>`/`<li>` with inline strong labels after lint flagged `<dl>` direct-child constraints. Functionally identical for screen readers (labeled list of items). Scope unchanged.
+
+### H2 QA
+
+- `tsc --noEmit`: PASS (zero errors)
+- `eslint` on changed source files: PASS (zero errors/warnings)
+- Prohibited terms audit (Station 58, Puerta La Cruz, Fox Fire, CDCR, Conservation Camp, "correctional"): PASS (none found in EN, ES, or page sources)
+- Cross-site refs audit (steampunkfarms, rescuebarn, steampunk-farms, tronboll, "go-bag"): PASS (none found — animals page uses "go-kit" terminology)
+- Standalone audit ("see Steampunk", "for the full checklist", "visit our partner", "see our other"): PASS (none found)
+- All four primitive callouts used per spec §9.6:
+  - Prepare: TipCallout (intro), CriticalCallout (Zone 0 regulatory), RequiredAction (Zone 1 SD County), TipCallout (chaparral)
+  - Animals: TipCallout (intro, destinations pre-fill), RequiredAction (kit, destinations), CriticalCallout (shelter-in-place priority, trigger)
+
+### H2 Commits
+
+- `31992d1` feat(i18n): expand wildfire_prep namespace for prepare + animals spokes
+- `64b9644` feat(resources): add ZoneDiagram component
+- `0db1ea9` feat(resources): build out prepare spoke page with full content
+- `64a2d9b` feat(resources): build out animals-and-livestock spoke page with full content
+
+## Open for Frederick (post-Handoff 3 ship)
+
+- **Walk the full resource end-to-end** — hub plus all four spokes
+  — once H3 ships. This is the moment to decide whether the
+  resource is in the shape Frederick wants before circulating to the
+  MVVCSO Board for review.
+- **Lived-experience anecdote decision** — the H1 hub neighbor-ethos
+  paragraph and the H3 mutual-aid intro are both natural homes for
+  Frederick's flare-up story (anonymized) if he gets comfort/
+  permission from the involved neighbor. Both ship with the generic
+  voice by default; either or both can swap in later.
+- **Board review timing** — once Frederick is satisfied with the
+  resource, coordinate MVVCSO Board review. Any board-driven content
+  edits become a v1.1 handoff (small, content-only, no architectural
+  changes).
+- **Operator-led Spanish translation pass** — once all three
+  handoffs ship, every Spanish key can be found by searching for the
+  `__TODO_ES__` prefix and translated. This is the last structural
+  step before public announce.
+- **Chaparral fuel naming check** (carried from H2) — H2 names
+  chamise, ceanothus, manzanita, and sage as Ranchita's dominant
+  fuels. Frederick to confirm against ground truth on most parcels.
+- **Destination phone/address verification** (carried from H2) —
+  Dianne Jacob Lakeside Equestrian Park, Lakeside Rodeo Grounds,
+  Iron Oak Canyon Ranch, Del Mar Fairgrounds, SDHS Emergency Response
+  contact info verified 2026-05-01 but worth a spot-check post-ship.
