@@ -142,7 +142,96 @@
     "language": "Language",
     "english": "English",
     "spanish": "Espa\u00f1ol",
-    "learn_more": "Learn more"
+    "learn_more": "Learn more",
+    "print": "Print this page"
+  },
+  "wildfire_prep": {
+    "meta": {
+      "title": "Wildfire Preparedness for Ranchita",
+      "description": "Backcountry-tailored wildfire preparedness for Ranchita and the Montezuma Valley. Built on CAL FIRE's Ready for Wildfire program and San Diego County's Ready, Set, Go! framework, with Ranchita-specific guidance for defensible space, animals and livestock, evacuation, and mutual aid."
+    },
+    "hero": {
+      "title": "Wildfire Preparedness",
+      "subtitle": "What we do here in the backcountry — built on CAL FIRE and San Diego County guidance, layered with the realities of Ranchita.",
+      "last_updated": "Last updated {date}",
+      "draft_badge": "Draft — under board review"
+    },
+    "why": {
+      "heading": "Why this matters in Ranchita",
+      "para_1": "Ranchita sits at the summit of S22, surrounded by chaparral and pine-oak fuels that ember-drive fires across long distances under Santa Ana wind conditions. The threat is year-round, not just summer and fall, and ember storms can ignite homes well beyond the visible fire line.",
+      "para_2": "Professional firefighting response is volunteer-supported and farther away than in town. That's not a problem to fix — it's the geography we live in. It does mean that the most consequential first response in the first minutes of any fire is almost always residents who are ready, calm, and clear about what to do."
+    },
+    "ready_set_go": {
+      "tip_title": "About this framework",
+      "tip_body": "Ready–Set–Go is the official wildfire-action framework used by CAL FIRE and San Diego County Fire. The four sections below extend it with Ranchita-specific context — what defensible space looks like on chaparral parcels, how to plan for multi-animal households, which routes lead out of the valley, and how neighbors support firefighters without becoming obstacles."
+    },
+    "spokes": {
+      "prepare": {
+        "title": "Prepare",
+        "description": "Defensible space, home hardening, rural-property specifics, and seasonal maintenance."
+      },
+      "animals": {
+        "title": "Animals & Livestock",
+        "description": "Multi-dog households, horses, goats, trailer practice, and shelter-in-place calculus."
+      },
+      "evacuate": {
+        "title": "Evacuate",
+        "description": "Routes, trigger points, alerts and apps, and re-entry safety."
+      },
+      "mutual_aid": {
+        "title": "Mutual Aid",
+        "description": "How we show up for each other — and stay out of the way of the people fighting fires."
+      }
+    },
+    "neighbor_ethos": {
+      "heading": "Neighbors helping neighbors",
+      "body": "In Ranchita, help is far away. The closest professional firefighters are minutes — sometimes longer — from any address in the valley, and the people first on a scene are almost always neighbors. That's not a failing of the system; it's the geography. The way we look out for each other here is part of the system. We wet down a neighbor's roof when they're at work two hours away. We move livestock when the smoke shifts. We check on the elderly couple at the end of the road before we leave for our own evacuation. And — just as importantly — we know when to step back, so the firefighters and the trained crews who arrive can do their job without us in the way. Showing up for each other doesn't mean playing fire department. It means being ready, being aware, and knowing the line."
+    },
+    "risk": {
+      "heading": "Local risk profile",
+      "topography_para": "S22 places Ranchita at a ridgeline where prevailing winds and terrain can drive fire downhill toward Borrego Springs in one direction and through canyons toward the western mountain communities in the other. The single S22 corridor is the primary egress for most addresses; alternates exist but are slower and require local knowledge.",
+      "fuels_para": "Dominant fuels are mature chaparral (manzanita, ceanothus, chamise) with pockets of oak and pine. Chaparral is one of the most ember-productive fuel types in California — embers can travel a mile or more downwind ahead of a fire front, igniting structures via vents, debris, and combustible landscaping long before the flame arrives.",
+      "winds_para": "Santa Ana wind events from late summer through winter are the highest-risk periods, but drought-year fuel moisture means a wind event in any season can produce extreme fire behavior. Plan year-round.",
+      "response_para": "Backcountry response is volunteer-supported. Mutual aid arrives, but with travel time. The first thirty minutes of any fire belong to whoever is on scene — usually you and your neighbors."
+    },
+    "contacts": {
+      "heading": "Emergency contacts",
+      "subhead": "Save these to your phone now. Cell service is unreliable during fires.",
+      "emergency_label": "Emergencies",
+      "emergency_value": "911",
+      "info_label": "San Diego County information",
+      "info_value": "211",
+      "info_note": "Current evacuation status, shelter availability, animal services referrals.",
+      "genasys_label": "Genasys Protect",
+      "genasys_note": "Official SD County evacuation zone app. Look up your zone before fire season.",
+      "alert_label": "AlertSanDiego",
+      "alert_note": "Opt-in phone, email, and text alerts from the County.",
+      "watchduty_label": "Watch Duty",
+      "watchduty_note": "Volunteer-maintained live wildfire tracking app.",
+      "mvvcso_label": "MVVCSO"
+    },
+    "not_replacement": {
+      "title": "This guide does not replace official guidance",
+      "body": "Read CAL FIRE's Ready for Wildfire program and San Diego County Fire's Ready, Set, Go! Wildland Fire Action Guide directly. This page extends them with Ranchita-specific layers — it does not substitute for either."
+    },
+    "draft_notice": {
+      "title": "Active draft",
+      "body": "This resource is in active draft. MVVCSO is refining content with the local board. Some sections will continue to evolve as board members and longtime community members layer in their firsthand experience."
+    },
+    "phases": {
+      "ready_label": "Ready",
+      "ready_summary": "Defensible space, home hardening, animal preparedness — done before there is a fire.",
+      "set_label": "Set",
+      "set_summary": "Watch is issued. Pre-position. Stay alert.",
+      "go_label": "Go",
+      "go_summary": "Evacuation order. Leave on the route you've already chosen.",
+      "return_label": "Return",
+      "return_summary": "Re-entry hazards: power lines, weakened trees, hot debris."
+    },
+    "common": {
+      "coming_soon": "This section is coming soon — check back as we publish the full series.",
+      "back_to_hub": "Back to Wildfire Preparedness"
+    }
   },
   "chatbot": {
     "title": "Community Assistant",
